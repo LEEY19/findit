@@ -1,7 +1,6 @@
 namespace :db do
   task :populate => :environment do
     require 'faker'
-    Rake::Task['db:reset'].invoke
 
     Video.create(video_link: "https://www.youtube.com/watch?v=yE0BJMwGkRI", title: "Real Madrid vs Barcelona 2-3 - Highlights & Goals - 29 July 2017", picture: "https://static.sportskeeda.com/wp-content/uploads/2017/04/el-clasico-real-madrid-vs-barcelona-quiz-1492868790-800.jpg", duration: "05:40")
     Video.create(video_link: "https://www.youtube.com/watch?v=giYeaKsXnsI", title: Faker::Lorem.sentence, picture: "https://www.ablogofthrones.com/wp-content/uploads/2016/11/Night-King-and-Wight-Dragon-GoT-Season-7-Fan-Poster.jpg", duration: "05:40")
