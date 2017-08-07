@@ -1,0 +1,47 @@
+<div class="programme-page">
+  
+<div class="youtube-player">
+  <div>
+    <span>
+<!--     <iframe frameborder="0" allowfullscreen="1" title="YouTube video player" width="640" height="360" src="https://www.youtube.com/embed/?enablejsapi=1&amp;origin=http%3A%2F%2Fegg.network&amp;widgetid=3" id="undefined" class="undefined"></iframe> -->
+
+      <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>      
+
+    </span>
+  </div>
+  <div class="product-list-container egg-panel">
+    <h3 class="panel-title">Products on Video</h3>
+    <div class="product-list">
+
+      <% @products.each do |product| %>
+        <div>
+          <a class="product-list-row" href="<%= product.product_link %>">
+            <div class="product-thumbnail"><img src="<%= product.picture %>"></div>
+            <div class="product-details"><h3><%= product.title %></h3><h6>RM <%= product.price %></h6></div>
+          </a>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+  <div class="video-list-container">
+    <h3 class="panel-title">More Videos</h3>
+    <div class="video-list">
+
+      <% @all_other_video.each do |video| %>
+        <div>
+          <a class="video-list-row" href="/videos/<%= video.id %>">
+            <div class="video-thumbnail"><img class="video_picture" src="<%= video.picture %>"><h6><%= video.duration %></h6></div>
+            <div class="video-details"><h6><%= video.title %></h6></div>
+          </a>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+
+</div>

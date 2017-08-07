@@ -1,0 +1,216 @@
+// Place all the styles related to the videos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.egg-panel {
+  margin: 12px 3px;
+  padding: 6px;
+  background-color: #101010;
+  border-bottom: 3px solid rgba(234, 173, 24, 0.67); }
+  .egg-panel h3 {
+    color: #faae18;
+    margin-left: 0px;
+    font-size: 20px; }
+  .egg-panel .panel-text {
+    white-space: pre-line;
+    font-size: 14px; }
+
+/* Responsive iframes */
+.intrinsic-container {
+  position: relative;
+  height: 0;
+  overflow: hidden; }
+
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+  padding-bottom: 56.25%; }
+
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+  padding-bottom: 75%; }
+
+.intrinsic-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.programme-page .programme-header {
+  background: center center no-repeat;
+  background-size: cover;
+  display: block;
+  text-align: center;
+  color: white; }
+  .programme-page .programme-header .programme-overlay {
+    background-color: rgba(54, 54, 54, 0.7);
+    padding: 80px 0 60px 0; }
+    .programme-page .programme-header .programme-overlay h1 {
+      margin: 8px; }
+    .programme-page .programme-header .programme-overlay h2 {
+      margin: 8px;
+      color: #faae18; }
+  .programme-page .programme-header h4 {
+    font-style: italic; }
+.programme-page .programme-nav {
+  margin: 16px auto; }
+  .programme-page .programme-nav p {
+    margin: 0; }
+  .programme-page .programme-nav a {
+    color: white; }
+  .programme-page .programme-nav .here {
+    color: orange; }
+.programme-page .programme-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+  @media only screen and (max-width: 767px) {
+    .programme-page .programme-content {
+      flex-direction: column;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .programme-page .programme-content {
+      width: 750px;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto; } }
+  @media only screen and (max-width: 767px) {
+    .programme-page .programme-content .programme-content-left {
+      flex: auto;
+      flex-basis: auto;
+      order: 1; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .programme-page .programme-content .programme-content-left {
+      flex: 7;
+      width: auto; } }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .programme-page .programme-content .programme-content-left {
+      width: 640px; } }
+  @media only screen and (min-width: 1200px) {
+    .programme-page .programme-content .programme-content-left {
+      width: 640px; } }
+  @media only screen and (max-width: 767px) {
+    .programme-page .programme-content .programme-content-right {
+      flex: auto;
+      flex-basis: auto;
+      order: 2; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .programme-page .programme-content .programme-content-right {
+      flex: 3;
+      width: auto; } }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .programme-page .programme-content .programme-content-right {
+      width: 352px; } }
+  @media only screen and (min-width: 1200px) {
+    .programme-page .programme-content .programme-content-right {
+      width: 352px; } }
+  .programme-page .programme-content .programme-content-right span {
+    color: white; }
+  .programme-page .programme-content .programme-content-right .programme-info-row {
+    display: flex;
+    flex-direction: row; }
+    .programme-page .programme-content .programme-content-right .programme-info-row .programme-info-title {
+      flex: 2;
+      flex-basis: 40%;
+      font-weight: bold; }
+    .programme-page .programme-content .programme-content-right .programme-info-row .programme-info-text {
+      flex: 3;
+      flex-basis: 60%; }
+  .programme-page .programme-content a:hover {
+    border-bottom: 1px dotted white; }
+
+.youtube-player {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  font-size: 0;
+  font-family: 'Lato';
+  margin-bottom: 32px; }
+  .youtube-player .product-list-container {
+    width: 100%;
+    margin-top: 5px;
+    max-height: 394px;
+    display: flex;
+    flex-direction: column; }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .youtube-player .product-list-container {
+        margin: 0;
+        max-width: 352px; } }
+    @media only screen and (min-width: 1200px) {
+      .youtube-player .product-list-container {
+        margin: 0;
+        max-width: 352px; } }
+    .youtube-player .product-list-container .product-list {
+      overflow-y: auto;
+      text-align: left;
+      display: flex;
+      flex-direction: row; }
+      @media only screen and (min-width: 992px) and (max-width: 1199px) {
+        .youtube-player .product-list-container .product-list {
+          flex-direction: column; } }
+      @media only screen and (min-width: 1200px) {
+        .youtube-player .product-list-container .product-list {
+          max-width: 400px;
+          flex-direction: column; } }
+      .youtube-player .product-list-container .product-list .product-list-row {
+        display: flex;
+        flex-direction: column;
+        max-width: 220px;
+        background-color: #070707;
+        color: white;
+        margin: 1px;
+        text-decoration: none;
+        height: 185px;
+        overflow-y: auto; }
+        .youtube-player .product-list-container .product-list .product-list-row:hover {
+          background-color: #303030; }
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+          .youtube-player .product-list-container .product-list .product-list-row {
+            flex-direction: row;
+            height: inherit;
+            max-width: inherit; } }
+        @media only screen and (min-width: 1200px) {
+          .youtube-player .product-list-container .product-list .product-list-row {
+            flex-direction: row;
+            height: inherit;
+            max-width: inherit; } }
+        .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail {
+          padding: 4px 30px;
+          font-size: 0;
+          position: relative; }
+          .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail img {
+            max-width: 120px; }
+          .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail h6 {
+            background-color: black;
+            color: white;
+            position: absolute;
+            margin: 0;
+            bottom: 4px;
+            right: 4px;
+            padding: 1px;
+            font-weight: bold; }
+          @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail {
+              padding: 4px; } }
+          @media only screen and (min-width: 1200px) {
+            .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail {
+              padding: 4px; } }
+        .youtube-player .product-list-container .product-list .product-list-row .product-details {
+          padding: 4px; }
+          .youtube-player .product-list-container .product-list .product-list-row .product-details h3 {
+            display: inline-block;
+            background-color: orange;
+            color: black;
+            margin: 0;
+            padding: 2px 8px;
+            border-radius: 7px;
+            font-size: 15px;
+            font-weight: bold; }
+  .youtube-player iframe {
+    max-width: 100%; }

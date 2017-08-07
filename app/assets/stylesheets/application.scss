@@ -1,0 +1,19 @@
+/*
+*= require bootstrap-social
+*= require jquery-ui
+*= require plyr
+*= require_self
+*= require_tree .
+*/
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'font-awesome';
+
+@font-face {
+  font-family: "Lato";
+  src: url('Lato.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
