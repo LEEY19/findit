@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170804085014) do
+ActiveRecord::Schema.define(version: 20170810052936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170804085014) do
     t.integer  "video_id"
     t.string   "title"
     t.string   "product_link"
-    t.integer  "price"
+    t.float    "price"
     t.string   "picture"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -39,15 +39,17 @@ ActiveRecord::Schema.define(version: 20170804085014) do
     t.string   "video_link"
     t.string   "title"
     t.string   "picture"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "duration"
+    t.string   "content_category"
   end
 
   create_table "views", force: :cascade do |t|
     t.integer  "video_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "scrolled",   default: false
     t.index ["video_id"], name: "index_views_on_video_id", using: :btree
   end
 

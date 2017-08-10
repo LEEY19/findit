@@ -1,6 +1,7 @@
 namespace :db do
   task :populate => :environment do
     require 'faker'
+    Rake::Task['db:reset'].invoke
 
     Video.create(video_link: "https://www.youtube.com/watch?v=yE0BJMwGkRI", title: "Real Madrid vs Barcelona 2-3 - Highlights & Goals - 29 July 2017", picture: "https://static.sportskeeda.com/wp-content/uploads/2017/04/el-clasico-real-madrid-vs-barcelona-quiz-1492868790-800.jpg", duration: "05:40")
     Video.create(video_link: "https://www.youtube.com/watch?v=giYeaKsXnsI", title: Faker::Lorem.sentence, picture: "https://www.ablogofthrones.com/wp-content/uploads/2016/11/Night-King-and-Wight-Dragon-GoT-Season-7-Fan-Poster.jpg", duration: "05:40")
@@ -12,7 +13,7 @@ namespace :db do
       i = 0
       while i < 6
         i += 1
-        video.products.create(title: Faker::Lorem.sentence, product_link: Faker::Lorem.sentence, price: Faker::Number.decimal(2, 2), picture: "http://soccerpro.scene7.com/is/image/soccerpro/main/776846_481mes_nike_lionel_messi_barca_match_home_jsy_01.jpg")
+        video.products.create(title: Faker::Lorem.sentence, product_link: "http://www.lazada.com.my/2017-2018-barcelona-football-team-away-no10-messi-soccer-jerseysuits-47888758.html?spm=a2o4k.search.0.0.VbkUbj&ff=1", price: Faker::Number.decimal(2, 2), picture: "http://soccerpro.scene7.com/is/image/soccerpro/main/776846_481mes_nike_lionel_messi_barca_match_home_jsy_01.jpg")
       end
     end
 
