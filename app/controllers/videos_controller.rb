@@ -4,14 +4,14 @@ class VideosController < ApplicationController
     @video = Video.find(rand_no)
     @products = @video.products
     @view = View.create(video_id: @video.id)
-    @all_other_video = Video.where.not(id: [@video.id])
+    @all_other_video = Video.where.not(id: [@video.id]).shuffle
   end
 
   def show
     @video = Video.find(params[:id])
     @products = @video.products
     @view = View.create(video_id: @video.id)
-    @all_other_video = Video.where.not(id: [params[:id]])
+    @all_other_video = Video.where.not(id: [params[:id]]).shuffle
   end
 
   def click_product

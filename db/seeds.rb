@@ -16,7 +16,7 @@ csv1.each do |row|
   t.title = row['Video Title']
   t.video_link = row['Video URL']
   t.picture = row['Video Cover Picture URL']
-  t.duration = "5:00"
+  t.duration = row['Duration']
   t.save!
 end
 
