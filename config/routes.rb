@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :videos
   post "videos/click_product" => "videos#click_product" 
   post '/track_scroll' => "videos#track_scroll" 
+  post '/track_toast_click' => "videos#track_toast_click"
+  get 'videosm/:id' => "videos#show_manual", as: "show_manual"
 end

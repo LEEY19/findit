@@ -16,6 +16,6 @@
 //= require turbolinks
 //= require_tree .
 
-  $(document).on("turbolinks:load", function() {
-    plyr.setup(); 
-  });
+$(document).on("turbolinks:load", function() {
+  plyr.setup(); 
+});
