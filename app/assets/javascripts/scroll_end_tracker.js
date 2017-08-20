@@ -30,11 +30,11 @@ $(document).on("turbolinks:load", function() {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
   }
-  $(".product-list").on('scroll', function() {
-      if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-        toastr.info("Don't see anything you like or want to find out more items in the show on offer? Click here!");
-      }
-  });
+  // $(".product-list").on('scroll', function() {
+  //     if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+  //       toastr.info("Don't see anything you like or want to find out more items in the show on offer? Click here!");
+  //     }
+  // });
   $( ".seemore-btn" ).click(function() {
     clickedToast();
   });
