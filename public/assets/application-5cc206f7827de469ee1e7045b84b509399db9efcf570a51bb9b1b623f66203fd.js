@@ -12181,6 +12181,20 @@ return t.dispatch("turbolinks:before-render",{data:{newBody:e}})},r.prototype.no
   App.cable = ActionCable.createConsumer();
 
 }).call(this);
+$(document).on('page:change', function() {
+ if (window._gaq != null) {
+  return _gaq.push(['_trackPageview']);
+ } else if (window.pageTracker != null) {
+  return pageTracker._trackPageview();
+ }
+});
+$(document).on("turbolinks:load", function() {
+  $(".product-list-row").hover(function(){
+    $(this).css("background-color", "#e6e6e6");
+    }, function(){
+    $(this).css("background-color", "white");
+  });
+});
 $(document).on("turbolinks:load", function() {
   function clickedToast() {
     var strWindowFeatures = "location=yes,scrollbars=yes,status=yes";
@@ -12213,11 +12227,11 @@ $(document).on("turbolinks:load", function() {
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
   }
-  $(".product-list").on('scroll', function() {
-      if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-        toastr.info("Don't see anything you like or want to find out more items in the show on offer? Click here!");
-      }
-  });
+  // $(".product-list").on('scroll', function() {
+  //     if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+  //       toastr.info("Don't see anything you like or want to find out more items in the show on offer? Click here!");
+  //     }
+  // });
   $( ".seemore-btn" ).click(function() {
     clickedToast();
   });
