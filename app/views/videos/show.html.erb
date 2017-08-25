@@ -18,7 +18,11 @@
         <div>
           <%= link_to videos_click_product_path(view_id: @view.id, product_id: product.id), method: 'post', target: "_blank" , class: "product-list-row" do %>
             <div class="product-thumbnail"><img class="product_picture" src="<%= product.picture %>"></div>
-            <div class="product-details"><h3><%= product.title %></h3><h6>Appeared at: <%= product.price %></h6><h6 style="display: none;">RM <%= product.price %></h6></div>
+            <div class="product-details"><h3><%= product.title %></h3>
+              <% if product.appeared_at != "0:00" %>
+                <h6>Appeared at: <%= product.appeared_at %></h6>
+              <% end %>
+            <h6 style="display: none;">RM <%= product.price %></h6></div>
           <% end %>
         </div>
       <% end %>
@@ -26,7 +30,7 @@
       <div style="display: flex; align-items: center; justify-content: center;">
         <button type="button" class="btn seemore-btn">See More Products</button>        
       </div>
-      
+
     </div>
   </div>
 </div>

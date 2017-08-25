@@ -41,6 +41,10 @@ gem 'jquery-ui-rails'
 gem 'plyr-rails'
 gem 'faker'
 
+if RUBY_VERSION =~ /2.3.1/ # assuming you're running Ruby ~1.9
+  Encoding.default_external = Encoding::UTF_8
+  Encoding.default_internal = Encoding::UTF_8
+end
 
 
 group :development, :test do
