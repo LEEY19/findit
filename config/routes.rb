@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post '/track_scroll' => "videos#track_scroll" 
   post '/track_toast_click' => "videos#track_toast_click"
   get 'videosm/:id' => "videos#show_manual", as: "show_manual"
+  get '/analytics/:id' => "videos#analytics"
 end

@@ -1,0 +1,31 @@
+<div class="col-md-8 col-md-offset-3">
+  <div class="panel panel-info">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Analytics on views</div>
+
+    <!-- Table -->
+    <table class="table  table-striped">
+      <tr width="100%">
+        <th>Scrolled</th>
+        <th>See More</th>
+        <th>Clicked</th>
+        <th>Total</th>
+        <th>Scrolled and See More</th>
+        <th>Scrolled and Clicked</th>
+        <th>See More and Clicked</th>
+        <th>Did All</th>
+      </tr>
+
+      <tr class="table-striped">
+        <td><%= @scrolled_views.count %></td>
+        <td><%= @more_info_views.count %></td>
+        <td><%= @overall_views_clicks.count %></td>
+        <td><%= @scroll_or_clicks.count %></td>
+        <td><%= @scrolled_and_more_info.count %></td>
+        <td><%= @scrolled_and_clicks.count %></td>
+        <td><%= @more_info_and_clicks.count %></td>
+        <td><%= @all.count %></td>
+      </tr>
+    </table>
+  </div>
+</div>
