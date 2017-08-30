@@ -48,6 +48,7 @@ class VideosController < ApplicationController
   def analytics
     @id = params[:id]
     if @id == "0"
+      @total_views = View.all
       @scrolled_views = View.where(scrolled: true).pluck(:id)
       @more_info_views = View.where(more_info: true).pluck(:id)
       @overall_views_clicks = Click.all.pluck(:view_id)
@@ -57,6 +58,7 @@ class VideosController < ApplicationController
       @more_info_and_clicks = @more_info_views & @overall_views_clicks
       @all = @scrolled_and_clicks & @more_info_views
     else
+      @total_views = View.where(video_id: @id)
       @scrolled_views = View.where(scrolled: true, video_id: @id).pluck(:id)
       @more_info_views = View.where(more_info: true, video_id: @id).pluck(:id)
       @overall_views_clicks = Click.joins(view: :video).where(videos: {id: @id}).pluck(:view_id)

@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-3">
+<div class="col-md-12">
   <div class="panel panel-info">
     <!-- Default panel contents -->
     <div class="panel-heading">Analytics on views</div>
@@ -6,6 +6,7 @@
     <!-- Table -->
     <table class="table  table-striped">
       <tr width="100%">
+        <th>Total Views</th>
         <th>Scrolled</th>
         <th>See More</th>
         <th>Clicked</th>
@@ -17,6 +18,7 @@
       </tr>
 
       <tr class="table-striped">
+        <td><%= @total_views.count %></td>
         <td><%= @scrolled_views.count %></td>
         <td><%= @more_info_views.count %></td>
         <td><%= @overall_views_clicks.count %></td>
