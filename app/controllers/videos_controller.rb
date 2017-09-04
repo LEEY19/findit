@@ -5,6 +5,7 @@ class VideosController < ApplicationController
     @products = @video.products
     @view = View.create(video_id: @video.id)
     @all_other_video = Video.where.not(id: [@video.id]).shuffle
+    @product_categories = @products.pluck(:product_category).uniq
   end
 
   def show
@@ -12,6 +13,7 @@ class VideosController < ApplicationController
     @products = @video.products
     @view = View.create(video_id: @video.id)
     @all_other_video = Video.where.not(id: [params[:id]]).shuffle
+    @product_categories = @products.pluck(:product_category).uniq
   end
 
   def click_product
@@ -43,6 +45,7 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @products = @video.products
     @all_other_video = Video.where.not(id: [params[:id]]).shuffle
+    @product_categories = @products.pluck(:product_category).uniq
   end
 
   def analytics
@@ -68,5 +71,25 @@ class VideosController < ApplicationController
       @more_info_and_clicks = @more_info_views & @overall_views_clicks
       @all = @scrolled_and_clicks & @more_info_views
     end
+  end
+
+  def dynamic_show
+    @selected_products = Video.find(params[:video_id]).products.where(product_category: params[:product_category])
+    @view_id = params[:view_id]
+    respond_to do |format|
+      @selected_products
+      @view_id
+      format.js
+    end
+  end
+
+  def register_category_click
+    @view = View.find(params[:view_id])
+    array = @view.category_clicks
+    # new_cat = /All Products/.match(params[:category]) ? "All" : params[:category]
+    array = array << params[:category]
+    array = array.uniq
+    @view.update(category_clicks: array)
+    render json: "Success"
   end
 end

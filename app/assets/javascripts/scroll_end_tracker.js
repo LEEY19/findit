@@ -13,6 +13,9 @@ $(document).on("turbolinks:load", function() {
       }
     });
   }
+  $( ".seemore-btn" ).on('click', function() {
+    clickedToast();
+  });
   toastr.options = {
     "closeButton": false,
     "debug": false,
@@ -35,7 +38,4 @@ $(document).on("turbolinks:load", function() {
   //       toastr.info("Don't see anything you like or want to find out more items in the show on offer? Click here!");
   //     }
   // });
-  $( ".seemore-btn" ).click(function() {
-    clickedToast();
-  });
 });

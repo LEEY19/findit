@@ -1,0 +1,36 @@
+<% selected_products.each do |product| %>
+  <div>
+    <%= link_to videos_click_product_path(view_id: view_id, product_id: product.id), method: 'post', target: "_blank" , class: "product-list-row" do %>
+      <div class="product-thumbnail"><img class="product_picture" src="<%= product.picture %>"></div>
+      <div class="product-details"><h3><%= product.title %></h3>
+        <% if product.appeared_at != "0:00" %>
+          <h6>Appeared at: <%= product.appeared_at %></h6>
+        <% end %>
+      <h6 style="display: none;">RM <%= product.price %></h6></div>
+    <% end %>
+  </div>
+<% end %>
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <button type="button" class="btn seemore-btn">See More Products</button>        
+</div>
+
+<%= javascript_tag do%>
+  function clickedToast() {
+    var strWindowFeatures = "location=yes,scrollbars=yes,status=yes";
+    var URL = "https://www.google.com";
+    var win = window.open(URL, "_blank", strWindowFeatures);
+    $.ajax({
+      type:'POST',
+      url:'/track_toast_click',
+      data: { view_id : $("#view_id").text() },
+      success:function(){
+        //I assume you want to do something on controller action execution success?
+        console.log("success");
+      }
+    });
+  }
+  $( ".seemore-btn" ).on('click', function() {
+    clickedToast();
+  });
+<% end %>
