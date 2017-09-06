@@ -9,11 +9,13 @@
         <th>Total Views</th>
         <th>Scrolled</th>
         <th>See More</th>
-        <th>Clicked</th>
+        <th>Product Clicks</th>
+        <th>Cat. Clicks</th>
         <th>Total</th>
         <th>Scrolled and See More</th>
-        <th>Scrolled and Clicked</th>
-        <th>See More and Clicked</th>
+        <th>Scrolled and Product Clicked</th>
+        <th>Scrolled and Cat. Clicked</th>
+        <th>See More and Product Clicked</th>
         <th>Did All</th>
       </tr>
 
@@ -22,9 +24,11 @@
         <td><%= @scrolled_views.count %></td>
         <td><%= @more_info_views.count %></td>
         <td><%= @overall_views_clicks.count %></td>
+        <td><%= @counter_array.count %></td>
         <td><%= @scroll_or_clicks.count %></td>
         <td><%= @scrolled_and_more_info.count %></td>
         <td><%= @scrolled_and_clicks.count %></td>
+        <td><%= @scrolled_and_cat_clicks.count %></td>
         <td><%= @more_info_and_clicks.count %></td>
         <td><%= @all.count %></td>
       </tr>

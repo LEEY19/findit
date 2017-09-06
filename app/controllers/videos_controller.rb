@@ -54,21 +54,35 @@ class VideosController < ApplicationController
       @total_views = View.all
       @scrolled_views = View.where(scrolled: true).pluck(:id)
       @more_info_views = View.where(more_info: true).pluck(:id)
+      @counter_array = []
+      @total_views.each do |x|
+        if x.category_clicks != []
+          @counter_array << x.id
+        end
+      end
       @overall_views_clicks = Click.all.pluck(:view_id)
-      @scroll_or_clicks = @scrolled_views | @more_info_views | @overall_views_clicks
+      @scroll_or_clicks = @scrolled_views | @more_info_views | @overall_views_clicks | @counter_array
       @scrolled_and_more_info = @scrolled_views & @more_info_views
       @scrolled_and_clicks = @scrolled_views & @overall_views_clicks
       @more_info_and_clicks = @more_info_views & @overall_views_clicks
-      @all = @scrolled_and_clicks & @more_info_views
+      @scrolled_and_cat_clicks = @scrolled_views & @counter_array
+      @all = @scrolled_and_clicks & @more_info_views & counter_array
     else
       @total_views = View.where(video_id: @id)
       @scrolled_views = View.where(scrolled: true, video_id: @id).pluck(:id)
       @more_info_views = View.where(more_info: true, video_id: @id).pluck(:id)
+      @counter_array = []
+      @total_views.each do |x|
+        if x.category_clicks != []
+          @counter_array << x.id
+        end
+      end
       @overall_views_clicks = Click.joins(view: :video).where(videos: {id: @id}).pluck(:view_id)
       @scroll_or_clicks = @scrolled_views | @more_info_views | @overall_views_clicks
       @scrolled_and_more_info = @scrolled_views & @more_info_views
       @scrolled_and_clicks = @scrolled_views & @overall_views_clicks
       @more_info_and_clicks = @more_info_views & @overall_views_clicks
+      @scrolled_and_cat_clicks = @scrolled_views & @counter_array
       @all = @scrolled_and_clicks & @more_info_views
     end
   end
