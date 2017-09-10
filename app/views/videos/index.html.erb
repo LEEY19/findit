@@ -1,11 +1,20 @@
 <div class="programme-page">
   
 <div class="youtube-player">
-  <div>
+
+
+  <div class="video_player_container">
+    <div class="signalling_container">
+      <img src="http://www.clker.com/cliparts/1/H/k/P/S/l/dezzit-right-bt.svg" id="myImg">
+      <%= image_tag("closebutton.png", id: "closeBtn") %>
+      <h4 id="signal_msg">Fashion products & merchandises worn & inspired by your favourite characters, & more!</h4>
+    </div>
     <span>
 <!--     <iframe frameborder="0" allowfullscreen="1" title="YouTube video player" width="640" height="360" src="https://www.youtube.com/embed/?enablejsapi=1&amp;origin=http%3A%2F%2Fegg.network&amp;widgetid=3" id="undefined" class="undefined"></iframe> -->
 
-      <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>      
+      <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>">
+        
+      </div>      
 
     </span>
   </div>
@@ -55,7 +64,7 @@
 
       <% @all_other_video.each do |video| %>
         <div>
-          <%= link_to video_path(video.id), class: "video-list-row" do %>
+          <%= link_to video_path(id: video.id, j: true), class: "video-list-row" do %>
 
             <div class="video-thumbnail"><img class="video_picture" src="<%= video.picture %>"><h6><%= video.duration %></h6></div>
             <div class="video-details"><h6><%= video.title %></h6></div>

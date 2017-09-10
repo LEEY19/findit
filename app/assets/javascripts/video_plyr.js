@@ -1,8 +1,12 @@
-  $(document).on("turbolinks:load", function() {
-    var full_width = $(window).width();
-    if (full_width > 1200) {
-      $('.plyr').css('width', 700);
+$(document).on("turbolinks:load", function() {
+  var full_width = $(window).width();
+  if ($("#woc").get(0)) {
+    $('.plyrr').css('width', 950);
+  } else {
+    if (full_width > 1200){
+      $('.plyrr').css('width', 700);
     } else {
-      $('.plyr').css('width', full_width);      
+      $('.plyrr').css('width', full_width);      
     }
-  });
+  }
+});

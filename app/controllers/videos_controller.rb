@@ -3,7 +3,13 @@ class VideosController < ApplicationController
     rand_no = rand(1..Video.all.count)
     @video = Video.find(rand_no)
     @products = @video.products
-    @view = View.create(video_id: @video.id)
+    if !session[:user]
+      @view = View.create(video_id: @video.id, view_type: "wc")
+      session[:user] = @view.id
+      session[:time] = DateTime.now
+    else
+      @view = View.find(session[:user])
+    end
     @all_other_video = Video.where.not(id: [@video.id]).shuffle
     @product_categories = @products.pluck(:product_category).uniq
   end
@@ -11,9 +17,19 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @products = @video.products
-    @view = View.create(video_id: @video.id)
+    if !session[:user]
+      @view = View.create(video_id: @video.id, view_type: "wc")
+      session[:user] = @view.id
+      session[:time] = DateTime.now
+    else
+      @view = View.find(session[:user])
+    end
     @all_other_video = Video.where.not(id: [params[:id]]).shuffle
     @product_categories = @products.pluck(:product_category).uniq
+    if params[:j]
+      current_count = @view.jumps
+      @view.update(jumps: current_count + 1)
+    end
   end
 
   def click_product
@@ -48,6 +64,24 @@ class VideosController < ApplicationController
     @product_categories = @products.pluck(:product_category).uniq
   end
 
+  def woc
+    @video = Video.find(params[:id])
+    # @products = @video.products
+    if !session[:user]
+      @view = View.create(video_id: @video.id, view_type: "woc")
+      session[:user] = @view.id
+      session[:time] = DateTime.now
+    else
+      @view = View.find(session[:user])
+    end
+    @all_other_video = Video.where.not(id: [params[:id]]).shuffle
+    # @product_categories = @products.pluck(:product_category).uniq
+    if params[:j]
+      current_count = @view.jumps
+      @view.update(jumps: current_count + 1)
+    end
+  end
+
   def analytics
     @id = params[:id]
     if @id == "0"
@@ -61,12 +95,13 @@ class VideosController < ApplicationController
         end
       end
       @overall_views_clicks = Click.all.pluck(:view_id)
-      @scroll_or_clicks = @scrolled_views | @more_info_views | @overall_views_clicks | @counter_array
+      @original_total = @scrolled_views | @more_info_views | @overall_views_clicks 
+      @current_total = @scrolled_views | @more_info_views | @overall_views_clicks | @counter_array
       @scrolled_and_more_info = @scrolled_views & @more_info_views
       @scrolled_and_clicks = @scrolled_views & @overall_views_clicks
       @more_info_and_clicks = @more_info_views & @overall_views_clicks
       @scrolled_and_cat_clicks = @scrolled_views & @counter_array
-      @all = @scrolled_and_clicks & @more_info_views & counter_array
+      @all = @overall_views_clicks & @scrolled_views & @more_info_views & counter_array
     else
       @total_views = View.where(video_id: @id)
       @scrolled_views = View.where(scrolled: true, video_id: @id).pluck(:id)
@@ -78,12 +113,13 @@ class VideosController < ApplicationController
         end
       end
       @overall_views_clicks = Click.joins(view: :video).where(videos: {id: @id}).pluck(:view_id)
-      @scroll_or_clicks = @scrolled_views | @more_info_views | @overall_views_clicks
+      @original_total = @scrolled_views | @more_info_views | @overall_views_clicks 
+      @current_total = @scrolled_views | @more_info_views | @overall_views_clicks | @counter_array
       @scrolled_and_more_info = @scrolled_views & @more_info_views
       @scrolled_and_clicks = @scrolled_views & @overall_views_clicks
       @more_info_and_clicks = @more_info_views & @overall_views_clicks
       @scrolled_and_cat_clicks = @scrolled_views & @counter_array
-      @all = @scrolled_and_clicks & @more_info_views
+      @all = @overall_views_clicks & @scrolled_views & @more_info_views & @counter_array
     end
   end
 
@@ -104,6 +140,18 @@ class VideosController < ApplicationController
     array = array << params[:category]
     array = array.uniq
     @view.update(category_clicks: array)
+    render json: "Success"
+  end
+
+  def record_session_duration
+    # puts session[:time].to_datetime
+    @view = View.find(session[:user])
+    # @curr_sess_duration = @view.session_duration
+    @sess_duration = ((DateTime.now - session[:time].to_datetime)*24*60*60).to_i
+    @view.update(session_duration: @sess_duration)
+    puts @sess_duration
+    # session[:time] = DateTime.now
+    # puts session[:time].to_datetime
     render json: "Success"
   end
 end

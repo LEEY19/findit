@@ -6,31 +6,33 @@
     <!-- Table -->
     <table class="table  table-striped">
       <tr width="100%">
-        <th>Total Views</th>
-        <th>Scrolled</th>
-        <th>See More</th>
-        <th>Product Clicks</th>
-        <th>Cat. Clicks</th>
-        <th>Total</th>
-        <th>Scrolled and See More</th>
-        <th>Scrolled and Product Clicked</th>
-        <th>Scrolled and Cat. Clicked</th>
-        <th>See More and Product Clicked</th>
-        <th>Did All</th>
+<!-- 1 --><th>Total Views</th>
+<!-- 2 --><th>Scrolled</th>
+<!-- 3 --><th>See More</th>
+<!-- 4 --><th>Product Clicks</th>
+<!-- 5 --><th>Cat. Clicks</th>
+<!-- 5 --><th>Ori. Total</th>
+<!-- 6 --><th>Total</th>
+<!-- 7 --><th>Scrolled and See More</th>
+<!-- 8 --><th>Scrolled and Product Clicked</th>
+<!-- 9 --><th>Scrolled and Cat. Clicked</th>
+<!--10 --><th>See More and Product Clicked</th>
+<!--11 --><th>Did All</th>
       </tr>
 
       <tr class="table-striped">
-        <td><%= @total_views.count %></td>
-        <td><%= @scrolled_views.count %></td>
-        <td><%= @more_info_views.count %></td>
-        <td><%= @overall_views_clicks.count %></td>
-        <td><%= @counter_array.count %></td>
-        <td><%= @scroll_or_clicks.count %></td>
-        <td><%= @scrolled_and_more_info.count %></td>
-        <td><%= @scrolled_and_clicks.count %></td>
-        <td><%= @scrolled_and_cat_clicks.count %></td>
-        <td><%= @more_info_and_clicks.count %></td>
-        <td><%= @all.count %></td>
+<!-- 1 --><td><%= @total_views.count %></td>
+<!-- 2 --><td><%= @scrolled_views.count %></td>
+<!-- 3 --><td><%= @more_info_views.count %></td>
+<!-- 4 --><td><%= @overall_views_clicks.count %></td>
+<!-- 5 --><td><%= @counter_array.count %></td>
+<!-- 5 --><td><%= @original_total.count %></td>
+<!-- 6 --><td><%= @current_total.count %></td>
+<!-- 7 --><td><%= @scrolled_and_more_info.count %></td>
+<!-- 8 --><td><%= @scrolled_and_clicks.count %></td>
+<!-- 9 --><td><%= @scrolled_and_cat_clicks.count %></td>
+<!--10 --><td><%= @more_info_and_clicks.count %></td>
+<!--11 --><td><%= @all.count %></td>
       </tr>
     </table>
   </div>
