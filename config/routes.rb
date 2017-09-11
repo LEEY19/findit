@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/track_scroll' => "videos#track_scroll" 
   post '/register_category_click' => "videos#register_category_click" 
   post '/record_session_duration' => "videos#record_session_duration" 
+  post '/update_session_time' => "videos#update_session_time" 
   post '/track_toast_click' => "videos#track_toast_click"
   get 'videosm/:id' => "videos#show_manual", as: "show_manual"
   get 'videos/woc/:id' => "videos#woc", as: "woc"

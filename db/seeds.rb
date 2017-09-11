@@ -2,7 +2,7 @@
 
 require 'csv'
 
-csv_text1 = File.read(Rails.root.join('lib', 'seeds', 'loop3doc1.csv'))
+csv_text1 = File.read(Rails.root.join('lib', 'seeds', 'loop4doc1.csv'))
 csv1 = CSV.parse(csv_text1, :headers => true, :encoding => 'ISO-8859-1')
 csv1.each do |row|
   t = Video.new
@@ -14,7 +14,7 @@ csv1.each do |row|
   t.save!
 end
 
-csv_text2 = File.read(Rails.root.join('lib', 'seeds', 'loop3doc2.csv'))
+csv_text2 = File.read(Rails.root.join('lib', 'seeds', 'loop4doc2.csv'))
 csv2 = CSV.parse(csv_text2, :headers => true, :encoding => 'ISO-8859-1')
 csv2.each do |row|
   t = Product.new

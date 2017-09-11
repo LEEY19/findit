@@ -5,7 +5,13 @@
     <div class="signalling_container">
       <img src="http://www.clker.com/cliparts/1/H/k/P/S/l/dezzit-right-bt.svg" id="myImg">
       <%= image_tag("closebutton.png", id: "closeBtn") %>
-      <h4 id="signal_msg">Fashion products & merchandises worn & inspired by your favourite characters, & more!</h4>
+      <% if @video.id == 16 %>
+        <h4 id="signal_msg">Produk fesyen dan lebih lagi, dipakaikan oleh watak kegemaran anda!</h4>
+      <% elsif @video.id == 17 %>
+        <h4 id="signal_msg">最喜爱角色的时尚单品</h4>
+      <% else %>
+        <h4 id="signal_msg">Fashion products & merchandises worn & inspired by your favourite characters, & more!</h4>
+      <% end %>
     </div>
     <span>
 

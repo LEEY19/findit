@@ -146,12 +146,18 @@ class VideosController < ApplicationController
   def record_session_duration
     # puts session[:time].to_datetime
     @view = View.find(session[:user])
-    # @curr_sess_duration = @view.session_duration
-    @sess_duration = ((DateTime.now - session[:time].to_datetime)*24*60*60).to_i
+    @curr_sess_duration = @view.session_duration
+    @sess_duration = ((DateTime.now - session[:time].to_datetime)*24*60*60).to_i + @curr_sess_duration
     @view.update(session_duration: @sess_duration)
-    puts @sess_duration
+    # puts @sess_duration
     # session[:time] = DateTime.now
     # puts session[:time].to_datetime
+    render json: "Success"
+  end
+
+  def update_session_time
+    @view = View.find(session[:user])
+    session[:time] = DateTime.now
     render json: "Success"
   end
 end
