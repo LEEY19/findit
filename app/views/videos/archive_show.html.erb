@@ -6,14 +6,13 @@
       <img src="http://www.clker.com/cliparts/1/H/k/P/S/l/dezzit-right-bt.svg" id="myImg">
       <%= image_tag("closebutton.png", id: "closeBtn") %>
       <% if @video.id == 16 %>
-        <h4 id="signal_msg">Produk fesyen yang popular dan terkini!</h4>
+        <h4 id="signal_msg">Produk fesyen dan lebih lagi, dipakaikan oleh watak kegemaran anda!</h4>
       <% elsif @video.id == 17 %>
-        <h4 id="signal_msg">最喜流行的时尚单品！</h4>
+        <h4 id="signal_msg">最喜爱角色的时尚单品</h4>
       <% else %>
         <h4 id="signal_msg">Fashion products & merchandises worn & inspired by your favourite characters, & more!</h4>
       <% end %>
     </div>
-
     <span>
 
       <div class="plyrr">
@@ -27,7 +26,7 @@
     <div style="width: 100%;">
       <div style="display: inline-block; float: left;">
         
-        <h3 class="panel-title">Interesting Products</h3>
+        <h3 class="panel-title">Buy What You See</h3>
       </div>
       <div class="dropdown-products-list">
         <button class="dropbtn">All Products  &#x25BE</button>
@@ -46,7 +45,9 @@
           <%= link_to videos_click_product_path(view_id: @view.id, product_id: product.id), method: 'post', target: "_blank" , class: "product-list-row" do %>
             <div class="product-thumbnail"><img class="product_picture" src="<%= product.picture %>"></div>
             <div class="product-details"><h3><%= product.title %></h3>
-
+              <% if product.appeared_at != "0:00" %>
+                <h6>Appeared at: <%= product.appeared_at %></h6>
+              <% end %>
             <h6 style="display: none;">RM <%= product.price %></h6></div>
           <% end %>
         </div>

@@ -16,7 +16,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
-    @products = @video.products
+    @products = @video.products.shuffle
     if !session[:user]
       @view = View.create(video_id: @video.id, view_type: "wc")
       session[:user] = @view.id
