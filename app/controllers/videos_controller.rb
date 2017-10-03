@@ -16,7 +16,9 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
-    @products = @video.products.shuffle
+    # @products = @video.products.shuffle
+    @products = Product.order("RANDOM()").first(200)
+
     if !session[:user]
       @view = View.create(video_id: @video.id, view_type: "wc")
       session[:user] = @view.id
@@ -124,7 +126,8 @@ class VideosController < ApplicationController
   end
 
   def dynamic_show
-    @selected_products = Video.find(params[:video_id]).products.where(product_category: params[:product_category])
+    # @selected_products = Video.find(params[:video_id]).products.where(product_category: params[:product_category])
+    @selected_products = Product.where(product_category: params[:product_category])
     @view_id = params[:view_id]
     respond_to do |format|
       @selected_products
@@ -159,5 +162,31 @@ class VideosController < ApplicationController
     @view = View.find(session[:user])
     session[:time] = DateTime.now
     render json: "Success"
+  end
+
+  def rv
+    @video = Video.find(params[:id])
+    # @products = @video.products
+    if !session[:user]
+      @view = View.create(video_id: @video.id, view_type: "rv")
+      session[:user] = @view.id
+      session[:time] = DateTime.now
+    else
+      @view = View.find(session[:user])
+    end
+    @all_other_video = Video.where.not(id: [params[:id]]).shuffle
+    # @product_categories = @products.pluck(:product_category).uniq
+    @related_videos = nil
+    if params[:rv_id]
+      @video = RelatedVideo.find(params[:rv_id])
+      @related_videos = RelatedVideo.where(video_id: params[:id]).shuffle
+    else
+      @related_videos = RelatedVideo.where(video_id: params[:id])
+    end
+
+    if params[:j]
+      current_count = @view.jumps
+      @view.update(jumps: current_count + 1)
+    end
   end
 end

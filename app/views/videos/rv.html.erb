@@ -1,0 +1,61 @@
+<div class="programme-page">
+  
+<div class="youtube-player">
+  <div class="video_player_container">
+
+    <span>
+
+      <div class="plyrr">
+        <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>      
+        
+      </div>  
+
+    </span>
+  </div>
+  <div class="suggested-video-list-container egg-panel">
+    <div style="width: 100%;">
+      <div style="display: inline-block; float: left;">
+        
+        <h3 class="panel-title">Suggested Videos</h3>
+      </div>
+      
+    </div>
+    <div class="suggested-video-list">
+
+      <% @related_videos.each do |video| %>
+        <div>
+          <%= link_to rv_path(id: video.video_id, rv_id: video.id, j: true), method: 'get', class: "suggested-video-list-row" do %>
+            <div class="suggested-video-thumbnail"><img class="suggested-video-list-picture" src="<%= video.picture %>"><h6><%= video.duration %></h6></div>
+            <div class="suggested-video-details"><h3><%= video.title %></h3></div>
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
+  <div class="video-list-container">
+    <h3 class="panel-title">More Videos</h3>
+    <div class="video-list">
+
+      <% @all_other_video.each do |video| %>
+        <div>
+          <%= link_to video_path(id: video.id, j: true), class: "video-list-row" do %>
+
+            <div class="video-thumbnail"><img class="video_picture" src="<%= video.picture %>"><h6><%= video.duration %></h6></div>
+            <div class="video-details"><h6><%= video.title %></h6></div>
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+
+
+</div>
+
+<span id="scroll_counter" style="color: white;">0</span>
+<span id="view_id" style="color: white;"><%= @view.id %></span>
+

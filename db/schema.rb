@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170910144402) do
+ActiveRecord::Schema.define(version: 20171003012239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 20170910144402) do
     t.string   "appeared_at",      default: "0:00"
     t.string   "product_category"
     t.index ["video_id"], name: "index_products_on_video_id", using: :btree
+  end
+
+  create_table "related_videos", force: :cascade do |t|
+    t.integer  "video_id"
+    t.string   "title"
+    t.string   "video_link"
+    t.string   "picture"
+    t.string   "duration"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["video_id"], name: "index_related_videos_on_video_id", using: :btree
   end
 
   create_table "videos", force: :cascade do |t|
@@ -63,5 +74,6 @@ ActiveRecord::Schema.define(version: 20170910144402) do
   add_foreign_key "clicks", "products"
   add_foreign_key "clicks", "views"
   add_foreign_key "products", "videos"
+  add_foreign_key "related_videos", "videos"
   add_foreign_key "views", "videos"
 end

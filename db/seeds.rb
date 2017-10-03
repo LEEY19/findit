@@ -2,7 +2,7 @@
 
 require 'csv'
 
-csv_text1 = File.read(Rails.root.join('lib', 'seeds', 'loop4doc1.csv'))
+csv_text1 = File.read(Rails.root.join('lib', 'seeds', 'loop5doc1.csv'))
 csv1 = CSV.parse(csv_text1, :headers => true, :encoding => 'ISO-8859-1')
 csv1.each do |row|
   t = Video.new
@@ -14,7 +14,7 @@ csv1.each do |row|
   t.save!
 end
 
-csv_text2 = File.read(Rails.root.join('lib', 'seeds', 'loop4doc2.csv'))
+csv_text2 = File.read(Rails.root.join('lib', 'seeds', 'loop5doc2.csv'))
 csv2 = CSV.parse(csv_text2, :headers => true, :encoding => 'ISO-8859-1')
 csv2.each do |row|
   t = Product.new
@@ -24,5 +24,17 @@ csv2.each do |row|
   t.picture = row['Product Picture URL']
   t.appeared_at = row['Time Stamp']
   t.product_category = row['Product Category']
+  t.save!
+end
+
+csv_text3 = File.read(Rails.root.join('lib', 'seeds', 'loop5doc3.csv'))
+csv3 = CSV.parse(csv_text3, :headers => true, :encoding => 'ISO-8859-1')
+csv3.each do |row|
+  t = RelatedVideo.new
+  t.video_id = row['Video ID']
+  t.title = row['Video Title']
+  t.video_link = row['Video URL']
+  t.picture = row['Video Cover Picture URL']
+  t.duration = row['Duration']
   t.save!
 end
