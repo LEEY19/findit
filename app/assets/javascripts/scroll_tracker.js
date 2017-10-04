@@ -1,7 +1,7 @@
 $(document).on("turbolinks:load", function() {
   $(".product-list").scroll(function(){
     if (parseInt($("#scroll_counter").text()) === 0) {
-
+      var scrolls = 'scrolls'
       fbq('track', 'ViewContent', {
         content_type: scrolls,
       });
