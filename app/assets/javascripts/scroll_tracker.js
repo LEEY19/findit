@@ -1,6 +1,11 @@
 $(document).on("turbolinks:load", function() {
   $(".product-list").scroll(function(){
     if (parseInt($("#scroll_counter").text()) === 0) {
+
+      fbq('track', 'ViewContent', {
+        content_type: scrolls,
+      });
+
       $.ajax({
         type:'POST',
         url:'/track_scroll',
