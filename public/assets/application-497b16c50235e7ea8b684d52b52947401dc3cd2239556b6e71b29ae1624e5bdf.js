@@ -12339,6 +12339,11 @@ $(document).on("turbolinks:load", function() {
 $(document).on("turbolinks:load", function() {
   $(".product-list").scroll(function(){
     if (parseInt($("#scroll_counter").text()) === 0) {
+      var scrolls = 'scrolls'
+      fbq('track', 'ViewContent', {
+        content_type: scrolls,
+      });
+
       $.ajax({
         type:'POST',
         url:'/track_scroll',
@@ -12819,7 +12824,11 @@ $(document).on("turbolinks:load", function() {
 $(document).on("turbolinks:load", function() {
   var full_width = $(window).width();
   if ($("#woc").get(0)) {
-    $('.plyrr').css('width', 950);
+    if (full_width > 1200){
+      $('.plyrr').css('width', 950);
+    } else {
+      $('.plyrr').css('width', full_width);      
+    }
   } else {
     if (full_width > 1200){
       $('.plyrr').css('width', 700);
@@ -12832,6 +12841,67 @@ $(document).on("turbolinks:load", function() {
 
 
 }).call(this);
+var triggered = false
+
+$(document).on("turbolinks:load", function() {
+
+
+  var hidden, visibilityChange; 
+  if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+    hidden = "hidden";
+    visibilityChange = "visibilitychange";
+  } else if (typeof document.msHidden !== "undefined") {
+    hidden = "msHidden";
+    visibilityChange = "msvisibilitychange";
+  } else if (typeof document.webkitHidden !== "undefined") {
+    hidden = "webkitHidden";
+    visibilityChange = "webkitvisibilitychange";
+  }
+ 
+  function handleVisibilityChange() {
+    if (document[hidden] && !triggered) {
+      triggered = true
+      setTimeout(() => {
+        triggered = false
+      }, 500);
+      $.ajax({
+        type:'POST',
+        url:'/record_session_duration/',
+        data: { view_id : $("#view_id").text() },
+        success:function(){
+          //I assume you want to do something on controller action execution success?
+          console.log("success");
+        }
+      });
+      console.log("gone")
+    } else if (!document[hidden] && !triggered) {
+    // } else {
+      triggered = true
+      setTimeout(() => {
+        triggered = false
+      }, 1000);
+      $.ajax({
+        type:'POST',
+        url:'/update_session_time/',
+        data: { view_id : $("#view_id").text() },
+        success:function(){
+          //I assume you want to do something on controller action execution success?
+          console.log("success");
+        }
+      });
+      console.log("show")
+    }
+  }
+
+
+  if (typeof document.addEventListener === "undefined" || typeof document[hidden] === "undefined") {
+    console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
+  } else {
+    // Handle page visibility change   
+    document.addEventListener(visibilityChange, handleVisibilityChange, false);
+  }
+});
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //

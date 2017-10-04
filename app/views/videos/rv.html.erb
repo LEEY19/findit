@@ -24,7 +24,7 @@
 
       <% @related_videos.each do |video| %>
         <div>
-          <%= link_to rv_path(id: video.video_id, rv_id: video.id, j: true), method: 'get', class: "suggested-video-list-row" do %>
+          <%= link_to rv_path(id: video.try(:video_id) ? video.video_id : video.id, rv_id: video.try(:video_id) ? video.id : nil, j: true), class: "suggested-video-list-row" do %>
             <div class="suggested-video-thumbnail"><img class="suggested-video-list-picture" src="<%= video.picture %>"><h6><%= video.duration %></h6></div>
             <div class="suggested-video-details"><h3><%= video.title %></h3></div>
           <% end %>
@@ -42,7 +42,7 @@
 
       <% @all_other_video.each do |video| %>
         <div>
-          <%= link_to video_path(id: video.id, j: true), class: "video-list-row" do %>
+          <%= link_to rv_path(id: video.id, rv_id: nil, j: true), class: "video-list-row" do %>
 
             <div class="video-thumbnail"><img class="video_picture" src="<%= video.picture %>"><h6><%= video.duration %></h6></div>
             <div class="video-details"><h6><%= video.title %></h6></div>

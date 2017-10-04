@@ -1,3 +1,5 @@
+var triggered = false
+
 $(document).on("turbolinks:load", function() {
 
 
@@ -14,7 +16,11 @@ $(document).on("turbolinks:load", function() {
   }
  
   function handleVisibilityChange() {
-    if (document[hidden]) {
+    if (document[hidden] && !triggered) {
+      triggered = true
+      setTimeout(() => {
+        triggered = false
+      }, 500);
       $.ajax({
         type:'POST',
         url:'/record_session_duration/',
@@ -25,7 +31,12 @@ $(document).on("turbolinks:load", function() {
         }
       });
       console.log("gone")
-    } else {
+    } else if (!document[hidden] && !triggered) {
+    // } else {
+      triggered = true
+      setTimeout(() => {
+        triggered = false
+      }, 1000);
       $.ajax({
         type:'POST',
         url:'/update_session_time/',

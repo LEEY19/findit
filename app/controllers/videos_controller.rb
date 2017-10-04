@@ -165,6 +165,7 @@ class VideosController < ApplicationController
   end
 
   def rv
+
     @video = Video.find(params[:id])
     # @products = @video.products
     if !session[:user]
@@ -177,16 +178,21 @@ class VideosController < ApplicationController
     @all_other_video = Video.where.not(id: [params[:id]]).shuffle
     # @product_categories = @products.pluck(:product_category).uniq
     @related_videos = nil
-    if params[:rv_id]
-      @video = RelatedVideo.find(params[:rv_id])
-      @related_videos = RelatedVideo.where(video_id: params[:id]).shuffle
+    if params[:id] == '16' || params[:id] == '17'
+      if params[:rv_id]
+        @video = RelatedVideo.find(params[:rv_id])
+        @related_videos = RelatedVideo.where(video_id: params[:id]).shuffle
+      else
+        @related_videos = RelatedVideo.where(video_id: params[:id])
+      end
     else
-      @related_videos = RelatedVideo.where(video_id: params[:id])
+      @related_videos = Video.where.not(id: [params[:id]]).shuffle
     end
 
     if params[:j]
       current_count = @view.jumps
       @view.update(jumps: current_count + 1)
     end
+
   end
 end
