@@ -5,13 +5,13 @@
 
 .egg-panel {
   margin: 12px 3px;
-  padding: 6px;
+  // padding: 6px;
   background-color: #101010;
   border-bottom: 3px solid rgba(234, 173, 24, 0.67); }
   .egg-panel h3 {
     color: orange;
     padding-left: 5px;
-    font-size: 20px; 
+    font-size: 20px;
     margin-top: -5px;}
   .egg-panel .panel-text {
     white-space: pre-line;
@@ -139,7 +139,7 @@
     max-height: 394px;
     display: flex;
     background-color: white;
-    border: none; 
+    border: none;
     flex-direction: column; }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .youtube-player .product-list-container {
@@ -153,7 +153,24 @@
       overflow-y: auto;
       text-align: left;
       display: flex;
-      flex-direction: row; }
+      flex-direction: row;
+      background: black;
+      &::-webkit-scrollbar-track
+      {
+      	border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar
+      {
+      	width: 12px;
+      }
+
+      &::-webkit-scrollbar-thumb
+      {
+      	border-radius: 10px;
+      	background-color: #B72864;
+      }
+    }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .youtube-player .product-list-container .product-list {
           flex-direction: column; } }
@@ -165,12 +182,16 @@
         display: flex;
         flex-direction: column;
         max-width: 220px;
-        background-color: white;
+        background: black; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#2c2c2c, #000); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#2c2c2c, #000); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#2c2c2c, #000); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#2c2c2c, #000); /* Standard syntax */
         color: white;
-        margin: 1px;
+        // margin: 1px;
         text-decoration: none;
         height: 185px;
-        border-bottom: 1px solid #d3d3d3;
+        // border-bottom: 1px solid #d3d3d3;
         overflow-y: auto; }
       @media only screen and (max-width: 767px) {
         .youtube-player .product-list-container .product-list .product-list-row {
@@ -181,7 +202,7 @@
           color: white;
           margin: 1px;
           text-decoration: none;
-          overflow-y: auto; 
+          overflow-y: auto;
           border-bottom: none;
           min-height: 220px;
         }
@@ -189,7 +210,7 @@
         .youtube-player .product-list-container .product-list .product-list-row .product_picture {
           max-height: 100px;
           max-width: 100px;
- /*         height: 100px; 
+ /*         height: 100px;
           width: 100px;
  */       }
 /*        .youtube-player .product-list-container .product-list .product-list-row:hover {
@@ -230,7 +251,7 @@
           .youtube-player .product-list-container .product-list .product-list-row .product-details h3 {
 /*            display: inline-block;
 */            /*background-color: #00BFFF;*/
-            color: black;
+            color: white;
             margin: 0;
             padding: 10px 8px;
             border-radius: 7px;

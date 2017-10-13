@@ -1,182 +1,213 @@
+.video-list-container {
+  font-family: 'Lato';
+  width: 100%;
+  margin-top: 5px;
+  max-height: 394px;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  background-color: #101010;
+  border-bottom: 3px solid rgba(234, 173, 24, 0.67);
 
+  h3 {
+    color: #faae18;
+    margin-left: 0;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 768px) {
   .video-list-container {
-    font-family: 'Lato';
-    width: 100%;
-    margin-top: 5px;
-    max-height: 394px;
-    display: flex;
-    flex-direction: column; 
-    padding: 6px;
-    background-color: #101010;
-    border-bottom: 3px solid rgba(234, 173, 24, 0.67);
-    h3 {
-      color: #faae18;
-      margin-left: 0px;
-      font-size: 20px; 
-    }
+    margin-top: -45px;
   }
-    @media only screen and (max-width: 768px) {
-      .video-list-container {
-        margin-top: -45px;} }
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      .video-list-container {
-        margin: 0;
-        max-width: 352px; } }
-    @media only screen and (min-width: 1200px) {
-      .video-list-container {
-        margin: 0;
-        max-width: 100%; } }
-    .video-list-container .video-list {
-      overflow-y: auto;
-      text-align: left;
-      display: flex;
-      flex-direction: row; }
-      @media only screen and (min-width: 992px) and (max-width: 1199px) {
-        .video-list-container .video-list {
-          flex-direction: column; } }
-      @media only screen and (min-width: 1200px) {
-        .video-list-container .video-list {
-          max-width: 100%;
-          flex-direction: row; } }
-      .video-list-container .video-list .video-list-row {
-        display: flex;
-        flex-direction: column;
-        max-width: 240px;
-        background-color: #070707;
-        color: white;
-        margin: 1px;
-        text-decoration: none;
-        max-height: 230px;
-        overflow-y: auto; }
-        .video-list-container .video-list .video-list-row .video_picture{
-          max-height: 150px; }
-        .video-list-container .video-list .video-list-row:hover {
-          background-color: #303030; }
-        @media only screen and (min-width: 992px) and (max-width: 1199px) {
-          .video-list-container .video-list .video-list-row {
-            flex-direction: row;
-            height: inherit;
-            max-width: inherit; } }
-        @media only screen and (min-width: 1200px) {
-          .video-list-container .video-list .video-list-row {
-            flex-direction: column;
-            height: inherit;
-            width: 250px;
-            max-width: 400px; } }
-        .video-list-container .video-list .video-list-row .video-thumbnail {
-          padding: 4px 30px;
-          font-size: 0;
-          position: relative; }
-          .video-list-container .video-list .video-list-row .video-thumbnail img {
-            height: 120px;
-            max-width: 200px; }
-          .video-list-container .video-list .video-list-row .video-thumbnail h6 {
-            background-color: black;
-            color: white;
-            position: absolute;
-            margin: 0;
-            bottom: 4px;
-            right: 4px;
-            padding: 1px;
-            font-weight: bold; }
-          @media only screen and (min-width: 992px) and (max-width: 1199px) {
-            .video-list-container .video-list .video-list-row .video-thumbnail {
-              padding: 4px; } }
-          @media only screen and (min-width: 1200px) {
-            .video-list-container .video-list .video-list-row .video-thumbnail {
-              padding: 4px; } }
-        .video-list-container .video-list .video-list-row .video-details {
-          padding: 4px; }
-          .video-list-container .video-list .video-list-row .video-details h5 {
-            display: inline-block;
-            background-color: orange;
-            color: black;
-            margin: 0;
-            padding: 2px 8px;
-            border-radius: 7px;
-            font-size: 10px;
-            font-weight: bold; }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .video-list-container {
+    margin: 0;
+    max-width: 352px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .video-list-container {
+    margin: 0;
+    max-width: 100%;
+  }
+}
 
+.video-list-container .video-list {
+  overflow-y: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .video-list-container .video-list {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .video-list-container .video-list {
+    max-width: 100%;
+    flex-direction: row;
+  }
+}
 
-  .seemore-btn {
-    transition: all 0.2s ease-in-out;
-    /*float: right;*/
-    color: black;
-    background: rgba(250,174,24,1);
-    padding: 14px 0 14px 0;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 5px 8px 5px 8px;
-    margin: 10px 10px 10px 5px;
-    border-radius: 100px;
-    font-weight: 600;
-    outline: none;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.3);
-    font-size: 13px;
-    z-index: 99999;
+.video-list-container .video-list .video-list-row {
+  display: flex;
+  flex-direction: column;
+  max-width: 240px;
+  background-color: #070707;
+  color: white;
+  margin: 1px;
+  text-decoration: none;
+  max-height: 230px;
+  overflow-y: auto;
+}
+
+.video-list-container .video-list .video-list-row .video_picture {
+  max-height: 150px;
+}
+
+.video-list-container .video-list .video-list-row:hover {
+  background-color: #303030;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .video-list-container .video-list .video-list-row {
+    flex-direction: row;
+    height: inherit;
+    max-width: inherit;
   }
-  .seemore-btn:hover {
-    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1);
-    background: rgba(250,174,24,1);
+}
+@media only screen and (min-width: 1200px) {
+  .video-list-container .video-list .video-list-row {
+    flex-direction: column;
+    height: inherit;
+    width: 250px;
+    max-width: 400px;
   }
+}
+
+.video-list-container .video-list .video-list-row .video-thumbnail {
+  padding: 4px 30px;
+  font-size: 0;
+  position: relative;
+}
+
+.video-list-container .video-list .video-list-row .video-thumbnail img {
+  height: 120px;
+  max-width: 200px;
+}
+
+.video-list-container .video-list .video-list-row .video-thumbnail h6 {
+  background-color: black;
+  color: white;
+  position: absolute;
+  margin: 0;
+  bottom: 4px;
+  right: 4px;
+  padding: 1px;
+  font-weight: bold;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .video-list-container .video-list .video-list-row .video-thumbnail {
+    padding: 4px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .video-list-container .video-list .video-list-row .video-thumbnail {
+    padding: 4px;
+  }
+}
+
+.video-list-container .video-list .video-list-row .video-details {
+  padding: 4px;
+}
+
+.video-list-container .video-list .video-list-row .video-details h5 {
+  display: inline-block;
+  background-color: orange;
+  color: black;
+  margin: 0;
+  padding: 2px 8px;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.seemore-btn {
+  transition: all 0.2s ease-in-out;
+  /*float: right;*/
+  color: black;
+  background: rgba(250,174,24,1);
+  padding: 14px 0;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 5px 8px;
+  margin: 10px 10px 10px 5px;
+  border-radius: 100px;
+  font-weight: 600;
+  outline: none;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.3);
+  font-size: 13px;
+  z-index: 99999;
+}
+
+.seemore-btn:hover {
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.1);
+  background: rgba(250,174,24,1);
+}
 
 .dropbtn {
-    background: rgba(250,174,24,1);
-    color: black;
-    padding: 8px 12px 8px 12px;
-    font-size: 13px;
-    border: none;
-    cursor: pointer;
-    min-width: 140px;
+  background: rgba(250,174,24,1);
+  color: black;
+  padding: 8px 12px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  min-width: 140px;
 }
-
 /* The container <div> - needed to position the dropdown content */
 .dropdown-products-list {
-    position: relative;
-    display: inline-block;
-    float: right;
-    margin-top: -10px;
+  position: relative;
+  display: inline-block;
+  float: right;
+  margin-top: -10px;
 }
-
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 100%;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    height: 155px;
-    overflow-y: scroll;
-    min-width: 140px;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+  height: 155px;
+  overflow-y: scroll;
+  min-width: 140px;
 }
 
 .active-dropdown {
-    display: none;
+  display: none;
 }
-
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    padding: 8px 5px 8px 5px;
-    text-decoration: none;
-    display: block;
-    font-size: 13px;
-    word-wrap: break-word;
+  color: black;
+  padding: 8px 5px;
+  text-decoration: none;
+  display: block;
+  font-size: 13px;
+  word-wrap: break-word;
 }
-
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
-
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
 /* Show the dropdown menu on hover */
 /*.dropdown-products-list:hover .active-dropdown {
     display: block;
 }*/
-
 /* Change the background color of the dropdown button when the dropdown content is shown */
 /*.dropdown-products-list:hover .dropbtn {
   color: white;
 }*/
-
 .signalling_container {
   color: white;
   background-color: rgba(0,0,0,0.5);
@@ -189,15 +220,17 @@
   /*background-color: black;*/
   #myImg {
     position: absolute;
-    width:44px;
-    height:47px;
+    width: 44px;
+    height: 47px;
     z-index: 9999;
   }
+
   #signal_msg {
     position: absolute;
     font-size: 13px;
     margin-top: 45px;
   }
+
   #closeBtn {
     position: absolute;
     right: 10px;
@@ -208,12 +241,12 @@
 }
 @media only screen and (max-width: 768px) {
   .signalling_container {
-/*    width: 170px;
+    /*    width: 170px;
     height: 115px;*/
     #myImg {
-      width:34px;
-      height:37px;
+      width: 34px;
+      height: 37px;
       transform: rotate(90deg);
     }
-  } 
+  }
 }
