@@ -16,6 +16,15 @@
 //= require turbolinks
 //= require_tree .
 
+// Temporary use js to resize product list height
+function resizeProductList() {
+  var h = document.querySelector(".plyr.plyr--youtube.plyr--video").clientHeight - 42;
+  $(".product-list-container").css("height", h);
+}
+
 $(document).on("turbolinks:load", function() {
-  plyr.setup(); 
+  var vp = plyr.setup();
+  vp[0].on("ready", resizeProductList);
 });
+
+$(window).on('resize', resizeProductList);

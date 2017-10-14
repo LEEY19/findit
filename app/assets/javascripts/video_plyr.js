@@ -4,13 +4,13 @@ $(document).on("turbolinks:load", function() {
     if (full_width > 1200){
       $('.plyrr').css('width', 950);
     } else {
-      $('.plyrr').css('width', full_width);      
+      $('.plyrr').css('width', full_width);
     }
   } else {
-    if (full_width > 1200){
-      $('.plyrr').css('width', 700);
-    } else {
-      $('.plyrr').css('width', full_width);      
-    }
+    // if (full_width > 1200){
+    //   $('.plyrr').css('width', 700);
+    // } else {
+    //   $('.plyrr').css('width', full_width);
+    // }
   }
 });

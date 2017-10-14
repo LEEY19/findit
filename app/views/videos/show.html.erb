@@ -1,86 +1,65 @@
 <div class="programme-page">
-  
+
 <div class="youtube-player">
   <div class="video_player_container">
-    <div class="signalling_container">
-      <img src="http://www.clker.com/cliparts/1/H/k/P/S/l/dezzit-right-bt.svg" id="myImg">
-      <%= image_tag("closebutton.png", id: "closeBtn") %>
-      <% if @video.id == 16 %>
-        <h4 id="signal_msg">Produk fesyen yang popular dan terkini!</h4>
-      <% elsif @video.id == 17 %>
-        <h4 id="signal_msg">最喜流行的时尚单品！</h4>
-      <% else %>
-        <h4 id="signal_msg">Popular fashion products & merchandises, & more!</h4>
-      <% end %>
-    </div>
-
-    <span>
-
-      <div class="plyrr">
-        <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>      
-        
-      </div>  
-
-    </span>
-  </div>
-  <div class="product-list-container egg-panel">
-    <div style="width: 100%;">
-      <div style="display: inline-block; float: left;">
-        
-        <h3 class="panel-title" style="font-size: 18px;"">Interesting Products</h3>
-      </div>
-      <div class="dropdown-products-list">
-        <button class="dropbtn">All Products  &#x25BE</button>
-        <div class="dropdown-content active-dropdown">
-          <% @product_categories.each do |link| %>
-            <%= link_to link, videos_dynamic_show_path(product_category: link, video_id: @video.id, view_id: @view.id), method: 'post', class: 'dropdown_links', remote: true %>
-          <% end %>
-        </div>
-      </div>
-      
-    </div>
+    <!-- <span> -->
+    <div class="plyrr">
+      <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>
+      <div class="product-list-container egg-panel">
     <div class="product-list">
-
       <% @products.each do |product| %>
-        <div>
-          <%= link_to videos_click_product_path(view_id: @view.id, product_id: product.id), method: 'post', target: "_blank" , class: "product-list-row" do %>
-            <div class="product-thumbnail"><img class="product_picture" src="<%= product.picture %>"></div>
-            <div class="product-details"><h3><%= product.title %></h3>
-
-            <h6 style="display: none;">RM <%= product.price %></h6></div>
+      <%= link_to videos_click_product_path(view_id: @view.id, product_id: product.id), method: 'post', target: "_blank" , class: "productlist-row" do %>
+      <div class="product-list-row">
+        <div class="product-thumbnail"><img class="product_picture" src="<%= product.picture %>"></div>
+        <div class="product-details">
+          <p class="on-screen">On Screen:</p>
+          <h3><%= product.title %></h3>
+          <% if product.appeared_at != "0:00" %>
+          <h6>Appeared at:
+            <%= product.appeared_at %>
+          </h6>
           <% end %>
+          <h6 style="display: none;">RM
+            <%= product.price %>
+          </h6>
         </div>
+      </div>
+      <% end %>
       <% end %>
 
       <div style="display: flex; align-items: center; justify-content: center;">
-        <button type="button" class="btn seemore-btn">See More Products</button>        
+        <button type="button" class="btn seemore-btn">See More Products</button>
       </div>
 
     </div>
+  </div>
+    </div>
+    <!-- </span> -->
   </div>
 </div>
 
 
-  <div class="video-list-container">
-    <h3 class="panel-title">More Videos</h3>
-    <div class="video-list">
-
-      <% @all_other_video.each do |video| %>
-        <div>
-          <%= link_to video_path(id: video.id, j: true), class: "video-list-row" do %>
-
-            <div class="video-thumbnail"><img class="video_picture" src="<%= video.picture %>"><h6><%= video.duration %></h6></div>
-            <div class="video-details"><h6><%= video.title %></h6></div>
-          <% end %>
+<div class="video-list-container">
+  <h3 class="panel-title">Similar TV Shows</h3>
+  <div class="video-list">
+    <% @all_other_video.each do |video| %>
+      <%= link_to video_path(id: video.id, j: true) do %>
+        <div class="video-list-row">
+          <div class="video-thumbnail"><img class="video_picture" src="<%= video.picture %>">
+            <h6><%= video.duration %></h6>
+          </div>
+          <div class="video-details">
+            <h6><%= video.title %></h6>
+          </div>
         </div>
       <% end %>
+    <% end %>
 
-    </div>
   </div>
+</div>
 
 
 </div>
 
 <span id="scroll_counter" style="color: white;">0</span>
 <span id="view_id" style="color: white;"><%= @view.id %></span>
-
