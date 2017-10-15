@@ -10,7 +10,9 @@
       <% @products.each do |product| %>
       <%= link_to videos_click_product_path(view_id: @view.id, product_id: product.id), method: 'post', target: "_blank" , class: "productlist-row" do %>
       <div class="product-list-row">
-        <div class="product-thumbnail"><img class="product_picture" src="<%= product.picture %>"></div>
+        <div class="product-thumbnail">
+          <div class="product_picture" style="background-image: url(<%= product.picture %>)"></div>
+        </div>
         <div class="product-details">
           <p class="on-screen">On Screen:</p>
           <h3><%= product.title %></h3>

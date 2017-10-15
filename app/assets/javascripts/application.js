@@ -18,7 +18,11 @@
 
 // Temporary use js to resize product list height
 function resizeProductList() {
-  var h = document.querySelector(".plyr.plyr--youtube.plyr--video").clientHeight - 42;
+  if ($(window).width() > 1200) {
+    var h = document.querySelector(".plyr.plyr--youtube.plyr--video").clientHeight - 42;
+  } else {
+    var h = '100%';
+  }
   $(".product-list-container").css("height", h);
 }
 
