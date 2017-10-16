@@ -349,6 +349,34 @@
 .plyr__controls {
   width: 100vw;
 }
+#exactMatch {
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+  }
+  form {
+    padding: 30px;
+    padding-bottom: 0;
+  }
+  input[type='email'] {
+    padding: 20px 10px;
+    font-size: 16px;
+    width: 70%;
+    margin: 15px auto;
+  }
+  .btn {
+    background-color: #C12A68;
+    color: white;
+    border-radius: 100px;
+    padding: 7px 30px;
+    &:hover, &:active {
+      text-decoration: none;
+      background-color: darken(#B72864, 10%);
+    }
+  }
+}
 /*
 .plyr.plyr__video-wrapper.plyr__video-embed.plyr--setup {
   width: 1200px;
