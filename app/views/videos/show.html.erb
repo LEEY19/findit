@@ -48,7 +48,9 @@
     <% @all_other_video.each do |video| %>
       <%= link_to video_path(id: video.id, j: true) do %>
         <div class="video-list-row">
-          <div class="video-thumbnail"><img class="video_picture" src="<%= video.picture %>">
+          <div class="video-thumbnail">
+            <div class="video_picture" style="background-image: url(<%= video.picture %>)"></div>
+            <!-- <img class="video_picture" src="<%= video.picture %>"> -->
             <h6><%= video.duration %></h6>
           </div>
           <div class="video-details">

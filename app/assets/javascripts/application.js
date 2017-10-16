@@ -18,11 +18,19 @@
 
 // Temporary use js to resize product list height
 function resizeProductList() {
-  if ($(window).width() > 1200) {
-    var h = document.querySelector(".plyr.plyr--youtube.plyr--video").clientHeight - 42;
-  } else {
-    var h = '100%';
+  var w = $(window).width();
+
+  switch (true) {
+    case (w > 1200):
+      var h = document.querySelector(".plyr.plyr--youtube.plyr--video").clientHeight - 42;
+      break;
+    case (w <= 1200 && w > 991):
+      var h = '352px'
+      break;
+    default:
+      var h = '100%'
   }
+
   $(".product-list-container").css("height", h);
 }
 
