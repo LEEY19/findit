@@ -4,11 +4,12 @@
   <div class="video_player_container">
     <!-- <span> -->
     <div class="plyrr">
+      <div class="tooltip"></div>
       <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>
       <div class="product-list-container egg-panel">
     <div class="product-list">
       <% @products.each do |product| %>
-      <%= link_to videos_click_product_path(view_id: @view.id, product_id: product.id), method: 'post', target: "_blank" , class: "productlist-row" do %>
+      <%= link_to videos_click_product_path(view_id: @view.id, product_id: product.id), method: 'post', target: "_blank" , class: "productlist-row", data: { product_id: product.id } do %>
       <div class="product-list-row">
         <div class="product-thumbnail">
           <div class="product_picture" style="background-image: url(<%= product.picture %>)"></div>
