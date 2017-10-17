@@ -3,7 +3,9 @@ class ProductsController < ApplicationController
 
   def show; end
 
-  def exact_match; end
+  def exact_match
+    @exact_request = ExactRequest.new
+  end
 
   private
 

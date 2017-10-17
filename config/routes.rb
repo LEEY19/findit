@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       get :exact_match
     end
   end
+  resources :exact_requests, only: [:show, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "videos#index"

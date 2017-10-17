@@ -1,0 +1,11 @@
+<h3>Want an exact match of <%= product.title %>?</h3>
+<%= form_for :exact_request, url: exact_requests_path(exact_request), remote: true do |f| %>
+
+  <%= render "shared/error_messages", target: exact_request %>
+
+  <div class="form-group">
+    <%= f.email_field :email, class: "form-control", id: "inputEmail", placeholder: "Enter your email..." %>
+  </div>
+  <%= f.hidden_field :product_id, value: product.id %>
+  <button type="submit" class="btn">Submit</button>
+<% end %>

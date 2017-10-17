@@ -1,2 +1,2 @@
-$("#exactMatch h3").html("Want an exact match of <%= @product.title %>?");
+$("#exactMatch .modal-body").html("<%= j render 'exact_requests/form', product: @product, exact_request: @exact_request %>");
 $("#exactMatch").modal("show");
