@@ -34,6 +34,14 @@ class VideosController < ApplicationController
     end
   end
 
+  def active_media_duration
+    @view = View.find(session[:user])
+    @view.active_media_duration += params[:time].to_i
+    @view.save
+
+    head :ok
+  end
+
   def click_product
     if params[:view_id]
       Click.create(view_id: params[:view_id], product_id: params[:product_id])
@@ -97,7 +105,7 @@ class VideosController < ApplicationController
         end
       end
       @overall_views_clicks = Click.all.pluck(:view_id)
-      @original_total = @scrolled_views | @more_info_views | @overall_views_clicks 
+      @original_total = @scrolled_views | @more_info_views | @overall_views_clicks
       @current_total = @scrolled_views | @more_info_views | @overall_views_clicks | @counter_array
       @scrolled_and_more_info = @scrolled_views & @more_info_views
       @scrolled_and_clicks = @scrolled_views & @overall_views_clicks
@@ -115,7 +123,7 @@ class VideosController < ApplicationController
         end
       end
       @overall_views_clicks = Click.joins(view: :video).where(videos: {id: @id}).pluck(:view_id)
-      @original_total = @scrolled_views | @more_info_views | @overall_views_clicks 
+      @original_total = @scrolled_views | @more_info_views | @overall_views_clicks
       @current_total = @scrolled_views | @more_info_views | @overall_views_clicks | @counter_array
       @scrolled_and_more_info = @scrolled_views & @more_info_views
       @scrolled_and_clicks = @scrolled_views & @overall_views_clicks

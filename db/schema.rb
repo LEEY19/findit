@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016230313) do
+ActiveRecord::Schema.define(version: 20171020023325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,14 +70,15 @@ ActiveRecord::Schema.define(version: 20171016230313) do
 
   create_table "views", force: :cascade do |t|
     t.integer  "video_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.boolean  "scrolled",         default: false
-    t.boolean  "more_info",        default: false
-    t.text     "category_clicks",  default: [],                 array: true
-    t.integer  "jumps",            default: 0
-    t.float    "session_duration", default: 0.0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.boolean  "scrolled",              default: false
+    t.boolean  "more_info",             default: false
+    t.text     "category_clicks",       default: [],                 array: true
+    t.integer  "jumps",                 default: 0
+    t.float    "session_duration",      default: 0.0
     t.string   "view_type"
+    t.float    "active_media_duration", default: 0.0
     t.index ["video_id"], name: "index_views_on_video_id", using: :btree
   end
 

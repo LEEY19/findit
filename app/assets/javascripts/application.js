@@ -35,9 +35,5 @@ function resizeProductList() {
   $(".product-list-container").css("height", h);
 }
 
-$(document).on("turbolinks:load", function() {
-  var vp = plyr.setup();
-  vp[0].on("ready", resizeProductList);
-});
 
 $(window).on('resize', resizeProductList);

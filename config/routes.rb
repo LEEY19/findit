@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post '/record_session_duration' => "videos#record_session_duration"
   post '/update_session_time' => "videos#update_session_time"
   post '/track_toast_click' => "videos#track_toast_click"
+  post '/active_media_duration' => "videos#active_media_duration"
   get 'videosm/:id' => "videos#show_manual", as: "show_manual"
   get 'videos/woc/:id' => "videos#woc", as: "woc"
   get '/analytics/:id' => "videos#analytics"
