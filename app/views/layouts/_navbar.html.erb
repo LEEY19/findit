@@ -1,8 +1,15 @@
-<div class="row">
-  <div class="col-md-6 col-xs-6"><%= image_tag("finditlogo.png", class: "logo") %></div>
-  <div class="col-md-6 col-xs-6">
-    <span><%= image_tag "twitterlogo.png", class: "social_logo" %></span>
-    <span><%= image_tag "youtubelogo.png", class: "social_logo" %></span>
-    <span><%= image_tag "fblogo.png", class: "social_logo" %></span>
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= image_tag("finditlogo.png", class: "logo") %>
+    </div>
+    <ul class="nav navbar-nav">
+      <%= yield :navbar %>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= image_tag "fblogo.png", class: "social_logo" %></li>
+      <li><%= image_tag "youtubelogo.png", class: "social_logo" %></li>
+      <li><%= image_tag "twitterlogo.png", class: "social_logo" %></li>
+    </ul>
   </div>
-</div>
+</nav>

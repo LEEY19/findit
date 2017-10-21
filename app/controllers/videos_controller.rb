@@ -1,17 +1,12 @@
 class VideosController < ApplicationController
   def index
-    rand_no = rand(1..Video.all.count)
-    @video = Video.find(rand_no)
-    @products = @video.products
-    if !session[:user]
-      @view = View.create(video_id: @video.id, view_type: "wc")
-      session[:user] = @view.id
-      session[:time] = DateTime.now
+    @videos = if params[:category]
+      Video.where(content_category: params[:category])
     else
-      @view = View.find(session[:user])
+      Video.all
     end
-    @all_other_video = Video.where.not(id: [@video.id]).shuffle
-    @product_categories = @products.pluck(:product_category).uniq
+    
+    @categories = Video.all.pluck(:content_category).uniq
   end
 
   def show
