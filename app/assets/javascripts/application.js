@@ -24,7 +24,7 @@ function resizeProductList() {
 
   switch (true) {
     case (w > 1200):
-      var h = document.querySelector(".plyr.plyr--video").clientHeight - 42;
+      var h = document.querySelector("video").clientHeight - 42;
       break;
     case (w <= 1200 && w > 991):
       var h = '352px'

@@ -3,7 +3,7 @@ $(document).on("turbolinks:load", function() {
   Turbolinks.clearCache()
 
   var vp = plyr.setup();
-  vp[0].on("ready", resizeProductList);
+  vp[0].on("loadeddata", resizeProductList);
 
   var full_width = $(window).width();
   if ($("#woc").get(0)) {
@@ -12,6 +12,12 @@ $(document).on("turbolinks:load", function() {
     } else {
       $('.plyrr').css('width', full_width);
     }
+  }
+
+  // To fix display misbehavior on iPhone
+  var iOS = /iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  if (iOS) {
+    $('video').css('width', '100vw');
   }
 
   var time = 0;
@@ -98,7 +104,3 @@ $(document).on("turbolinks:load", function() {
 window.addEventListener('beforeunload', function() {
   updateDuration();
 });
-
-$(window).on("popstate", function () {
-  // debugger
-})
