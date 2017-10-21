@@ -4,17 +4,19 @@ $(document).on("turbolinks:load", function() {
   //   }, function(){
   //   $(this).css("background-color", "white");
   // });
-  $(".productlist-row").on("mouseenter", function () {
+  function showTooltip() {
     $(".tooltip").html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>');
     $.get('/products/' + $(this).data("product-id"));
     $(".tooltip").css('opacity', 1);
-  })
-  $(".productlist-row").on("mouseleave", function (e) {
+  }
+
+  function hideTooltip(e) {
     var el = e.toElement || e.relatedTarget;
     if (!($(el).hasClass("tooltip") || $(el).parents(".tooltip").length))
-      // debugger
       $(".tooltip").css('opacity', 0);
-  })
+  }
+  $(".product-list-row").on("mouseenter click", showTooltip)
+  $(".product-list-row").on("mouseleave", hideTooltip)
   $(".tooltip").on("mouseleave", function () {
     $(this).css('opacity', 0);
   })

@@ -1,13 +1,10 @@
 .tooltip {
   padding: 20px;
   width: 300px;
-  height: 100%;
+  height: 95%;
   z-index: 800;
-  // height: 500px;
-  background-color: white;
-  // top: 50px;
   top: 0;
-  right: 350px;
+  right: 100%;
   background: black; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#2c2c2c, #000); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#2c2c2c, #000); /* For Opera 11.1 to 12.0 */
@@ -22,6 +19,7 @@
 .tooltip .product_picture {
   height: 120px;
   width: 120px;
+  margin: 0 auto;
   background-color: #fff;
   background-size: contain;
   background-repeat: no-repeat;
@@ -41,5 +39,20 @@
   &:hover, &:active {
     text-decoration: none;
     background-color: darken(#B72864, 10%);
+  }
+}
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .tooltip {
+    // top: 50%;
+    left: 100%;
+  }
+}
+@media screen and (max-width: 991px) {
+  .tooltip {
+    left: 0;
+    top: 100%;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
   }
 }

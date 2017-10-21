@@ -1,4 +1,7 @@
 $(document).on("turbolinks:load", function() {
+  // To avoid multiple render
+  Turbolinks.clearCache()
+
   var vp = plyr.setup();
   vp[0].on("ready", resizeProductList);
 
@@ -12,7 +15,8 @@ $(document).on("turbolinks:load", function() {
   }
 
   var time = 0;
-  var timer;
+  var timer,
+      scrollable = true;
 
   var hidden, visibilityChange;
   if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
@@ -65,9 +69,36 @@ $(document).on("turbolinks:load", function() {
   vp[0].on("pause", function () {
     updateDuration()
   })
+  vp[0].on("timeupdate", _.throttle(function () {
+    if (vp[0].isPaused()) return
+
+    var duration = Math.round(vp[0].getCurrentTime());
+    var $el = $(".product-list-row[data-appear-at='" + duration + "']").first()
+
+    if (scrollable && $el.length) {
+      $(".product-list-row").removeClass("active")
+      $el.addClass("active");
+      // debugger
+      $(".product-list").animate({
+        scrollTop: $el.position().top
+      }, 500)
+    }
+  }, 1000))
+
+  $(".product-list").on("scroll", function () {
+    scrollable = false;
+    setTimeout(function () {
+      scrollable = true;
+    }, 1000)
+  })
+
 });
 
 // If user close window without pausing video
 window.addEventListener('beforeunload', function() {
   updateDuration();
 });
+
+$(window).on("popstate", function () {
+  // debugger
+})
