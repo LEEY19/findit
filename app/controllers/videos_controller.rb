@@ -5,7 +5,9 @@ class VideosController < ApplicationController
     else
       Video.all
     end
-    
+
+    @videos = @videos.page(params[:page]).per(12)
+
     @categories = Video.all.pluck(:content_category).uniq
   end
 

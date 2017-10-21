@@ -12,23 +12,11 @@
 </li>
 <% end %>
 
-<div class="container">
-  <% @videos.each_slice(3) do |video_group| %>
-  <div class="row">
-    <% video_group.each do |video| %>
-    <div class="col-md-4">
-      <%= link_to video do %>
-        <div class="video-block">
-          <div class="video-thumbnail" style="background-image: url(<%= video.picture %>)"></div>
-          <div class="video-title">
-            <%= video.title %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-  <% end %>
+<div class="container" id="video-list">
+  <%= render @videos %>
+</div>
+<div id="infinite-scrolling">
+  <%= paginate @videos %>
 </div>
 
 <span id="scroll_counter" style="color: white;">0</span>
