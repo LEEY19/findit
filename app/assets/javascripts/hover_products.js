@@ -17,6 +17,7 @@ $(document).on("turbolinks:load", function() {
   }
   $(".product-list-row").on("mouseenter click", showTooltip)
   $(".product-list-row").on("mouseleave", hideTooltip)
+
   $(".tooltip").on("mouseleave", function () {
     $(this).css('opacity', 0);
   })

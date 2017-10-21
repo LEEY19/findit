@@ -62,6 +62,10 @@ $(document).on("turbolinks:load", function() {
     }, 1000);
   }
 
+  var makeScrollable = _.debounce(function () {
+    scrollable = true
+  }, 1500)
+
 
   if (typeof document.addEventListener === "undefined" || typeof document[hidden] === "undefined") {
     console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
@@ -76,12 +80,12 @@ $(document).on("turbolinks:load", function() {
     updateDuration()
   })
   vp[0].on("timeupdate", _.throttle(function () {
-    if (vp[0].isPaused()) return
+    if (vp[0].isPaused() || !scrollable) return
 
     var duration = Math.round(vp[0].getCurrentTime());
     var $el = $(".product-list-row[data-appear-at='" + duration + "']").first()
 
-    if (scrollable && $el.length) {
+    if ($el.length) {
       $(".product-list-row").removeClass("active")
       $el.addClass("active");
       // debugger
@@ -93,9 +97,8 @@ $(document).on("turbolinks:load", function() {
 
   $(".product-list").on("scroll", function () {
     scrollable = false;
-    setTimeout(function () {
-      scrollable = true;
-    }, 1000)
+
+    makeScrollable();
   })
 
 });
