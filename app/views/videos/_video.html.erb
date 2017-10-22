@@ -1,7 +1,9 @@
 <div class="video-wrapper">
 <%= link_to video do %>
   <div class="video-block">
-    <div class="video-thumbnail" style="background-image: url(<%= video.picture %>)"></div>
+    <div class="video-thumbnail" style="background-image: url(<%= video.picture %>)">
+      <h6><%= video.duration %></h6>
+    </div>
     <div class="video-title">
       <%= video.title %>
     </div>

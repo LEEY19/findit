@@ -86,11 +86,13 @@ $(document).on("turbolinks:load", function() {
     var $el = $(".product-list-row[data-appear-at='" + duration + "']").first()
 
     if ($el.length) {
+      var $container = $(".product-list");
+
       $(".product-list-row").removeClass("active")
       $el.addClass("active");
-      // debugger
-      $(".product-list").animate({
-        scrollTop: $el.position().top
+
+      $container.animate({
+        scrollTop: $el.offset().top - $container.offset().top + $container.scrollTop()
       }, 500)
     }
   }, 1000))
