@@ -1,15 +1,19 @@
 <%= content_for :navbar do %>
-<li class="dropdown">
-  <a class="dropdown-toggle category" data-toggle="dropdown" href="#">Category
-  <span class="caret"></span></a>
-  <ul class="dropdown-menu category-dropdown">
-    <% @categories.each do |category| %>
+<ul class="nav navbar-nav">
+  <li class="dropdown">
+    <a class="dropdown-toggle category" data-toggle="dropdown" href="#">Category
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu category-dropdown">
+      <% @categories.each do |category| %>
       <li>
         <%= link_to category, videos_path(category: category) %>
       </li>
-    <% end %>
-  </ul>
-</li>
+      <% end %>
+    </ul>
+  </li>
+</ul>
+
 <% end %>
 
 <div class="container" id="video-list">
