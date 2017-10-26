@@ -3,7 +3,7 @@ $(document).on("turbolinks:load", function() {
   Turbolinks.clearCache()
 
   var vp = plyr.setup();
-  vp[0].on("loadeddata", resizeProductList);
+  vp[0].on("ready", resizeProductList);
 
   var full_width = $(window).width();
   if ($("#woc").get(0)) {
@@ -91,9 +91,15 @@ $(document).on("turbolinks:load", function() {
       $(".product-list-row").removeClass("active")
       $el.addClass("active");
 
-      $container.animate({
-        scrollTop: $el.offset().top - $container.offset().top + $container.scrollTop()
-      }, 500)
+      if ($(window).width() > 991) {
+        $container.animate({
+          scrollTop: $el.offset().top - $container.offset().top + $container.scrollTop()
+        }, 500)
+      } else {
+        $container.animate({
+          scrollLeft: $el.offset().left - $container.offset().left + $container.scrollLeft()
+        }, 500)
+      }
     }
   }, 1000))
 

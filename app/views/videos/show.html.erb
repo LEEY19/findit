@@ -1,13 +1,33 @@
+<%= content_for :navbar do %>
+<ul class="nav navbar-nav">
+  <li class="dropdown">
+    <a class="dropdown-toggle category" data-toggle="dropdown" href="#">Category
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu category-dropdown">
+      <% @categories.each do |category| %>
+      <li>
+        <%= link_to category, videos_path(category: category) %>
+      </li>
+      <% end %>
+    </ul>
+  </li>
+</ul>
+<% end %>
+
 <div class="programme-page">
 
 <div class="youtube-player">
   <div class="video_player_container">
     <!-- <span> -->
     <div class="plyrr">
-      <!-- <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div> -->
-      <video controls>
-        <source src="http://video.vzaar.com/vzaar/vz2/ca8/target/vz2ca8766d2c784622b92526936d1bf25b.mp4?response-content-disposition=inline&AWSAccessKeyId=AKIAJ74MFWNVAFH6P7FQ&Expires=1508510312&Signature=%2BnZDl5%2BVMju7VIHIQWnyS88h0q8%3D" type="video/mp4">
-      </video>
+      <% if @video.video_link =~ /youtube/ %>
+        <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>
+      <% else %>
+        <video controls>
+          <source src="http://video.vzaar.com/vzaar/vz2/ca8/target/vz2ca8766d2c784622b92526936d1bf25b.mp4?response-content-disposition=inline&AWSAccessKeyId=AKIAJ74MFWNVAFH6P7FQ&Expires=1508510312&Signature=%2BnZDl5%2BVMju7VIHIQWnyS88h0q8%3D" type="video/mp4">
+        </video>
+      <% end %>
       <div class="product-list-container egg-panel">
         <div class="tooltip"></div>
         <div class="product-list">
