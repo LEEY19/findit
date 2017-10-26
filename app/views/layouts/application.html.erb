@@ -30,11 +30,11 @@
 
   <body>
     <%= render "layouts/navbar" %>
-    <%= yield %>
 
-    <% if Rails.env == "production" %>
-      <%= render "layouts/footer" %>
-    <% end %>
+    <%= yield %>
+    
+    <%= render "layouts/footer" %>
+
 
   </body>
 </html>

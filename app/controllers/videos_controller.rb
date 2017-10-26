@@ -1,4 +1,6 @@
 class VideosController < ApplicationController
+  before_action :set_categories, only: [:index, :show]
+
   def index
     @videos = if params[:category]
       Video.where(content_category: params[:category])
@@ -7,8 +9,6 @@ class VideosController < ApplicationController
     end
 
     @videos = @videos.page(params[:page]).per(12)
-
-    @categories = Video.all.pluck(:content_category).uniq
   end
 
   def show
@@ -170,7 +170,6 @@ class VideosController < ApplicationController
   end
 
   def rv
-
     @video = Video.find(params[:id])
     # @products = @video.products
     if !session[:user]
@@ -198,6 +197,11 @@ class VideosController < ApplicationController
       current_count = @view.jumps
       @view.update(jumps: current_count + 1)
     end
+  end
 
+  private
+
+  def set_categories
+    @categories = Video.all.pluck(:content_category).uniq
   end
 end

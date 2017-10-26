@@ -43,7 +43,6 @@
 }
 @media screen and (max-width: 1200px) and (min-width: 992px) {
   .tooltip {
-    // top: 50%;
     left: 100%;
   }
 }
@@ -52,22 +51,30 @@
     left: 0;
     top: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
     height: auto;
   }
   .tooltip h4 {
     font-size: 14px;
+    flex: 2;
+  }
+  .tooltip .product_details {
+    flex: 3;
+    padding: 0 20px;
   }
   .tooltip .product_thumbnail {
     margin-right: 10px;
+    flex: 1;
   }
   .tooltip .product_picture {
-    height: 80px;
-    width: 80px;
+    height: 65px;
+    width: 65px;
   }
   .tooltip .actions {
     padding: 0;
+    flex: 2;
   }
   .tooltip .btn {
     font-size: 11px

@@ -9,8 +9,13 @@
   padding-right: 10px;
 }
 
-.navbar-header {
-  float: left !important;
+.nav-wrapper {
+  display: flex;
+}
+@media screen and (max-width: 767px) {
+  .nav-wrapper {
+    justify-content: space-between;
+  }
 }
 
 .dropdown-toggle.category {
@@ -42,6 +47,21 @@
     &:hover, &:active, &:focus {
       background-color: #B72864;
       color: white;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .dropdown-toggle.category {
+    font-size: 18px;
+  }
+  .category-dropdown.dropdown-menu {
+    left: auto;
+    right: 0;
+    position: absolute;
+    background-color: #222222;
+    li a {
+      padding: 5px 15px 5px 25px;
+
     }
   }
 }

@@ -24,7 +24,7 @@ function resizeProductList() {
 
   switch (true) {
     case (w > 1200):
-      var h = document.querySelector("video").clientHeight - 42;
+      var h = document.querySelector("video, .plyr").clientHeight - 42;
       break;
     case (w <= 1200 && w > 991):
       var h = '352px'
@@ -32,7 +32,7 @@ function resizeProductList() {
     default:
       var h = '100%'
   }
-
+  console.log(h)
   $(".product-list-container").css("height", h);
 }
 
