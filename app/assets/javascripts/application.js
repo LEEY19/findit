@@ -12,10 +12,29 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require plyr
 //= require turbolinks
+//= require underscore
 //= require_tree .
 
-$(document).on("turbolinks:load", function() {
-  plyr.setup(); 
-});
+// Temporary use js to resize product list height
+function resizeProductList() {
+  var w = $(window).width();
+
+  switch (true) {
+    case (w > 1200):
+      var h = document.querySelector("video").clientHeight - 42;
+      break;
+    case (w <= 1200 && w > 991):
+      var h = '352px'
+      break;
+    default:
+      var h = '100%'
+  }
+
+  $(".product-list-container").css("height", h);
+}
+
+
+$(window).on('resize', resizeProductList);

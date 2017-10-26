@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171003012239) do
+ActiveRecord::Schema.define(version: 20171020023325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20171003012239) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_clicks_on_product_id", using: :btree
     t.index ["view_id"], name: "index_clicks_on_view_id", using: :btree
+  end
+
+  create_table "exact_requests", force: :cascade do |t|
+    t.string   "email"
+    t.integer  "view_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_exact_requests_on_product_id", using: :btree
+    t.index ["view_id"], name: "index_exact_requests_on_view_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -60,19 +70,22 @@ ActiveRecord::Schema.define(version: 20171003012239) do
 
   create_table "views", force: :cascade do |t|
     t.integer  "video_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.boolean  "scrolled",         default: false
-    t.boolean  "more_info",        default: false
-    t.text     "category_clicks",  default: [],                 array: true
-    t.integer  "jumps",            default: 0
-    t.float    "session_duration", default: 0.0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.boolean  "scrolled",              default: false
+    t.boolean  "more_info",             default: false
+    t.text     "category_clicks",       default: [],                 array: true
+    t.integer  "jumps",                 default: 0
+    t.float    "session_duration",      default: 0.0
     t.string   "view_type"
+    t.float    "active_media_duration", default: 0.0
     t.index ["video_id"], name: "index_views_on_video_id", using: :btree
   end
 
   add_foreign_key "clicks", "products"
   add_foreign_key "clicks", "views"
+  add_foreign_key "exact_requests", "products"
+  add_foreign_key "exact_requests", "views"
   add_foreign_key "products", "videos"
   add_foreign_key "related_videos", "videos"
   add_foreign_key "views", "videos"

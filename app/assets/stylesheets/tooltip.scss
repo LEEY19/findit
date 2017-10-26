@@ -1,0 +1,75 @@
+.tooltip {
+  padding: 20px;
+  width: 300px;
+  height: 95%;
+  z-index: 800;
+  top: 0;
+  right: 100%;
+  background: black; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#2c2c2c, #000); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#2c2c2c, #000); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#2c2c2c, #000); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#2c2c2c, #000); /* Standard syntax */
+  color: white;
+  text-align: center;
+}
+.tooltip i.fa-spinner {
+  font-size: 40px;
+}
+.tooltip .product_picture {
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  background-color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.tooltip .actions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 30px;
+}
+.tooltip .btn {
+  margin: 7px 0;
+  background-color: #C12A68;
+  color: white;
+  border-radius: 100px;
+  &:hover, &:active {
+    text-decoration: none;
+    background-color: darken(#B72864, 10%);
+  }
+}
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  .tooltip {
+    // top: 50%;
+    left: 100%;
+  }
+}
+@media screen and (max-width: 991px) {
+  .tooltip {
+    left: 0;
+    top: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+  }
+  .tooltip h4 {
+    font-size: 14px;
+  }
+  .tooltip .product_thumbnail {
+    margin-right: 10px;
+  }
+  .tooltip .product_picture {
+    height: 80px;
+    width: 80px;
+  }
+  .tooltip .actions {
+    padding: 0;
+  }
+  .tooltip .btn {
+    font-size: 11px
+  }
+}

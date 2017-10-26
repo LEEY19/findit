@@ -1,0 +1,40 @@
+#video-list {
+  display: flex;
+  flex-wrap: wrap;
+  
+  .video-wrapper {
+    width: 33.333%;
+  }
+  .video-block {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 90%;
+    background: rgba(255, 255, 255, .15);
+    margin: 10px auto;
+  }
+  .video-thumbnail {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    h6 {
+      background-color: black;
+      color: white;
+      position: absolute;
+      margin: 0;
+      bottom: 4px;
+      right: 4px;
+      padding: 1px;
+      font-weight: bold;
+    }
+  }
+  .video-title {
+    color: white;
+    padding: 8px;
+    min-height: 56px;
+  }
+}

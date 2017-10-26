@@ -1,81 +1,26 @@
-<div class="programme-page">
-  
-<div class="youtube-player">
-
-
-  <div class="video_player_container">
-    <div class="signalling_container">
-      <img src="http://www.clker.com/cliparts/1/H/k/P/S/l/dezzit-right-bt.svg" id="myImg">
-      <%= image_tag("closebutton.png", id: "closeBtn") %>
-      <h4 id="signal_msg">Fashion products & merchandises worn & inspired by your favourite characters, & more!</h4>
-    </div>
-    <span>
-<!--     <iframe frameborder="0" allowfullscreen="1" title="YouTube video player" width="640" height="360" src="https://www.youtube.com/embed/?enablejsapi=1&amp;origin=http%3A%2F%2Fegg.network&amp;widgetid=3" id="undefined" class="undefined"></iframe> -->
-      <div class="plyrr">
-        <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>      
-      </div>  
-    </span>
-  </div>
-  <div class="product-list-container egg-panel">
-    <div style="width: 100%;">
-      <div style="display: inline-block; float: left;">
-        
-        <h3 class="panel-title">Buy What You See</h3>
-      </div>
-      <div class="dropdown-products-list">
-        <button class="dropbtn">All Products  &#x25BE</button>
-        <div class="dropdown-content active-dropdown">
-          <% @product_categories.each do |link| %>
-            <%= link_to link, videos_dynamic_show_path(product_category: link, video_id: @video.id, view_id: @view.id), method: 'post', class: 'dropdown_links', remote: true %>
-          <% end %>
-        </div>
-      </div>
-      
-    </div>
-    <div class="product-list">
-
-      <% @products.each do |product| %>
-        <div>
-          <%= link_to videos_click_product_path(view_id: @view.id, product_id: product.id), method: 'post', target: "_blank" , class: "product-list-row" do %>
-            <div class="product-thumbnail"><img class="product_picture" src="<%= product.picture %>"></div>
-            <div class="product-details"><h3><%= product.title %></h3>
-              <% if product.appeared_at != "0:00" %>
-                <h6>Appeared at: <%= product.appeared_at %></h6>
-              <% end %>
-              <h6 style="display: none;">RM <%= product.price %></h6></div>
-          <% end %>
-        </div>
+<%= content_for :navbar do %>
+<ul class="nav navbar-nav">
+  <li class="dropdown">
+    <a class="dropdown-toggle category" data-toggle="dropdown" href="#">Category
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu category-dropdown">
+      <% @categories.each do |category| %>
+      <li>
+        <%= link_to category, videos_path(category: category) %>
+      </li>
       <% end %>
+    </ul>
+  </li>
+</ul>
 
-      <div style="display: flex; align-items: center; justify-content: center;">
-        <button type="button" class="btn seemore-btn">See More Products</button>        
-      </div>
+<% end %>
 
-    </div>
-  </div>
+<div class="container" id="video-list">
+  <%= render @videos %>
 </div>
-
-
-  <div class="video-list-container">
-    <h3 class="panel-title">More Videos</h3>
-    <div class="video-list">
-
-      <% @all_other_video.each do |video| %>
-        <div>
-          <%= link_to video_path(id: video.id, j: true), class: "video-list-row" do %>
-
-            <div class="video-thumbnail"><img class="video_picture" src="<%= video.picture %>"><h6><%= video.duration %></h6></div>
-            <div class="video-details"><h6><%= video.title %></h6></div>
-          <% end %>
-        </div>
-      <% end %>
-
-    </div>
-  </div>
-
-
+<div id="infinite-scrolling">
+  <%= paginate @videos %>
 </div>
 
 <span id="scroll_counter" style="color: white;">0</span>
-<span id="view_id" style="color: white;"><%= @view.id %></span>
-

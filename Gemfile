@@ -40,6 +40,9 @@ gem 'font-awesome-rails'
 gem 'jquery-ui-rails'
 gem 'plyr-rails'
 gem 'faker'
+gem 'underscore-rails'
+# For pagination
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -3,8 +3,8 @@ var triggered = false
 $(document).on("turbolinks:load", function() {
 
 
-  var hidden, visibilityChange; 
-  if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+  var hidden, visibilityChange;
+  if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
     hidden = "hidden";
     visibilityChange = "visibilitychange";
   } else if (typeof document.msHidden !== "undefined") {
@@ -14,7 +14,7 @@ $(document).on("turbolinks:load", function() {
     hidden = "webkitHidden";
     visibilityChange = "webkitvisibilitychange";
   }
- 
+
   function handleVisibilityChange() {
     if (document[hidden] && !triggered) {
       triggered = true
@@ -54,8 +54,7 @@ $(document).on("turbolinks:load", function() {
   if (typeof document.addEventListener === "undefined" || typeof document[hidden] === "undefined") {
     console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
   } else {
-    // Handle page visibility change   
+    // Handle page visibility change
     document.addEventListener(visibilityChange, handleVisibilityChange, false);
   }
 });
-

@@ -1,23 +1,20 @@
 class VideosController < ApplicationController
   def index
-    rand_no = rand(1..Video.all.count)
-    @video = Video.find(rand_no)
-    @products = @video.products
-    if !session[:user]
-      @view = View.create(video_id: @video.id, view_type: "wc")
-      session[:user] = @view.id
-      session[:time] = DateTime.now
+    @videos = if params[:category]
+      Video.where(content_category: params[:category])
     else
-      @view = View.find(session[:user])
+      Video.all
     end
-    @all_other_video = Video.where.not(id: [@video.id]).shuffle
-    @product_categories = @products.pluck(:product_category).uniq
+
+    @videos = @videos.page(params[:page]).per(12)
+
+    @categories = Video.all.pluck(:content_category).uniq
   end
 
   def show
     @video = Video.find(params[:id])
-    # @products = @video.products.shuffle
-    @products = Product.order("RANDOM()").first(200)
+    @products = @video.products.order(:appeared_at)
+    # @products = Product.order("RANDOM()").first(200)
 
     if !session[:user]
       @view = View.create(video_id: @video.id, view_type: "wc")
@@ -32,6 +29,14 @@ class VideosController < ApplicationController
       current_count = @view.jumps
       @view.update(jumps: current_count + 1)
     end
+  end
+
+  def active_media_duration
+    @view = View.find(session[:user])
+    @view.active_media_duration += params[:time].to_i
+    @view.save
+
+    head :ok
   end
 
   def click_product
@@ -97,7 +102,7 @@ class VideosController < ApplicationController
         end
       end
       @overall_views_clicks = Click.all.pluck(:view_id)
-      @original_total = @scrolled_views | @more_info_views | @overall_views_clicks 
+      @original_total = @scrolled_views | @more_info_views | @overall_views_clicks
       @current_total = @scrolled_views | @more_info_views | @overall_views_clicks | @counter_array
       @scrolled_and_more_info = @scrolled_views & @more_info_views
       @scrolled_and_clicks = @scrolled_views & @overall_views_clicks
@@ -115,7 +120,7 @@ class VideosController < ApplicationController
         end
       end
       @overall_views_clicks = Click.joins(view: :video).where(videos: {id: @id}).pluck(:view_id)
-      @original_total = @scrolled_views | @more_info_views | @overall_views_clicks 
+      @original_total = @scrolled_views | @more_info_views | @overall_views_clicks
       @current_total = @scrolled_views | @more_info_views | @overall_views_clicks | @counter_array
       @scrolled_and_more_info = @scrolled_views & @more_info_views
       @scrolled_and_clicks = @scrolled_views & @overall_views_clicks
