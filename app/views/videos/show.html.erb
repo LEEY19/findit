@@ -6,7 +6,6 @@
 
 <div class="youtube-player">
   <div class="video_player_container">
-    <!-- <span> -->
     <div class="plyrr">
       <% if @video.video_link =~ /youtube/ %>
         <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>
@@ -17,6 +16,7 @@
       <% end %>
       <div class="product-list-container egg-panel">
         <div class="tooltip"></div>
+        <div id="on-screen-product"></div>
         <div class="product-list">
           <% @products.each do |product| %>
           <div>

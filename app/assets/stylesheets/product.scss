@@ -184,7 +184,7 @@
           flex-direction: column;
           overflow-y: none;
           overflow-x: auto; } }
-      .youtube-player .product-list-container .product-list .product-list-row {
+      .youtube-player .product-list-container .product-list-row {
         display: flex;
         flex-direction: column;
         max-width: 220px;
@@ -202,7 +202,7 @@
         // overflow-y: auto;
        }
       @media only screen and (max-width: 767px) {
-        .youtube-player .product-list-container .product-list .product-list-row {
+        .youtube-player .product-list-container .product-list-row {
           display: flex;
           flex-direction: column;
           max-width: 220px;
@@ -216,30 +216,30 @@
           height: auto;
         }
       }
-        .youtube-player .product-list-container .product-list .product-list-row .product_picture {
+        .youtube-player .product-list-container .product-list-row .product_picture {
           // max-height: 100px;
           // max-width: 100px;
  /*         height: 100px;
           width: 100px;
  */       }
-/*        .youtube-player .product-list-container .product-list .product-list-row:hover {
+/*        .youtube-player .product-list-container .product-list-row:hover {
           background-color: #303030; }*/
         @media only screen and (min-width: 992px) and (max-width: 1199px) {
-          .youtube-player .product-list-container .product-list .product-list-row {
+          .youtube-player .product-list-container .product-list-row {
             flex-direction: row;
             height: inherit;
             max-width: inherit; } }
         @media only screen and (min-width: 1200px) {
-          .youtube-player .product-list-container .product-list .product-list-row {
+          .youtube-player .product-list-container .product-list-row {
             flex-direction: row;
             height: inherit;
             max-width: inherit; } }
-        .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail {
+        .youtube-player .product-list-container .product-list-row .product-thumbnail {
           padding: 4px 30px;
           font-size: 0;
           position: relative;
           flex: 1 }
-          .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail .product_picture {
+          .youtube-player .product-list-container .product-list-row .product-thumbnail .product_picture {
             width: 90px;
             height: 90px;
             background-color: #fff;
@@ -247,7 +247,7 @@
             background-repeat: no-repeat;
             background-position: center;
           }
-          .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail h6 {
+          .youtube-player .product-list-container .product-list-row .product-thumbnail h6 {
             background-color: black;
             color: black;
             position: absolute;
@@ -257,22 +257,22 @@
             padding: 1px;
             font-weight: bold; }
           @media only screen and (min-width: 992px) and (max-width: 1199px) {
-            .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail {
+            .youtube-player .product-list-container .product-list-row .product-thumbnail {
               padding: 4px; } }
           @media only screen and (min-width: 1200px) {
-            .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail {
+            .youtube-player .product-list-container .product-list-row .product-thumbnail {
               padding: 4px; } }
-        .youtube-player .product-list-container .product-list .product-list-row .product-details {
+        .youtube-player .product-list-container .product-list-row .product-details {
           padding: 4px;
           flex: 2; }
-          .youtube-player .product-list-container .product-list .product-list-row .product-details .on-screen {
+          .youtube-player .product-list-container .product-list-row .product-details .on-screen {
             display: none;
             color: #B72864;
             font-size: 18px;
             text-transform: uppercase;
             font-weight: bold;
             margin: 5px 8px 0; }
-          .youtube-player .product-list-container .product-list .product-list-row .product-details h3 {
+          .youtube-player .product-list-container .product-list-row .product-details h3 {
 /*            display: inline-block;
 */            /*background-color: #00BFFF;*/
             color: white;
@@ -282,7 +282,7 @@
             font-size: 13px;
             font-weight: bold; }
             @media only screen and (max-width: 767px) {
-            .youtube-player .product-list-container .product-list .product-list-row .product-details h3 {
+            .youtube-player .product-list-container .product-list-row .product-details h3 {
               // color: black;
               margin: 0;
               padding: 2px 4px;
@@ -291,7 +291,7 @@
               font-weight: bold; }
             }
 
-          .youtube-player .product-list-container .product-list .product-list-row .product-details h6 {
+          .youtube-player .product-list-container .product-list-row .product-details h6 {
 /*            display: inline-block;
 */            /*background-color: #00BFFF;*/
             color: #999999;
@@ -300,7 +300,7 @@
             border-radius: 7px;
             font-size: 12px; }
   @media only screen and (max-width: 767px) {
-          .youtube-player .product-list-container .product-list .product-list-row .product-details h6 {
+          .youtube-player .product-list-container .product-list-row .product-details h6 {
 /*            display: inline-block;
 */            /*background-color: #00BFFF;*/
             color: #999999;
@@ -309,7 +309,7 @@
             font-size: 12px; }
   }
   @media only screen and (max-width: 767px) {
-          .youtube-player .product-list-container .product-list .product-list-row .product-details {
+          .youtube-player .product-list-container .product-list-row .product-details {
             text-align: center;
             display: inline-block;
             color: black;
@@ -319,7 +319,7 @@
             font-size: 15px;
             font-weight: bold; }}
 
-        .youtube-player .product-list-container .product-list .product-list-row.active {
+        .youtube-player .product-list-container .product-list-row.active {
           .product-thumbnail .product_picture {
             height: 140px;
             width: 140px;
