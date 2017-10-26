@@ -15,8 +15,8 @@ $(document).on("turbolinks:load", function() {
     if (!($(el).hasClass("tooltip") || $(el).parents(".tooltip").length))
       $(".tooltip").css('opacity', 0);
   }
-  $(".product-list-row").on("mouseenter click", showTooltip)
-  $(".product-list-row").on("mouseleave", hideTooltip)
+  $(document).on("mouseenter click", ".product-list-row", showTooltip)
+  $(document).on("mouseleave", ".product-list-row", hideTooltip)
 
   $(".tooltip").on("mouseleave", function () {
     $(this).css('opacity', 0);
