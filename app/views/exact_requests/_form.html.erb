@@ -1,4 +1,7 @@
-<h3>Want an exact match of <%= product.title %>?</h3>
+<h4>
+  <p>Want an exact match of <span style="color: #C12A68"><%= product.title %></span>?</p>
+  <p>Drop your email and we will get it for you and contact you afterwards!</p>
+</h4>
 <%= form_for :exact_request, url: exact_requests_path(exact_request), remote: true do |f| %>
 
   <%= render "shared/error_messages", target: exact_request %>

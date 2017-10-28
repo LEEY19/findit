@@ -54,7 +54,7 @@
 
 
 <div class="video-list-container">
-  <h3 class="panel-title">Similar TV Shows</h3>
+  <h3 class="similar-video-title">Similar TV Shows</h3>
   <div class="video-list">
     <% @all_other_video.each do |video| %>
       <%= link_to video_path(id: video.id, j: true) do %>
@@ -77,5 +77,5 @@
 
 </div>
 <%= render "products/modal" %>
-<span id="scroll_counter" style="color: white;">0</span>
-<span id="view_id" style="color: white;"><%= @view.id %></span>
+<span id="scroll_counter" style="color: black;">0</span>
+<span id="view_id" style="color: black;"><%= @view.id %></span>

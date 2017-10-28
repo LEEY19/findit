@@ -80,38 +80,50 @@ $(document).on("turbolinks:load", function() {
     updateDuration()
   })
   vp[0].on("timeupdate", _.throttle(function () {
-    if (vp[0].isPaused() || !scrollable) return
+
+    if (vp[0].isPaused()) return
 
     var duration = Math.round(vp[0].getCurrentTime());
     var $el = $(".product-list-row[data-appear-at='" + duration + "']").first()
-
-    // if element exist
+    
     if ($el.length) {
-      var $container = $(".product-list");
-
-      // if on computer
-      if ($(window).width() > 991) {
+      if (!scrollable && full_width > 991) {
         var $newEl = $el.clone()
         $newEl.addClass("active")
         $('#on-screen-product').html($newEl)
 
-        $el = $el.parent().next()
-        
-        $container.animate({
-          scrollTop: $el.offset().top - $container.offset().top + $container.scrollTop()
-        }, 500)
       } else {
-        $(".product-list-row").removeClass("active")
-        $el.addClass("active");
+      // if element exist
+        var $container = $(".product-list");
 
-        $container.animate({
-          scrollLeft: $el.offset().left - $container.offset().left + $container.scrollLeft()
-        }, 500)
+        // if on computer
+        if ($(window).width() > 991) {
+          var $newEl = $el.clone()
+          $newEl.addClass("active")
+          $('#on-screen-product').html($newEl)
+
+          $el = $el.parent().next()
+          
+          $container.animate({
+            scrollTop: $el.offset().top - $container.offset().top + $container.scrollTop()
+          }, 500)
+        } else {
+          $(".product-list-row").removeClass("active")
+          $el.addClass("active");
+
+          $container.animate({
+            scrollLeft: $el.offset().left - $container.offset().left + $container.scrollLeft()
+          }, 500)
+        }
+        
       }
+
     }
+
   }, 1000))
 
   $(".product-list").on("scroll", function () {
+    // debugger;
     scrollable = false;
 
     makeScrollable();

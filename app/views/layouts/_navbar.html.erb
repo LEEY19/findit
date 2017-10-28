@@ -1,7 +1,9 @@
 <nav>
   <div class="nav-wrapper">
     <div class="nav-header">
-      <%= image_tag("finditlogo.png", class: "logo") %>
+      <%= link_to("/") do %>
+        <%= image_tag("finditlogo.png", class: "logo") %>
+      <% end %>
     </div>
 
     <%= yield :navbar %>
