@@ -123,7 +123,6 @@ $(document).on("turbolinks:load", function() {
   }, 1000))
 
   $(".product-list").on("scroll", function () {
-    // debugger;
     scrollable = false;
 
     makeScrollable();
