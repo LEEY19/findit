@@ -7,9 +7,9 @@
   flex-direction: column;
   padding: 6px;
   h3 {
-    color: rgba(255, 255, 255, .4);
+    color: #B72864;
     margin: 10px 0;
-    font-size: 14px;
+    font-size: 17px;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -138,11 +138,11 @@
 
 .video-list-container .video-list .video-list-row .video-details {
   padding: 4px;
-  min-height: 69px;
+  min-height: 55px;
 }
 
 .video-list-container .video-list .video-list-row .video-details h6 {
-  font-size: 14px;
+  font-size: 12.5px;
   margin: 8px 5px;
   color: rgba(255, 255, 255, .75);
 }
