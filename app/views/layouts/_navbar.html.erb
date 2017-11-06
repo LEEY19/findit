@@ -2,7 +2,7 @@
   <div class="nav-wrapper">
     <div class="nav-header">
       <%= link_to(link) do %>
-        <div class="logo" style="background-image: url('/assets/finditlogo.png')"></div>
+        <div class="logo" style="background-image: url(<%= asset_path 'finditlogo.png' %>)"></div>
       <% end %>
     </div>
     <% if digital %>
