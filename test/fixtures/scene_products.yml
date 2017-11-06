@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scene: one
+  seen_on: MyString
+  price: MyString
+  title: MyString
+  free_gift: MyString
+  sizes: MyString
+  colors: MyString
+
+two:
+  scene: two
+  seen_on: MyString
+  price: MyString
+  title: MyString
+  free_gift: MyString
+  sizes: MyString
+  colors: MyString

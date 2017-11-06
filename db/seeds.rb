@@ -38,3 +38,17 @@ csv3.each do |row|
   t.duration = row['Duration']
   t.save!
 end
+
+scenes = File.read(Rails.root.join('lib', 'seeds', 'scenes.csv'))
+all_scenes = CSV.parse(scenes, :headers => true, :encoding => 'ISO-8859-1')
+Episode.create(name: "Red Velvet Ep.01")
+all_scenes.each do |row|
+  t = Scene.new
+  t.episode_id = row['Episode ID']
+  t.scene_url = row['Screenshot URL']
+  t.save!
+end
+
+SceneProduct.create(scene_id: 1, seen_on: "Helena", price: "RM149.00", title: "Bloom By Naelofar Hijab (3pcs set)", free_gift: nil, sizes: nil, colors: "Peachskin, Meteorite, Pigeon", discount_code: "FIRV13", discount_message: nil, product_link: "http://www.goshop.com.my/prd/20042419.html", picture_url: "http://image.goshop.com.my/resources/ms/image/contents/prd/24/19/20042419_06_1200.jpg", slashed_price: nil, features: "SERI : PEACHSKIN (Instant) \nKIRANA : METEORITE (Double loop) \nAURA : PIGEON(Semi-instant with attached inner)")
+SceneProduct.create(scene_id: 1, seen_on: "Helena", price: "RM489.60", title: "Esprit White Leather Strap Ladies Watch", free_gift: nil, sizes: nil, colors: "IP rose gold case", discount_code: "FIRV13", discount_message: nil, product_link: "http://www.goshop.com.my/prd/fashion/accessories/esprit-white-leather-strap-ladies-watch-es109112002/20040335.html", picture_url: "http://image.goshop.com.my/resources/ms/image/contents/prd/03/35/20040335_01_1200.jpg", slashed_price: "RM576.00", features: "mineral crystal \nwhite leather strap \nmother of pearl dial \nwater resistance 30m \n2 hand \ncase size 34mm \ncrystal stones on bezel")
+

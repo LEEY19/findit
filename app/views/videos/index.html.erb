@@ -1,6 +1,5 @@
-<%= content_for :navbar do %>
-  <%= render 'layouts/dropdown', categories: @categories %>
-<% end %>
+
+<%= render 'layouts/navbar', categories: @categories, link: "/", digital: true %>
 
 <div class="container" id="video-list">
   <%= render @videos %>

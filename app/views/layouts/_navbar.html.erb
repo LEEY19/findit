@@ -1,11 +1,12 @@
 <nav>
   <div class="nav-wrapper">
     <div class="nav-header">
-      <%= link_to("/") do %>
-        <%= image_tag("finditlogo.png", class: "logo") %>
+      <%= link_to(link) do %>
+        <div class="logo" style="background-image: url('/assets/finditlogo.png')"></div>
       <% end %>
     </div>
-
-    <%= yield :navbar %>
+    <% if digital %>
+      <%= render 'layouts/dropdown', categories: categories %>
+    <% end %>
   </div>
 </nav>

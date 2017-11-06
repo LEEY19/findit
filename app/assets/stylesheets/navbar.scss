@@ -1,5 +1,10 @@
 .logo {
-  height: 45px;
+  height: 100%;
+  width: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-position: center;
 }
 
 .social_logo {
@@ -11,16 +16,20 @@
 
 .nav-wrapper {
   display: flex;
+  height: 55px;
 }
 @media screen and (max-width: 767px) {
   .nav-wrapper {
     justify-content: space-between;
   }
 }
-
+ul.nav {
+  display: inherit;
+}
 .dropdown-toggle.category {
+  font-size: 18px;
+  height: 100%;
   color: white;
-  font-size: 22px;
   border-left: 1px solid #555;
   border-right: 1px solid #555;
   &:hover, &:active, &:focus {
@@ -37,6 +46,7 @@
 }
 
 .category-dropdown {
+  top: 53px;
   background: #222222;
   border-radius: 0;
   li a {
@@ -52,12 +62,14 @@
 }
 @media screen and (max-width: 767px) {
   .dropdown-toggle.category {
+    height: 100%;
     font-size: 18px;
   }
   .category-dropdown.dropdown-menu {
     width: 100vw;
     left: auto;
     right: 0;
+    top: 53px;
     position: absolute;
     background-color: #222222;
     li a {
