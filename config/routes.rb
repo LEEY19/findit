@@ -21,4 +21,10 @@ Rails.application.routes.draw do
   get '/analytics/:id' => "videos#analytics"
   post 'videos/dynamic_show' => 'videos#dynamic_show'
   get 'videos/rv/:id' => "videos#rv", as: "rv"
+
+  # FOR LINEAR LANDING
+  resources :scenes
+
+  # get '/ria' => "linear_products#index"
+  # get '/ria/scene' => "linear_products#scene_display"
 end

@@ -1,0 +1,40 @@
+<div class="scene-product-big-wrapper" data-product-wrapper=<%= product.id %>>
+  
+  <div class="scene-product-wrapper">
+    <div class="scene-product-thumbnail-wrapper">
+      <p class="scene-product-artist">Digayakan oleh Helena</p>
+      <div class="scene-product-thumbnail" style="background-image: url(<%= product.picture_url %>)"></div>
+      
+    </div>
+    <div class="scene-product-details">
+      <p class="product-title"><%= product.title %></p>
+      <div>
+        <% if product.slashed_price %>
+          <span class="slashed_price"><%= "#{product.slashed_price}  " %></span>
+        <% end %>
+        <span class="price"><%= product.price %></span>
+      </div>
+      <p>Gunakan code <span class="discount_code"><%= product.discount_code %></span> untuk dapatkan discount eksklusif!</p>
+      <%= link_to "Buy Now", product.product_link, class: 'btn', target: '_blank' %>
+    </div>
+
+  </div>
+
+  <div class="more-details" data-more-details-row=<%= product.id %>>
+    <div class="more-details-div-1">
+      <p class="scene-product-detail">Colors: <p><%= product.colors %></p></p>
+      <% if product.sizes %>
+        <p class="scene-product-detail">Sizes: <p><%= product.sizes %></p></p>
+      <% end %>
+    </div>
+    <div class="more-details-div-2 ">
+      <p class="scene-product-detail">Features: 
+        <% product.features.split(/ \n/).each do |x| %>
+          <p><%= "\u2022 #{x}" %></p>
+        <% end %>
+      </p>    
+    </div>
+  </div>
+
+</div>
+

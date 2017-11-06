@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020023325) do
+ActiveRecord::Schema.define(version: 20171105085109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20171020023325) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_clicks_on_product_id", using: :btree
     t.index ["view_id"], name: "index_clicks_on_view_id", using: :btree
+  end
+
+  create_table "episodes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "exact_requests", force: :cascade do |t|
@@ -58,6 +64,34 @@ ActiveRecord::Schema.define(version: 20171020023325) do
     t.index ["video_id"], name: "index_related_videos_on_video_id", using: :btree
   end
 
+  create_table "scene_products", force: :cascade do |t|
+    t.integer  "scene_id"
+    t.string   "seen_on"
+    t.string   "price"
+    t.string   "title"
+    t.string   "free_gift"
+    t.string   "sizes"
+    t.string   "colors"
+    t.string   "discount_code"
+    t.string   "discount_message"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "product_link"
+    t.string   "picture_url"
+    t.string   "slashed_price"
+    t.string   "features"
+    t.index ["scene_id"], name: "index_scene_products_on_scene_id", using: :btree
+  end
+
+  create_table "scenes", force: :cascade do |t|
+    t.integer  "episode_id"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "scene_url"
+    t.index ["episode_id"], name: "index_scenes_on_episode_id", using: :btree
+  end
+
   create_table "videos", force: :cascade do |t|
     t.string   "video_link"
     t.string   "title"
@@ -88,5 +122,7 @@ ActiveRecord::Schema.define(version: 20171020023325) do
   add_foreign_key "exact_requests", "views"
   add_foreign_key "products", "videos"
   add_foreign_key "related_videos", "videos"
+  add_foreign_key "scene_products", "scenes"
+  add_foreign_key "scenes", "episodes"
   add_foreign_key "views", "videos"
 end

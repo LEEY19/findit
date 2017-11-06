@@ -1,0 +1,11 @@
+<div class="scene-wrapper">
+<%= link_to scene_path(id: scene.id) do %>
+  <div class="scene-block">
+    <div class="scene-thumbnail" style="background-image: url(<%= scene.scene_url %>)">
+    </div>
+    <div class="scene-title">
+      <%= scene.episode.name %>
+    </div>
+  </div>
+<% end %>
+</div>
