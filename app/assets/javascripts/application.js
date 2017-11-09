@@ -24,6 +24,14 @@ function resizeProductList() {
 
   switch (true) {
     case (w > 1200):
+      // var h = null
+      // var video = document.querySelector("video")
+      // var plyr = document.querySelector(".plyr")
+      // if (plyr) {
+      //   var h = plyr.clientHeight - 42;
+      // } else if (video) {
+      //   var h = video.clientHeight - 42 + 55;
+      // }
       var h = document.querySelector("video, .plyr").clientHeight - 42;
       break;
     case (w <= 1200 && w > 991):

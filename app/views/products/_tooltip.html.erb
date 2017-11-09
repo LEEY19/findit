@@ -3,6 +3,8 @@
     <div style="background-image: url(<%= product.picture %>)" class="product_picture"></div>
   </div>
   <h4><%= product.title %></h4>
+  <p><span style="color: yellow;">Sizes:</span> <%= product.sizes %></p>
+  <p><span style="color: yellow;">Colors:</span> <%= product.colors %></p>
 </div>
 <div class="actions">
   <%= link_to "Buy Now", product.product_link, class: 'btn', target: '_blank' %>

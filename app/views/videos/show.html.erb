@@ -1,3 +1,4 @@
+
 <%= render 'layouts/navbar', categories: @categories, link: "/", digital: true %>
 
 <div class="programme-page">
@@ -9,7 +10,7 @@
         <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>
       <% else %>
         <video controls>
-          <source src="http://video.vzaar.com/vzaar/vz2/ca8/target/vz2ca8766d2c784622b92526936d1bf25b.mp4?response-content-disposition=inline&AWSAccessKeyId=AKIAJ74MFWNVAFH6P7FQ&Expires=1508510312&Signature=%2BnZDl5%2BVMju7VIHIQWnyS88h0q8%3D" type="video/mp4">
+          <source src="<%= @video.video_link %>" type="video/mp4">
         </video>
       <% end %>
       <div class="product-list-container egg-panel">
@@ -46,7 +47,6 @@
         </div>
       </div>
     </div>
-    <!-- </span> -->
   </div>
 </div>
 

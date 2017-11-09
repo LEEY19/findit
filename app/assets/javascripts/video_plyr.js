@@ -74,6 +74,7 @@ $(document).on("turbolinks:load", function() {
   }
 
   vp[0].on("play", function () {
+    resizeProductList()
     startTimer()
   })
   vp[0].on("pause", function () {
@@ -123,6 +124,7 @@ $(document).on("turbolinks:load", function() {
   }, 1000))
 
   $(".product-list").on("scroll", function () {
+    resizeProductList()
     scrollable = false;
 
     makeScrollable();

@@ -7,6 +7,8 @@
     </div>
     <% if digital %>
       <%= render 'layouts/dropdown', categories: categories %>
+    <% else %>
+      <%= render 'layouts/filter' %>
     <% end %>
   </div>
 </nav>

@@ -1,0 +1,17 @@
+<div class="scene-wrapper">
+  <%= link_to scene_path(id: sceneProduct.scene_id) do %>
+    <div class="scene-block sceneProduct-block">
+      <div class="sceneProduct-thumbnail" style="background-image: url(<%= sceneProduct.picture_url %>)">
+      </div>
+      <div class="sceneProduct-desc">
+        <%= sceneProduct.title %>
+        <div>
+          <% if sceneProduct.slashed_price %>
+            <span class="slashed_price"><%= "#{sceneProduct.slashed_price}  " %></span>
+          <% end %>
+          <span class="price"><%= sceneProduct.price %></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

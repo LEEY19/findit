@@ -21,22 +21,34 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    h6 {
-      background-color: black;
-      color: white;
-      position: absolute;
-      margin: 0;
-      bottom: 4px;
-      right: 4px;
-      padding: 1px;
-      font-weight: bold;
-    }
+  }
+  .sceneProduct-thumbnail {
+    width: 100%;
+    height: 90%;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
   }
   .scene-title {
     height: 10%;
     color: white;
     padding: 8px;
     min-height: 56px;
+  }
+  .sceneProduct-desc {
+    height: 10%;
+    color: white;
+    padding: 8px;
+    min-height: 56px;
+    .slashed_price {
+      text-decoration: line-through;
+      color: #CCCC00;
+    }
+    .price {
+      color: #FFFF00;
+    }
   }
 
   @media screen and (max-width: 991px) {
@@ -51,13 +63,42 @@
       .scene-block {
         height: 180px;
       }
+      .scene-block.sceneProduct-block {
+        height: 250px;
+      }
     }
     .scene-thumbnail {
       height: 95%;
       padding-bottom: 56.25%;
     }
+    .sceneProduct-thumbnail {
+      height: 70%;
+    }
     .scene-title {
       height: 5%;
+    }
+    .sceneProduct-desc {
+      height: 30%;
+    }
+  }
+}
+
+
+#modalPromo {
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+  }
+  .btn {
+    background-color: #C12A68;
+    color: white;
+    border-radius: 100px;
+    padding: 7px 30px;
+    &:hover, &:active {
+      text-decoration: none;
+      background-color: darken(#B72864, 10%);
     }
   }
 }

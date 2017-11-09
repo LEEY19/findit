@@ -1,8 +1,15 @@
 <%= render "layouts/navbar", link: "/scenes", digital: false %>
 
 <div id="scene-list">
-  <%= render partial: 'scene', collection: @scenes %>
+  <% if @products.empty? %>
+    <%= render partial: 'scene', collection: @scenes %>
+  <% else %>
+    <%= render partial: 'sceneProduct', collection: @products %>
+  <% end %>
 </div>
+
+
+<%= render "modalPromo" %>
 
 <footer>
   <%= link_to("https://www.facebook.com/Find-It-111053949615332/") do %>
