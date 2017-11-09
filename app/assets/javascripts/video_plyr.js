@@ -126,7 +126,7 @@ $(document).on("turbolinks:load", function() {
   }, 1000))
 
   $(".product-list").on("scroll", function () {
-    resizeProductList()
+    // resizeProductList()
     scrollable = false;
 
     makeScrollable();
