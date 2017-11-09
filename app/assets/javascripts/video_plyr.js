@@ -5,6 +5,8 @@ $(document).on("turbolinks:load", function() {
   var vp = plyr.setup();
   vp[0].on("ready", resizeProductList);
 
+  vp[0].on("exitfullscreen", resizeProductList);
+
   var full_width = $(window).width();
   if ($("#woc").get(0)) {
     if (full_width > 1200){
