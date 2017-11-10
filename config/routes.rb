@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :exact_requests, only: [:show, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "videos#index"
+  root to: "scenes#index"
   resources :videos
   post "videos/click_product" => "videos#click_product"
   post '/track_scroll' => "videos#track_scroll"
@@ -24,7 +24,5 @@ Rails.application.routes.draw do
 
   # FOR LINEAR LANDING
   resources :scenes
-
-  # get '/ria' => "linear_products#index"
-  # get '/ria/scene' => "linear_products#scene_display"
+  get '/t&c' => "scenes#t_and_c", as: "t_and_c"
 end

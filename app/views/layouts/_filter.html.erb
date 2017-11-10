@@ -8,10 +8,10 @@
         <%= link_to "Products", "#", class: "submenu-opener" %>
         <ul class="dropdown-menu">
           <li>
-          <%= link_to "Red Velvet Ep.01", scenes_path(filter: true, type: "products", episode: 1) %>
+          <%= link_to "Red Velvet Ep.13", scenes_path(filter: true, type: "products", episode: 1) %>
           </li>
           <li>
-          <%= link_to "Red Velvet Ep.02", scenes_path(filter: true, type: "products", episode: 2) %>            
+          <%= link_to "Red Velvet Ep.14", scenes_path(filter: true, type: "products", episode: 2) %>            
           </li>
         </ul>
       </li>
@@ -20,26 +20,18 @@
         <%= link_to "Scenes", "#", class: "submenu-opener" %>
         <ul class="dropdown-menu">
           <li>
-          <%= link_to "Red Velvet Ep.01", scenes_path(filter: true, type: "scenes", episode: 1) %>
+          <%= link_to "Red Velvet Ep.13", scenes_path(filter: true, type: "scenes", episode: 1) %>
           </li>
           <li>
-          <%= link_to "Red Velvet Ep.02", scenes_path(filter: true, type: "scenes", episode: 2) %>            
-          </li>
-        </ul>
-      </li>
-
-      <li class="dropdown-submenu">
-        <%= link_to "Characters", "#", class: "submenu-opener" %>
-        <ul class="dropdown-menu">
-          <li>
-          <%= link_to "Naelofar", scenes_path(filter: true, type: "characters", character: "Naelofar") %>
-          </li>
-          <li>
-          <%= link_to "Alif Satar", scenes_path(filter: true, type: "characters", character: "Alif Satar") %>            
+          <%= link_to "Red Velvet Ep.14", scenes_path(filter: true, type: "scenes", episode: 2) %>            
           </li>
         </ul>
       </li>
 
     </ul>
+  </li>
+
+  <li class="dropdown">
+    <%= link_to "T&C", t_and_c_path, class: "dropdown-toggle category" %>
   </li>
 </ul>

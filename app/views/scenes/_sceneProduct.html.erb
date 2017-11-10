@@ -1,5 +1,5 @@
 <div class="scene-wrapper">
-  <%= link_to scene_path(id: sceneProduct.scene_id) do %>
+  <%= link_to scene_path(id: sceneProduct.scene_id, type: "products") do %>
     <div class="scene-block sceneProduct-block">
       <div class="sceneProduct-thumbnail" style="background-image: url(<%= sceneProduct.picture_url %>)">
       </div>

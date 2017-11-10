@@ -2,7 +2,7 @@
   
   <div class="scene-product-wrapper">
     <div class="scene-product-thumbnail-wrapper">
-      <p class="scene-product-artist">Digayakan oleh Helena</p>
+
       <div class="scene-product-thumbnail" style="background-image: url(<%= product.picture_url %>)"></div>
       
     </div>
@@ -14,26 +14,47 @@
         <% end %>
         <span class="price"><%= product.price %></span>
       </div>
-      <p>Gunakan code <span class="discount_code"><%= product.discount_code %></span> untuk dapatkan discount eksklusif!</p>
-      <%= link_to "Buy Now", product.product_link, class: 'btn', target: '_blank' %>
+      <p>Gunakan code <span class="discount_code">RIAFINDIT</span> untuk dapatkan discount eksklusif!</p>
+      <%= link_to "Buy Now", product.product_link, class: 'btn buy_now_button', target: '_blank' %>
     </div>
 
   </div>
 
   <div class="more-details" data-more-details-row=<%= product.id %>>
-    <div class="more-details-div-1">
-      <p class="scene-product-detail">Colors: <p><%= product.colors %></p></p>
-      <% if product.sizes %>
-        <p class="scene-product-detail">Sizes: <p><%= product.sizes %></p></p>
-      <% end %>
-    </div>
-    <div class="more-details-div-2 ">
-      <p class="scene-product-detail">Features: 
-        <% product.features.split(/ \n/).each do |x| %>
-          <p><%= "\u2022 #{x}" %></p>
+    <% if product.free_gift %>
+      <div class="more-details-div-0">
+          <p class="scene-product-detail">Free Gifts: 
+
+            <% product.free_gift.split(/\n/).each do |x| %>
+              <p><%= "\u2022 #{x}" %></p>
+            <% end %>
+          </p>  
+      </div> 
+    <% end %>
+
+    <div class="more-details-nested">
+      <div class="more-details-div-1">
+        <% if product.colors %>
+        <p class="scene-product-detail">Colors: <p><%= product.colors %></p></p>
         <% end %>
-      </p>    
+        <% if product.sizes %>
+          <p class="scene-product-detail">Sizes: <p><%= product.sizes %></p></p>
+        <% end %>
+      </div>
+      <% if product.features %>
+        <div class="more-details-div-2 ">
+          <p class="scene-product-detail">Features: 
+
+            <% product.features.split(/\n/).each do |x| %>
+              <p><%= "\u2022 #{x}" %></p>
+            <% end %>
+          </p>    
+        </div>
+      <% end %>
+      
     </div>
+
+
   </div>
 
 </div>
