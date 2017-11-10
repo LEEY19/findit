@@ -2,8 +2,10 @@
   
   <div class="scene-product-wrapper">
     <div class="scene-product-thumbnail-wrapper">
-
-      <div class="scene-product-thumbnail" style="background-image: url(<%= product.picture_url %>)"></div>
+      <div class="scene-product-thumbnail" style="background-image: url(<%= product.picture_url %>)">
+        <span class="anno-number"><%= product.product_annot %></span>
+        
+      </div>
       
     </div>
     <div class="scene-product-details">

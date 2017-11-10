@@ -34,12 +34,19 @@
             padding: 0;
           }
           .scene-product-thumbnail {
+            display: flex;
             padding-top: -20px;
             background-size: contain;
             background-repeat: no-repeat;
             background-color: rgba(255,255,255,1);
             background-position: center;
             height: 90%;
+            .anno-number {
+              background-color: #C12A68;
+              border-radius: 10px;
+              height: 20px;
+              width: 20px;
+            }
           }
         }
         .scene-product-details {

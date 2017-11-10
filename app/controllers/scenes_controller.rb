@@ -10,6 +10,7 @@ class ScenesController < ApplicationController
       case params[:type]
         when "products"
           @products = SceneProduct.joins(scene: :episode).where(episodes: {id: params[:episode]})
+          @products = @products.to_a.uniq {|x| [x.title]}
         when "scenes"
           @scenes = Scene.where(episode_id: params[:episode])
         when "characters"

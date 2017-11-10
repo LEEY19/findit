@@ -68,6 +68,7 @@ all_sceneproducts13.each do |row|
   t = SceneProduct.new
   t.scene_id = row['Scene ID']
   t.seen_on = row['Seen On']
+  t.product_annot = row['Product Annot']
   t.price = row['Price']
   t.title = row['Title']
   t.slashed_price = row['Slashed Price']
@@ -86,6 +87,7 @@ all_sceneproducts14.each do |row|
   t = SceneProduct.new
   t.scene_id = row['Scene ID']
   t.seen_on = row['Seen On']
+  t.product_annot = row['Product Annot']
   t.price = row['Price']
   t.title = row['Title']
   t.slashed_price = row['Slashed Price']
