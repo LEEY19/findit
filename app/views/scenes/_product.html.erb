@@ -12,9 +12,9 @@
       <p class="product-title"><%= product.title %></p>
       <div>
         <% if product.slashed_price %>
-          <span class="slashed_price"><%= "#{product.slashed_price}  " %></span>
+          <span class="slashed_price"><%= "#{product.price}  " %></span>
         <% end %>
-        <span class="price"><%= product.price %></span>
+        <span class="price"><%= product.slashed_price %></span>
       </div>
       <p>Gunakan code <span class="discount_code">RIAFINDIT</span> untuk dapatkan discount eksklusif!</p>
       <%= link_to "Buy Now", product.product_link, class: 'btn buy_now_button', target: '_blank' %>
