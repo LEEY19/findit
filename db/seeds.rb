@@ -40,18 +40,62 @@ end
 #   t.duration = row['Duration']
 #   t.save!
 # end
-
-scenes = File.read(Rails.root.join('lib', 'seeds', 'scenes.csv'))
-all_scenes = CSV.parse(scenes, :headers => true, :encoding => 'ISO-8859-1')
-Episode.create(name: "Red Velvet Ep.01")
-Episode.create(name: "Red Velvet Ep.02")
-all_scenes.each do |row|
+Episode.create(name: "Red Velvet Ep.13")
+Episode.create(name: "Red Velvet Ep.14")
+scenes13 = File.read(Rails.root.join('lib', 'seeds', 'scenes13.csv'))
+all_scenes13 = CSV.parse(scenes13, :headers => true, :encoding => 'ISO-8859-1')
+all_scenes13.each do |row|
   t = Scene.new
   t.episode_id = row['Episode ID']
-  t.scene_url = row['Screenshot URL']
+  t.scene_url = row['Screenshot Scene URL']
+  t.description = row['Screenshot Scene (with numbers) URL']
   t.save!
-  SceneProduct.create(scene_id: t.id, seen_on: "Naelofar", price: "RM149.00", title: "Bloom By Naelofar Hijab (3pcs set)", free_gift: nil, sizes: nil, colors: "Peachskin, Meteorite, Pigeon", discount_code: "FIRV13", discount_message: nil, product_link: "http://www.goshop.com.my/prd/20042419.html", picture_url: "http://image.goshop.com.my/resources/ms/image/contents/prd/24/19/20042419_06_1200.jpg", slashed_price: nil, features: "SERI : PEACHSKIN (Instant) \nKIRANA : METEORITE (Double loop) \nAURA : PIGEON(Semi-instant with attached inner)")
-  SceneProduct.create(scene_id: t.id, seen_on: "Alif Satar", price: "RM489.60", title: "Esprit White Leather Strap Ladies Watch", free_gift: nil, sizes: nil, colors: "IP rose gold case", discount_code: "FIRV13", discount_message: nil, product_link: "http://www.goshop.com.my/prd/fashion/accessories/esprit-white-leather-strap-ladies-watch-es109112002/20040335.html", picture_url: "http://image.goshop.com.my/resources/ms/image/contents/prd/03/35/20040335_01_1200.jpg", slashed_price: "RM576.00", features: "mineral crystal \nwhite leather strap \nmother of pearl dial \nwater resistance 30m \n2 hand \ncase size 34mm \ncrystal stones on bezel")
+end
+
+scenes14 = File.read(Rails.root.join('lib', 'seeds', 'scenes14.csv'))
+all_scenes14 = CSV.parse(scenes14, :headers => true, :encoding => 'ISO-8859-1')
+all_scenes14.each do |row|
+  t = Scene.new
+  t.episode_id = row['Episode ID']
+  t.scene_url = row['Screenshot Scene URL']
+  t.description = row['Screenshot Scene (with numbers) URL']
+  t.save!
+end
+
+sceneproducts13 = File.read(Rails.root.join('lib', 'seeds', 'sceneproducts13.csv'))
+all_sceneproducts13 = CSV.parse(sceneproducts13, :headers => true, :encoding => 'ISO-8859-1')
+all_sceneproducts13.each do |row|
+  t = SceneProduct.new
+  t.scene_id = row['Scene ID']
+  t.seen_on = row['Seen On']
+  t.price = row['Price']
+  t.title = row['Title']
+  t.slashed_price = row['Slashed Price']
+  t.free_gift = row['Free Gift']
+  t.sizes = row['Sizes']
+  t.colors = row['Colors']
+  t.product_link = row['Product Link']
+  t.picture_url = row['Picture URL']
+  t.features = row['Features']
+  t.save!
+end
+
+sceneproducts14 = File.read(Rails.root.join('lib', 'seeds', 'sceneproducts14.csv'))
+all_sceneproducts14 = CSV.parse(sceneproducts14, :headers => true, :encoding => 'ISO-8859-1')
+all_sceneproducts14.each do |row|
+  t = SceneProduct.new
+  t.scene_id = row['Scene ID']
+  t.seen_on = row['Seen On']
+  t.price = row['Price']
+  t.title = row['Title']
+  t.slashed_price = row['Slashed Price']
+  t.free_gift = row['Free Gift']
+  t.sizes = row['Sizes']
+  t.colors = row['Colors']
+  t.product_link = row['Product Link']
+  t.picture_url = row['Picture URL']
+  t.features = row['Features']
+  t.save!
 end
 
 

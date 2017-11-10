@@ -14,7 +14,6 @@ class VideosController < ApplicationController
   def show
     @video = Video.find(params[:id])
     @products = @video.products.order(:appeared_at)
-    # @products = Product.order("RANDOM()").first(200)
 
     if !session[:user]
       @view = View.create(video_id: @video.id, view_type: "wc")
