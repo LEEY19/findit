@@ -14030,24 +14030,1278 @@ button.close {
 /* line 22, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/application.css.scss */
 html, body {
   width: 100%;
-  height: 100%;
+  font-family: 'Lato';
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
+  background-color: black;
+}
+/* line 1, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/footer.scss */
+footer {
+  background: #aaa;
+  height: 60px;
+  text-align: center;
+  padding: 10px 0;
+}
+/* line 6, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/footer.scss */
+footer img {
+  height: 100%;
+}
+/* line 1, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/modal_promo.scss */
+.modalPromo {
+  width: 60vw;
+  margin: 20 auto;
+}
+/* line 4, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/modal_promo.scss */
+.modalPromo .modal-body {
+  background: url("ria_landing_desktop.jpg");
+  border-radius: 5px;
+  height: calc(60vw/1.82222);
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@media screen and (max-width: 767px) {
+  /* line 16, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/modal_promo.scss */
+  .modalPromo {
+    width: 95vw;
+    margin: 5 auto;
+  }
+  /* line 19, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/modal_promo.scss */
+  .modalPromo .modal-body {
+    background: url("ria_landing_mobile.jpg");
+    border-radius: 5px;
+    height: calc(95vw/0.67);
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
 /* line 1, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
 .logo {
-  height: 45px;
+  height: 100%;
+  width: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: center;
 }
 
-/* line 5, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+/* line 10, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
 .social_logo {
   height: 30px;
   margin-top: 5px;
   float: right;
   padding-right: 10px;
 }
-/* line 2, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+
+/* line 17, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+.nav-wrapper {
+  display: flex;
+  height: 55px;
+}
+
+@media screen and (max-width: 767px) {
+  /* line 22, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+  .nav-wrapper {
+    justify-content: space-between;
+  }
+}
+/* line 26, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+ul.nav {
+  display: inherit;
+}
+
+/* line 29, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+.dropdown-toggle.category {
+  font-size: 18px;
+  padding: 15px;
+  height: 100%;
+  color: white;
+  border-left: 1px solid #555;
+  border-right: 1px solid #555;
+}
+/* line 36, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+.dropdown-toggle.category:hover, .dropdown-toggle.category:active, .dropdown-toggle.category:focus {
+  color: white;
+  border-color: #555 !important;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* line 44, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+.dropdown.open .dropdown-toggle.category {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* line 49, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+.category-dropdown {
+  top: 53px;
+  background: #222222;
+  border-radius: 0;
+}
+/* line 53, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+.category-dropdown li a {
+  padding: 15px;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+/* line 58, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+.category-dropdown li a:hover, .category-dropdown li a:active, .category-dropdown li a:focus {
+  background-color: #B72864;
+  color: white;
+}
+
+@media screen and (max-width: 767px) {
+  /* line 66, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+  .dropdown-toggle.category {
+    height: 100%;
+    font-size: 18px;
+  }
+
+  /* line 70, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+  .category-dropdown.dropdown-menu {
+    width: 100vw;
+    left: auto;
+    right: 0;
+    top: 53px;
+    position: absolute;
+    background-color: #222222;
+  }
+  /* line 77, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+  .category-dropdown.dropdown-menu li a {
+    padding: 5px 15px 5px 25px;
+  }
+
+  /* line 82, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+  .category-dropdown.dropdown-menu.category-dropdown-scenes {
+    width: 25vw;
+    top: 53px;
+    position: absolute;
+    background-color: #222222;
+  }
+  /* line 87, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+  .category-dropdown.dropdown-menu.category-dropdown-scenes li a {
+    padding: 5px;
+  }
+  /* line 92, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+  .category-dropdown.dropdown-menu.category-dropdown-scenes .dropdown-submenu > .dropdown-menu {
+    background-color: black;
+    top: 0;
+    left: -90%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+  }
+}
+/* line 105, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+.dropdown-submenu {
+  position: relative;
+  background-color: black;
+}
+
+/* line 110, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+.dropdown-submenu > .dropdown-menu {
+  background-color: black;
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px;
+  border-radius: 0 6px 6px 6px;
+}
+
+/* line 121, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/navbar.scss */
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+/*
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+*/
+/* line 6, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.egg-panel {
+  margin: 12px 3px;
+  background-color: #101010;
+  border-bottom: 3px solid rgba(234, 173, 24, 0.67);
+}
+
+/* line 11, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.egg-panel h3 {
+  color: orange;
+  padding-left: 5px;
+  font-size: 20px;
+  margin-top: -5px;
+}
+
+/* line 16, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.egg-panel .panel-text {
+  white-space: pre-line;
+  font-size: 14px;
+}
+
+/* Responsive iframes */
+/* line 21, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.intrinsic-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+
+/* 16x9 Aspect Ratio */
+/* line 27, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.intrinsic-container-16x9 {
+  padding-bottom: 56.25%;
+}
+
+/* 4x3 Aspect Ratio */
+/* line 31, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.intrinsic-container-4x3 {
+  padding-bottom: 75%;
+}
+
+/* line 34, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.intrinsic-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 41, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-header {
+  background: center center no-repeat;
+  background-size: cover;
+  display: block;
+  text-align: center;
+  color: white;
+}
+
+/* line 47, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-header .programme-overlay {
+  background-color: rgba(54, 54, 54, 0.7);
+  padding: 80px 0 60px 0;
+}
+
+/* line 50, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-header .programme-overlay h1 {
+  margin: 8px;
+}
+
+/* line 52, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-header .programme-overlay h2 {
+  margin: 8px;
+  color: #faae18;
+}
+
+/* line 55, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-header h4 {
+  font-style: italic;
+}
+
+/* line 57, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-nav {
+  margin: 16px auto;
+}
+
+/* line 59, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-nav p {
+  margin: 0;
+}
+
+/* line 61, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-nav a {
+  color: white;
+}
+
+/* line 63, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-nav .here {
+  color: orange;
+}
+
+/* line 65, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 70, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .programme-page .programme-content {
+    flex-direction: column;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 78, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .programme-page .programme-content {
+    width: 750px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* line 85, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .programme-page .programme-content .programme-content-left {
+    flex: auto;
+    flex-basis: auto;
+    order: 1;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 90, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .programme-page .programme-content .programme-content-left {
+    flex: 7;
+    width: auto;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 94, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .programme-page .programme-content .programme-content-left {
+    width: 640px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 97, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .programme-page .programme-content .programme-content-left {
+    width: 640px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* line 100, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .programme-page .programme-content .programme-content-right {
+    flex: auto;
+    flex-basis: auto;
+    order: 2;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 105, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .programme-page .programme-content .programme-content-right {
+    flex: 3;
+    width: auto;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 109, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .programme-page .programme-content .programme-content-right {
+    width: 352px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 112, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .programme-page .programme-content .programme-content-right {
+    width: 352px;
+  }
+}
+/* line 114, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-content .programme-content-right span {
+  color: white;
+}
+
+/* line 116, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-content .programme-content-right .programme-info-row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 119, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-content .programme-content-right .programme-info-row .programme-info-title {
+  flex: 2;
+  flex-basis: 40%;
+  font-weight: bold;
+}
+
+/* line 123, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-content .programme-content-right .programme-info-row .programme-info-text {
+  flex: 3;
+  flex-basis: 60%;
+}
+
+/* line 126, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.programme-page .programme-content a:hover {
+  border-bottom: 1px dotted white;
+}
+
+/* line 129, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  font-size: 0;
+  font-family: 'Lato';
+  margin-bottom: 32px;
+}
+
+/* line 136, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .video_player_container {
+  flex: 1;
+}
+
+/* line 138, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container {
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  position: relative;
+  border: none;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 148, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container {
+    margin: 0;
+    max-width: 352px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 152, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container {
+    margin: 0;
+    max-width: 352px;
+  }
+}
+/* line 155, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list {
+  overflow-x: auto;
+  overflow-y: none;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  background: black;
+}
+/* line 162, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+/* line 167, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list::-webkit-scrollbar {
+  width: 12px;
+}
+/* line 172, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #B72864;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 179, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container .product-list {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 182, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container .product-list {
+    max-width: 400px;
+    flex-direction: column;
+    overflow-y: none;
+    overflow-x: auto;
+  }
+}
+/* line 187, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row {
+  display: flex;
+  flex-direction: column;
+  max-width: 220px;
+  background: black;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#2c2c2c, #000);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#2c2c2c, #000);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#2c2c2c, #000);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#2c2c2c, #000);
+  /* Standard syntax */
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  height: 185px;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 205, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container .product-list-row {
+    display: flex;
+    flex-direction: column;
+    max-width: 220px;
+    color: white;
+    margin: 1px;
+    text-decoration: none;
+    overflow-y: auto;
+    border-bottom: none;
+    min-height: 220px;
+    height: auto;
+  }
+}
+/* line 219, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row .product_picture {
+  /*         height: 100px;
+           width: 100px;
+  */
+}
+
+/*        .youtube-player .product-list-container .product-list-row:hover {
+          background-color: #303030; }*/
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 228, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container .product-list-row {
+    flex-direction: row;
+    height: inherit;
+    max-width: inherit;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 233, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container .product-list-row {
+    flex-direction: row;
+    height: inherit;
+    max-width: inherit;
+  }
+}
+/* line 237, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row .product-thumbnail {
+  padding: 4px 30px;
+  font-size: 0;
+  position: relative;
+  flex: 1;
+}
+
+/* line 242, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row .product-thumbnail .product_picture {
+  width: 90px;
+  height: 90px;
+  background-color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* line 250, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row .product-thumbnail h6 {
+  background-color: black;
+  color: black;
+  position: absolute;
+  margin: 0;
+  bottom: 4px;
+  right: 4px;
+  padding: 1px;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 260, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container .product-list-row .product-thumbnail {
+    padding: 4px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 263, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container .product-list-row .product-thumbnail {
+    padding: 4px;
+  }
+}
+/* line 265, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row .product-details {
+  padding: 4px;
+  flex: 2;
+}
+
+/* line 268, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row .product-details .on-screen {
+  display: none;
+  color: #B72864;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 5px 8px 0;
+}
+
+/* line 275, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row .product-details h3 {
+  /*            display: inline-block;
+  */
+  /*background-color: #00BFFF;*/
+  color: white;
+  margin: 0;
+  padding: 10px 8px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 285, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container .product-list-row .product-details h3 {
+    margin: 0;
+    padding: 2px 4px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+}
+/* line 294, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row .product-details h6 {
+  /*            display: inline-block;
+  */
+  /*background-color: #00BFFF;*/
+  color: #999999;
+  margin: 0;
+  padding: 0px 8px;
+  border-radius: 7px;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 303, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container .product-list-row .product-details h6 {
+    /*            display: inline-block;
+    */
+    /*background-color: #00BFFF;*/
+    color: #999999;
+    margin: 0;
+    border-radius: 7px;
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* line 312, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .youtube-player .product-list-container .product-list-row .product-details {
+    text-align: center;
+    display: inline-block;
+    color: black;
+    margin: 0;
+    padding: 2px 8px;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+/* line 323, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row.active .product-thumbnail .product_picture {
+  height: 140px;
+  width: 140px;
+}
+/* line 327, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row.active .product-details h3 {
+  font-size: 16px;
+}
+/* line 330, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player .product-list-container .product-list-row.active .on-screen {
+  display: block;
+}
+
+/* line 333, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.youtube-player iframe {
+  max-width: 100%;
+}
+
+/* line 335, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.plyrr {
+  display: flex;
+  max-width: 100vw;
+  position: relative;
+  padding: 0 50px;
+}
+@media screen and (max-width: 1200px) {
+  /* line 335, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .plyrr {
+    flex-direction: column;
+    padding: 0;
+  }
+}
+
+/* line 347, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+video, .plyr {
+  flex: 1;
+  height: 100%;
+}
+/* line 350, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+video.plyr--fullscreen-active, .plyr.plyr--fullscreen-active {
+  width: 100vw;
+}
+
+@media screen and (min-width: 1201px) {
+  /* line 355, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+  .plyr__controls {
+    width: calc(100vw - 100px);
+  }
+}
+/* line 359, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+progress.plyr__progress--played, progress.plyr__volume--display {
+  color: #B72864;
+}
+
+/* line 362, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+.toast.toast-success {
+  background-color: #B72864;
+}
+
+/* line 366, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+#exactMatch .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+}
+/* line 372, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+#exactMatch form {
+  padding: 30px;
+  padding-bottom: 0;
+}
+/* line 376, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+#exactMatch input[type='email'] {
+  padding: 20px 10px;
+  font-size: 16px;
+  width: 70%;
+  margin: 15px auto;
+}
+/* line 382, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+#exactMatch .btn {
+  background-color: #C12A68;
+  color: white;
+  border-radius: 100px;
+  padding: 7px 30px;
+}
+/* line 387, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/product.scss */
+#exactMatch .btn:hover, #exactMatch .btn:active {
+  text-decoration: none;
+  background-color: #8d1f4d;
+}
+
+/*
+.plyr.plyr__video-wrapper.plyr__video-embed.plyr--setup {
+  width: 1200px;
+}
+*/
+/* line 1, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  font-size: 0;
+  font-family: 'Lato';
+  margin-bottom: 32px;
+}
+
+/* line 8, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player .suggested-video-list-container {
+  width: 100%;
+  margin-top: 5px;
+  max-height: 394px;
+  display: flex;
+  background-color: white;
+  border: none;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 17, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container {
+    margin: 0;
+    max-width: 352px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 21, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container {
+    margin: 0;
+    max-width: 352px;
+  }
+}
+/* line 24, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player .suggested-video-list-container .suggested-video-list {
+  overflow-y: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 30, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container .suggested-video-list {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 33, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container .suggested-video-list {
+    max-width: 400px;
+    flex-direction: column;
+  }
+}
+/* line 36, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row {
+  display: flex;
+  flex-direction: column;
+  max-width: 220px;
+  background-color: white;
+  color: white;
+  margin: 1px;
+  text-decoration: none;
+  height: 185px;
+  border-bottom: 1px solid #d3d3d3;
+  overflow-y: auto;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 48, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row {
+    display: flex;
+    flex-direction: column;
+    max-width: 220px;
+    background-color: white;
+    color: white;
+    margin: 1px;
+    text-decoration: none;
+    overflow-y: auto;
+    border-bottom: none;
+    min-height: 220px;
+  }
+}
+/* line 61, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-list-picture {
+  max-height: 100px;
+  max-width: 100px;
+  /*         height: 100px; 
+           width: 100px;
+  */
+}
+
+/*        .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row:hover {
+          background-color: #303030; }*/
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 70, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row {
+    flex-direction: row;
+    height: inherit;
+    max-width: inherit;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 75, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row {
+    flex-direction: row;
+    height: inherit;
+    max-width: inherit;
+  }
+}
+/* line 79, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-thumbnail {
+  padding: 4px 30px;
+  font-size: 0;
+  position: relative;
+}
+
+/* line 83, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-thumbnail img {
+  max-width: 120px;
+}
+
+/* line 85, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-thumbnail h6 {
+  background-color: black;
+  font-size: 10px;
+  color: white;
+  position: absolute;
+  margin: 0;
+  bottom: 4px;
+  right: 4px;
+  padding: 1px;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 96, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-thumbnail {
+    padding: 4px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 99, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-thumbnail {
+    padding: 4px;
+  }
+}
+/* line 101, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-details {
+  padding: 4px;
+}
+
+/* line 103, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-details h3 {
+  /*            display: inline-block;
+  */
+  /*background-color: #00BFFF;*/
+  color: black;
+  margin: 0;
+  padding: 10px 8px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 113, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-details h3 {
+    color: black;
+    margin: 0;
+    padding: 2px 4px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+}
+/* line 122, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+.youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-details h6 {
+  /*            display: inline-block;
+  */
+  /*background-color: #00BFFF;*/
+  color: #999999;
+  margin: 0;
+  padding: 0px 8px;
+  border-radius: 7px;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 131, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-details h6 {
+    /*            display: inline-block;
+    */
+    /*background-color: #00BFFF;*/
+    color: #999999;
+    margin: 0;
+    border-radius: 7px;
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  /* line 140, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/rv.scss */
+  .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-details {
+    text-align: center;
+    display: inline-block;
+    color: black;
+    margin: 0;
+    padding: 2px 8px;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+/* line 2, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#scene-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* line 6, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#scene-list .scene-wrapper {
+  width: 33.333%;
+}
+/* line 9, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#scene-list .scene-block {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: rgba(255, 255, 255, 0.15);
+  height: 300px;
+}
+/* line 16, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#scene-list .scene-thumbnail {
+  width: 100%;
+  height: 90%;
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+/* line 25, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#scene-list .sceneProduct-thumbnail {
+  width: 100%;
+  height: 90%;
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+/* line 34, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#scene-list .scene-title {
+  height: 10%;
+  color: white;
+  padding: 8px;
+  min-height: 56px;
+}
+/* line 40, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#scene-list .sceneProduct-desc {
+  height: 10%;
+  color: white;
+  padding: 8px;
+  min-height: 56px;
+}
+/* line 45, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#scene-list .sceneProduct-desc .slashed_price {
+  text-decoration: line-through;
+  color: #CCCC00;
+}
+/* line 49, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#scene-list .sceneProduct-desc .price {
+  color: #FFFF00;
+}
+@media screen and (max-width: 991px) {
+  /* line 55, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+  #scene-list .scene-wrapper {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 767px) {
+  /* line 2, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+  #scene-list {
+    align-items: center;
+  }
+  /* line 61, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+  #scene-list .scene-wrapper {
+    width: 50%;
+  }
+  /* line 63, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+  #scene-list .scene-wrapper .scene-block {
+    height: 180px;
+  }
+  /* line 66, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+  #scene-list .scene-wrapper .scene-block.sceneProduct-block {
+    height: 300px;
+  }
+  /* line 70, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+  #scene-list .scene-thumbnail {
+    height: 95%;
+    padding-bottom: 56.25%;
+  }
+  /* line 74, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+  #scene-list .sceneProduct-thumbnail {
+    height: 70%;
+  }
+  /* line 77, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+  #scene-list .scene-title {
+    height: 5%;
+  }
+  /* line 80, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+  #scene-list .sceneProduct-desc {
+    height: 30%;
+  }
+}
+
+/* line 88, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#modalPromo .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
+}
+/* line 94, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#modalPromo .btn {
+  background-color: #C12A68;
+  color: white;
+  border-radius: 100px;
+  padding: 7px 30px;
+}
+/* line 99, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_list.scss */
+#modalPromo .btn:hover, #modalPromo .btn:active {
+  text-decoration: none;
+  background-color: #8d1f4d;
+}
+/* line 2, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+}
+/* line 6, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-display {
+  width: 60%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: cover;
+  overflow: hidden;
+}
+/* line 15, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list {
+  color: white;
+  width: 40%;
+  padding-left: 15px;
+}
+/* line 19, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper {
+  padding-bottom: 10px;
+}
+/* line 21, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 200px;
+}
+/* line 25, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper .scene-product-thumbnail-wrapper {
+  height: 100%;
+  width: 50%;
+  padding-top: 15px;
+  text-align: center;
+}
+/* line 30, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper .scene-product-thumbnail-wrapper .scene-product-artist {
+  height: 10%;
+  background-color: grey;
+  margin: 0;
+  padding: 0;
+}
+/* line 36, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper .scene-product-thumbnail-wrapper .scene-product-thumbnail {
+  padding-top: -20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center;
+  height: 90%;
+}
+/* line 45, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper .scene-product-details {
+  width: 50%;
+  flex-direction: column;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 51, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper .scene-product-details .slashed_price {
+  text-decoration: line-through;
+  color: #CCCC00;
+}
+/* line 55, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper .scene-product-details .price {
+  color: #FFFF00;
+}
+/* line 58, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper .scene-product-details .discount_code {
+  color: #ff0066;
+}
+/* line 61, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper .scene-product-details .btn {
+  background-color: #C12A68;
+  color: white;
+  border-radius: 100px;
+  width: 100%;
+}
+/* line 66, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper .scene-product-details .btn:hover, #scene-container .scene-products-list .scene-product-big-wrapper .scene-product-wrapper .scene-product-details .btn:active {
+  text-decoration: none;
+  background-color: #8d1f4d;
+}
+/* line 74, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .more-details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* line 80, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .more-details .scene-product-detail {
+  color: yellow;
+}
+/* line 82, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .more-details .scene-product-detail span {
+  color: white;
+}
+/* line 86, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .more-details .more-details-div-0 {
+  width: 100%;
+}
+/* line 89, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .more-details .more-details-nested {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  width: 100%;
+}
+/* line 94, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .more-details .more-details-nested .more-details-div-1 {
+  width: 50%;
+  padding-right: 10px;
+}
+/* line 98, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+#scene-container .scene-products-list .scene-product-big-wrapper .more-details .more-details-nested .more-details-div-2 {
+  width: 50%;
+}
+@media screen and (max-width: 767px) {
+  /* line 2, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+  #scene-container {
+    flex-direction: column;
+  }
+  /* line 109, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+  #scene-container .scene-display {
+    width: 100%;
+    height: 33vh;
+    flex-shrink: 0;
+  }
+  /* line 114, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+  #scene-container .scene-products-list {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+@media screen and (min-width: 767px) {
+  /* line 121, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/scene_show.scss */
+  #scene-container .scene-products-list {
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+/* line 1, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container {
   font-family: 'Lato';
   width: 100%;
@@ -14056,82 +15310,99 @@ html, body {
   display: flex;
   flex-direction: column;
   padding: 6px;
-  background-color: #101010;
-  border-bottom: 3px solid rgba(234, 173, 24, 0.67);
 }
-/* line 12, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 9, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container h3 {
-  color: #faae18;
-  margin-left: 0px;
-  font-size: 20px;
+  color: #B72864;
+  margin: 10px 0;
+  font-size: 17px;
 }
 
 @media only screen and (max-width: 768px) {
-  /* line 19, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+  /* line 16, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
   .video-list-container {
     margin-top: -45px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  /* line 22, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+  /* line 21, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
   .video-list-container {
     margin: 0;
     max-width: 352px;
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 26, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+  /* line 27, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
   .video-list-container {
     margin: 0;
     max-width: 100%;
   }
 }
-/* line 29, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 33, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container .video-list {
   overflow-y: auto;
   text-align: left;
   display: flex;
   flex-direction: row;
 }
+/* line 38, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+.video-list-container .video-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+/* line 43, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+.video-list-container .video-list::-webkit-scrollbar {
+  height: 12px;
+}
+/* line 48, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+.video-list-container .video-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #B72864;
+}
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  /* line 35, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+  /* line 55, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
   .video-list-container .video-list {
     flex-direction: column;
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 38, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+  /* line 60, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
   .video-list-container .video-list {
     max-width: 100%;
     flex-direction: row;
   }
 }
-/* line 41, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 66, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container .video-list .video-list-row {
   display: flex;
   flex-direction: column;
   max-width: 240px;
-  background-color: #070707;
+  background-color: rgba(255, 255, 255, 0.2);
   color: white;
   margin: 1px;
+  margin-right: 10px;
   text-decoration: none;
   max-height: 230px;
   overflow-y: auto;
 }
 
-/* line 51, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 79, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container .video-list .video-list-row .video_picture {
-  max-height: 150px;
+  height: 150px;
+  width: 250px;
+  background-color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-/* line 53, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 88, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container .video-list .video-list-row:hover {
   background-color: #303030;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  /* line 56, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+  /* line 92, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
   .video-list-container .video-list .video-list-row {
     flex-direction: row;
     height: inherit;
@@ -14139,7 +15410,7 @@ html, body {
   }
 }
 @media only screen and (min-width: 1200px) {
-  /* line 61, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+  /* line 99, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
   .video-list-container .video-list .video-list-row {
     flex-direction: column;
     height: inherit;
@@ -14147,20 +15418,19 @@ html, body {
     max-width: 400px;
   }
 }
-/* line 66, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 107, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container .video-list .video-list-row .video-thumbnail {
-  padding: 4px 30px;
   font-size: 0;
   position: relative;
 }
 
-/* line 70, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 113, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container .video-list .video-list-row .video-thumbnail img {
   height: 120px;
   max-width: 200px;
 }
 
-/* line 73, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 118, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container .video-list .video-list-row .video-thumbnail h6 {
   background-color: black;
   color: white;
@@ -14172,24 +15442,20 @@ html, body {
   font-weight: bold;
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  /* line 83, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
-  .video-list-container .video-list .video-list-row .video-thumbnail {
-    padding: 4px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  /* line 86, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
-  .video-list-container .video-list .video-list-row .video-thumbnail {
-    padding: 4px;
-  }
-}
-/* line 88, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 139, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container .video-list .video-list-row .video-details {
   padding: 4px;
+  min-height: 55px;
 }
 
-/* line 90, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 144, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+.video-list-container .video-list .video-list-row .video-details h6 {
+  font-size: 12.5px;
+  margin: 8px 5px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* line 149, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .video-list-container .video-list .video-list-row .video-details h5 {
   display: inline-block;
   background-color: orange;
@@ -14201,16 +15467,16 @@ html, body {
   font-weight: bold;
 }
 
-/* line 101, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 160, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .seemore-btn {
   transition: all 0.2s ease-in-out;
   /*float: right;*/
   color: black;
   background: #faae18;
-  padding: 14px 0 14px 0;
+  padding: 14px 0;
   text-align: center;
   box-sizing: border-box;
-  padding: 5px 8px 5px 8px;
+  padding: 5px 8px;
   margin: 10px 10px 10px 5px;
   border-radius: 100px;
   font-weight: 600;
@@ -14220,17 +15486,17 @@ html, body {
   z-index: 99999;
 }
 
-/* line 118, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 178, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .seemore-btn:hover {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
   background: #faae18;
 }
 
-/* line 123, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 183, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .dropbtn {
   background: #faae18;
   color: black;
-  padding: 8px 12px 8px 12px;
+  padding: 8px 12px;
   font-size: 13px;
   border: none;
   cursor: pointer;
@@ -14238,7 +15504,7 @@ html, body {
 }
 
 /* The container <div> - needed to position the dropdown content */
-/* line 134, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 193, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .dropdown-products-list {
   position: relative;
   display: inline-block;
@@ -14247,28 +15513,28 @@ html, body {
 }
 
 /* Dropdown Content (Hidden by Default) */
-/* line 142, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 200, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .dropdown-content {
   position: absolute;
   background-color: #f9f9f9;
   width: 100%;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 1;
   height: 155px;
   overflow-y: scroll;
   min-width: 140px;
 }
 
-/* line 153, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 211, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .active-dropdown {
   display: none;
 }
 
 /* Links inside the dropdown */
-/* line 158, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 215, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .dropdown-content a {
   color: black;
-  padding: 8px 5px 8px 5px;
+  padding: 8px 5px;
   text-decoration: none;
   display: block;
   font-size: 13px;
@@ -14276,7 +15542,7 @@ html, body {
 }
 
 /* Change color of dropdown links on hover */
-/* line 168, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 224, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .dropdown-content a:hover {
   background-color: #f1f1f1;
 }
@@ -14289,7 +15555,7 @@ html, body {
 /*.dropdown-products-list:hover .dropbtn {
   color: white;
 }*/
-/* line 180, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 235, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .signalling_container {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
@@ -14301,20 +15567,20 @@ html, body {
   border-radius: 15px;
   /*background-color: black;*/
 }
-/* line 190, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 245, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .signalling_container #myImg {
   position: absolute;
   width: 44px;
   height: 47px;
   z-index: 9999;
 }
-/* line 196, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 252, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .signalling_container #signal_msg {
   position: absolute;
   font-size: 13px;
   margin-top: 45px;
 }
-/* line 201, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+/* line 258, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
 .signalling_container #closeBtn {
   position: absolute;
   right: 10px;
@@ -14324,12 +15590,12 @@ html, body {
 }
 
 @media only screen and (max-width: 768px) {
-  /* line 210, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+  /* line 267, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
   .signalling_container {
     /*    width: 170px;
-        height: 115px;*/
+    height: 115px;*/
   }
-  /* line 213, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
+  /* line 270, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/styling.scss */
   .signalling_container #myImg {
     width: 34px;
     height: 37px;
@@ -14603,347 +15869,172 @@ button.toast-close-button {
     width: 25em;
   }
 }
-/* line 6, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.egg-panel {
-  margin: 12px 3px;
-  padding: 6px;
-  background-color: #101010;
-  border-bottom: 3px solid rgba(234, 173, 24, 0.67);
-}
-
-/* line 11, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.egg-panel h3 {
-  color: orange;
-  padding-left: 5px;
-  font-size: 20px;
-  margin-top: -5px;
-}
-
-/* line 16, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.egg-panel .panel-text {
-  white-space: pre-line;
-  font-size: 14px;
-}
-
-/* Responsive iframes */
-/* line 21, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.intrinsic-container {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-}
-
-/* 16x9 Aspect Ratio */
-/* line 27, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.intrinsic-container-16x9 {
-  padding-bottom: 56.25%;
-}
-
-/* 4x3 Aspect Ratio */
-/* line 31, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.intrinsic-container-4x3 {
-  padding-bottom: 75%;
-}
-
-/* line 34, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.intrinsic-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* line 41, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-header {
-  background: center center no-repeat;
-  background-size: cover;
-  display: block;
-  text-align: center;
-  color: white;
-}
-
-/* line 47, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-header .programme-overlay {
-  background-color: rgba(54, 54, 54, 0.7);
-  padding: 80px 0 60px 0;
-}
-
-/* line 50, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-header .programme-overlay h1 {
-  margin: 8px;
-}
-
-/* line 52, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-header .programme-overlay h2 {
-  margin: 8px;
-  color: #faae18;
-}
-
-/* line 55, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-header h4 {
-  font-style: italic;
-}
-
-/* line 57, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-nav {
-  margin: 16px auto;
-}
-
-/* line 59, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-nav p {
-  margin: 0;
-}
-
-/* line 61, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-nav a {
-  color: white;
-}
-
-/* line 63, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-nav .here {
-  color: orange;
-}
-
-/* line 65, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-@media only screen and (max-width: 767px) {
-  /* line 70, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .programme-page .programme-content {
-    flex-direction: column;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 78, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .programme-page .programme-content {
-    width: 750px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-@media only screen and (max-width: 767px) {
-  /* line 85, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .programme-page .programme-content .programme-content-left {
-    flex: auto;
-    flex-basis: auto;
-    order: 1;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 90, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .programme-page .programme-content .programme-content-left {
-    flex: 7;
-    width: auto;
-  }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  /* line 94, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .programme-page .programme-content .programme-content-left {
-    width: 640px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  /* line 97, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .programme-page .programme-content .programme-content-left {
-    width: 640px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  /* line 100, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .programme-page .programme-content .programme-content-right {
-    flex: auto;
-    flex-basis: auto;
-    order: 2;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 105, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .programme-page .programme-content .programme-content-right {
-    flex: 3;
-    width: auto;
-  }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  /* line 109, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .programme-page .programme-content .programme-content-right {
-    width: 352px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  /* line 112, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .programme-page .programme-content .programme-content-right {
-    width: 352px;
-  }
-}
-/* line 114, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-content .programme-content-right span {
-  color: white;
-}
-
-/* line 116, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-content .programme-content-right .programme-info-row {
-  display: flex;
-  flex-direction: row;
-}
-
-/* line 119, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-content .programme-content-right .programme-info-row .programme-info-title {
-  flex: 2;
-  flex-basis: 40%;
-  font-weight: bold;
-}
-
-/* line 123, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-content .programme-content-right .programme-info-row .programme-info-text {
-  flex: 3;
-  flex-basis: 60%;
-}
-
-/* line 126, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.programme-page .programme-content a:hover {
-  border-bottom: 1px dotted white;
-}
-
-/* line 129, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  font-size: 0;
+/* line 1, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+.tooltip {
   font-family: 'Lato';
-  margin-bottom: 32px;
-}
-
-/* line 136, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player .product-list-container {
-  width: 100%;
-  margin-top: 5px;
-  max-height: 394px;
-  display: flex;
-  background-color: white;
-  border: none;
-  flex-direction: column;
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  /* line 145, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container {
-    margin: 0;
-    max-width: 352px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  /* line 149, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container {
-    margin: 0;
-    max-width: 352px;
-  }
-}
-/* line 152, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player .product-list-container .product-list {
-  overflow-y: auto;
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  /* line 158, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container .product-list {
-    flex-direction: column;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  /* line 161, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container .product-list {
-    max-width: 400px;
-    flex-direction: column;
-  }
-}
-/* line 164, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player .product-list-container .product-list .product-list-row {
-  display: flex;
-  flex-direction: column;
-  max-width: 220px;
-  background-color: white;
+  padding: 20px;
+  width: 300px;
+  height: 100%;
+  z-index: 800;
+  top: 0;
+  right: 100%;
+  background: black;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(rgba(44, 44, 44, 0.8), rgba(0, 0, 0, 0.8));
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(rgba(44, 44, 44, 0.8), rgba(0, 0, 0, 0.8));
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgba(44, 44, 44, 0.8), rgba(0, 0, 0, 0.8));
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(rgba(44, 44, 44, 0.8), rgba(0, 0, 0, 0.8));
+  /* Standard syntax */
   color: white;
-  margin: 1px;
+  text-align: center;
+}
+
+/* line 17, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+.tooltip i.fa-spinner {
+  font-size: 40px;
+}
+
+/* line 20, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+.tooltip .product_picture {
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  background-color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* line 29, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+.tooltip .actions {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 30px;
+}
+
+/* line 35, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+.tooltip .btn {
+  margin: 7px 0;
+  background-color: #C12A68;
+  color: white;
+  border-radius: 100px;
+}
+/* line 40, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+.tooltip .btn:hover, .tooltip .btn:active {
   text-decoration: none;
-  height: 185px;
-  border-bottom: 1px solid #d3d3d3;
-  overflow-y: auto;
+  background-color: #8d1f4d;
 }
 
-@media only screen and (max-width: 767px) {
-  /* line 176, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container .product-list .product-list-row {
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+  /* line 46, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+  .tooltip {
+    left: 100%;
+  }
+}
+@media screen and (max-width: 991px) {
+  /* line 51, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+  .tooltip {
+    left: 0;
+    top: 100%;
     display: flex;
-    flex-direction: column;
-    max-width: 220px;
-    background-color: white;
-    color: white;
-    margin: 1px;
-    text-decoration: none;
-    overflow-y: auto;
-    border-bottom: none;
-    min-height: 220px;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
   }
-}
-/* line 189, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player .product-list-container .product-list .product-list-row .product_picture {
-  max-height: 100px;
-  max-width: 100px;
-  /*         height: 100px; 
-           width: 100px;
-  */
-}
 
-/*        .youtube-player .product-list-container .product-list .product-list-row:hover {
-          background-color: #303030; }*/
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  /* line 198, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container .product-list .product-list-row {
-    flex-direction: row;
-    height: inherit;
-    max-width: inherit;
+  /* line 60, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+  .tooltip h4 {
+    font-size: 14px;
+    flex: 2;
+  }
+
+  /* line 64, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+  .tooltip .product_details {
+    flex: 3;
+    padding: 0 20px;
+  }
+
+  /* line 68, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+  .tooltip .product_thumbnail {
+    margin-right: 10px;
+    flex: 1;
+  }
+
+  /* line 72, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+  .tooltip .product_picture {
+    height: 65px;
+    width: 65px;
+  }
+
+  /* line 76, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+  .tooltip .actions {
+    padding: 0;
+    flex: 2;
+  }
+
+  /* line 80, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/tooltip.scss */
+  .tooltip .btn {
+    font-size: 11px;
   }
 }
-@media only screen and (min-width: 1200px) {
-  /* line 203, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container .product-list .product-list-row {
-    flex-direction: row;
-    height: inherit;
-    max-width: inherit;
+/* line 2, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/video.scss */
+#video-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* line 6, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/video.scss */
+#video-list .video-wrapper {
+  width: 33.333%;
+}
+@media screen and (max-width: 991px) {
+  /* line 11, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/video.scss */
+  #video-list .video-wrapper {
+    width: 50%;
   }
 }
-/* line 207, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player .product-list-container .product-list .product-list-row .product-thumbnail {
-  padding: 4px 30px;
-  font-size: 0;
+@media screen and (max-width: 767px) {
+  /* line 2, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/video.scss */
+  #video-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* line 18, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/video.scss */
+  #video-list .video-wrapper {
+    width: 100%;
+  }
+  /* line 21, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/video.scss */
+  #video-list .video-thumbnail {
+    padding-bottom: 56.25%;
+  }
+}
+/* line 25, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/video.scss */
+#video-list .video-block {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 10px auto;
+}
+/* line 33, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/video.scss */
+#video-list .video-thumbnail {
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   position: relative;
 }
-
-/* line 211, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player .product-list-container .product-list .product-list-row .product-thumbnail img {
-  max-width: 120px;
-}
-
-/* line 213, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player .product-list-container .product-list .product-list-row .product-thumbnail h6 {
+/* line 41, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/video.scss */
+#video-list .video-thumbnail h6 {
   background-color: black;
-  color: black;
+  color: white;
   position: absolute;
   margin: 0;
   bottom: 4px;
@@ -14951,92 +16042,9 @@ button.toast-close-button {
   padding: 1px;
   font-weight: bold;
 }
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  /* line 223, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail {
-    padding: 4px;
-  }
+/* line 52, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/video.scss */
+#video-list .video-title {
+  color: white;
+  padding: 8px;
+  min-height: 56px;
 }
-@media only screen and (min-width: 1200px) {
-  /* line 226, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container .product-list .product-list-row .product-thumbnail {
-    padding: 4px;
-  }
-}
-/* line 228, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player .product-list-container .product-list .product-list-row .product-details {
-  padding: 4px;
-}
-
-/* line 230, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player .product-list-container .product-list .product-list-row .product-details h3 {
-  /*            display: inline-block;
-  */
-  /*background-color: #00BFFF;*/
-  color: black;
-  margin: 0;
-  padding: 10px 8px;
-  border-radius: 7px;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-@media only screen and (max-width: 767px) {
-  /* line 240, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container .product-list .product-list-row .product-details h3 {
-    color: black;
-    margin: 0;
-    padding: 2px 4px;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: bold;
-  }
-}
-/* line 249, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player .product-list-container .product-list .product-list-row .product-details h6 {
-  /*            display: inline-block;
-  */
-  /*background-color: #00BFFF;*/
-  color: #999999;
-  margin: 0;
-  padding: 0px 8px;
-  border-radius: 7px;
-  font-size: 12px;
-}
-
-@media only screen and (max-width: 767px) {
-  /* line 258, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container .product-list .product-list-row .product-details h6 {
-    /*            display: inline-block;
-    */
-    /*background-color: #00BFFF;*/
-    color: #999999;
-    margin: 0;
-    border-radius: 7px;
-    font-size: 12px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  /* line 267, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-  .youtube-player .product-list-container .product-list .product-list-row .product-details {
-    text-align: center;
-    display: inline-block;
-    color: black;
-    margin: 0;
-    padding: 2px 8px;
-    border-radius: 7px;
-    font-size: 15px;
-    font-weight: bold;
-  }
-}
-/* line 276, /Users/yongenlee/Desktop/findit/app/assets/stylesheets/videos.scss */
-.youtube-player iframe {
-  max-width: 100%;
-}
-
-/*
-.plyr.plyr__video-wrapper.plyr__video-embed.plyr--setup {
-  width: 1200px;
-}
-*/
