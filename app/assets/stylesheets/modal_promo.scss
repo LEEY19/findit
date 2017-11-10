@@ -1,0 +1,29 @@
+.modalPromo {
+  width: 60vw;
+  margin: 20 auto;
+  .modal-body {
+    background: url('ria_landing_desktop.jpg');
+    border-radius: 5px;
+    height: calc(60vw/1.82222);
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .modalPromo {
+    width: 95vw;
+    margin: 5 auto;
+    .modal-body {
+      background: url('ria_landing_mobile.jpg');
+      border-radius: 5px;
+      height: calc(95vw/0.67);
+      background-color: white;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}

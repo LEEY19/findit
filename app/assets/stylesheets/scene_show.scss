@@ -17,6 +17,7 @@
     width: 40%;
     padding-left: 15px;
     .scene-product-big-wrapper {
+      padding-bottom: 10px; 
       .scene-product-wrapper{
         display: flex;
         flex-direction: row;
@@ -58,7 +59,6 @@
             color: rgb(255,0,102);
           }
           .btn {
-            margin: 7px 0;
             background-color: #C12A68;
             color: white;
             border-radius: 100px;
@@ -73,7 +73,7 @@
       //TOGGLE MORE DETAILS
       .more-details {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
         padding-left: 10px;
         padding-right: 10px;
@@ -83,12 +83,21 @@
             color: white;
           }
         }
-        .more-details-div-1 {
-          width: 40%;
-          padding-right: 10px;
+        .more-details-div-0 {
+          width: 100%;
         }
-        .more-details-div-12{
-          width: 60%;
+        .more-details-nested {
+          display: flex;
+          flex-direction: row;
+          padding-top: 10px;
+          width: 100%;
+          .more-details-div-1 {
+            width: 50%;
+            padding-right: 10px;
+          }
+          .more-details-div-2{
+            width: 50%;
+          }
         }
       }
       
