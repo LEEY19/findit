@@ -1,10 +1,10 @@
-<%= render "layouts/navbar", link: "/scenes", digital: false %>
+<%= render "layouts/navbar", link: "/", digital: false %>
 
 <div id="scene-list">
   <% if @products.empty? %>
-    <%= render partial: 'scene', collection: @scenes %>
+    <%= render partial: 'scene', collection: @scenes, cached: true %>
   <% else %>
-    <%= render partial: 'sceneProduct', collection: @products %>
+    <%= render partial: 'sceneProduct', collection: @products, cached: true %>
   <% end %>
 </div>
 

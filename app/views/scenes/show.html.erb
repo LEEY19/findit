@@ -1,8 +1,8 @@
-<%= render "layouts/navbar", link: "/scenes", digital: false %>
+<%= render "layouts/navbar", link: "/", digital: false %>
 
 <div id="scene-container">
   <div class="scene-display" style="background-image: url(<%= @scene.description %>)"></div>
   <div class="scene-products-list">
-    <%= render partial: 'product', collection: @products %>
+    <%= render partial: 'product', collection: @products, cached: true %>
   </div>
 </div>
