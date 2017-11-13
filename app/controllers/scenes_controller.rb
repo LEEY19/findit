@@ -29,6 +29,7 @@ class ScenesController < ApplicationController
       gon.event_tracker = {category: "MenuClick", action: "Click", label: "Scene"}
     end
     @products = @scene.scene_products
+    @products = @products.sort_by &:product_annot
   end
 
   def t_and_c

@@ -1,11 +1,15 @@
-<div class="scene-wrapper">
-<%= link_to scene_path(id: scene.id, type: "scenes") do %>
-  <div class="scene-block">
-    <div class="scene-thumbnail" style="background-image: url(<%= scene.scene_url %>)">
+<% cache scene do %>
+
+  <div class="scene-wrapper">
+  <%= link_to scene_path(id: scene.id, type: "scenes") do %>
+    <div class="scene-block">
+      <div class="scene-thumbnail" style="background-image: url(<%= scene.scene_url %>)">
+      </div>
+      <div class="scene-title">
+        <%= scene.episode.name %>
+      </div>
     </div>
-    <div class="scene-title">
-      <%= scene.episode.name %>
-    </div>
+  <% end %>
   </div>
+
 <% end %>
-</div>
