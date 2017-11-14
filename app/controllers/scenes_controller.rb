@@ -4,7 +4,7 @@ class ScenesController < ApplicationController
       session[:linear_landing] = SecureRandom.uuid
       gon.event_tracker = {category: "Session", action: "Landed", label: ""}
     end
-    @scenes = Scene.all
+    @scenes = Scene.where(episode_id: 2)
     @products = []
     if (params[:filter])
       case params[:type]

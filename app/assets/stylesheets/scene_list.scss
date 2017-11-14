@@ -1,3 +1,15 @@
+#tap-follower {
+  position: fixed;
+  bottom: 10vh;
+  right: 5px;
+  background: asset_url('Overlay_YE.png');
+  height: 15vh;
+  width: 15vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 
 #scene-list {
   display: flex;
