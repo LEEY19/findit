@@ -82,9 +82,9 @@ $(document).on("turbolinks:load", function() {
   vp[0].on("pause", function () {
     updateDuration()
   })
-  vp[0].on("timeupdate", _.throttle(function () {
 
-    if (vp[0].isPaused()) return
+  vp[0].on("timeupdate", _.throttle(function() {
+     if (vp[0].isPaused()) return
 
     var duration = Math.round(vp[0].getCurrentTime());
     var $el = $(".product-list-row[data-appear-at='" + duration + "']").first()
@@ -122,8 +122,60 @@ $(document).on("turbolinks:load", function() {
       }
 
     }
-
   }, 1000))
+
+  function getNextLowestIndex(arr, value) {
+    var i = 0;
+    while (arr[++i] < value);
+    return --i; 
+  }
+
+  vp[0].on("seeked", function() {
+
+    var duration = Math.round(vp[0].getCurrentTime());
+
+    var timeList = $(".product-list-row").map(function(){return parseInt($(this).attr("data-appear-at"));}).get();
+    timeList = timeList.sort(function(a, b){return a-b})
+
+    var high = getNextLowestIndex(timeList, duration)
+
+    var $el = $(".product-list-row[data-appear-at='" + timeList[high] + "']").first()
+    if ($el.length) {
+      if (!scrollable && full_width > 991) {
+        var $newEl = $el.clone()
+        $newEl.addClass("active")
+        $('#on-screen-product').html($newEl)
+
+      } else {
+      // if element exist
+        var $container = $(".product-list");
+
+        // if on computer
+        if ($(window).width() > 991) {
+          var $newEl = $el.clone()
+          $newEl.addClass("active")
+          $('#on-screen-product').html($newEl)
+
+            $el = $el.parent().next()
+            
+            $container.animate({
+              scrollTop: $el.offset().top - $container.offset().top + $container.scrollTop()
+            }, 500)
+
+        } else {
+          $(".product-list-row").removeClass("active")
+          $el.addClass("active");
+
+          $container.animate({
+            scrollLeft: $el.offset().left - $container.offset().left + $container.scrollLeft()
+          }, 500)
+        }
+        
+      }
+
+    }
+
+  });
 
   $(".product-list").on("scroll", function () {
     // resizeProductList()
