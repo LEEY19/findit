@@ -1,4 +1,17 @@
+var triggered2 = false
+var videoisplaying = false
+
+var time = 0;
+var timer = true;
+
 $(document).on("turbolinks:load", function() {
+  clearInterval(timer);
+  if (videoisplaying && time) {
+    console.log(time);
+    $.post("/active_media_duration", { time: time })
+    time = 0;
+    videoisplaying = false;
+  }
   // To avoid multiple render
   Turbolinks.clearCache()
 
@@ -22,9 +35,7 @@ $(document).on("turbolinks:load", function() {
     $('video').css('width', '100vw');
   }
 
-  var time = 0;
-  var timer,
-      scrollable = true;
+  var scrollable = true;
 
   var hidden, visibilityChange;
   if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
@@ -38,8 +49,13 @@ $(document).on("turbolinks:load", function() {
     visibilityChange = "webkitvisibilitychange";
   }
 
-  function handleVisibilityChange() {
-    if (document[hidden]) {
+  function handleVisibilityChange2() {
+    clearInterval(timer)
+    if (document[hidden] && !triggered2) {
+      triggered2 = true
+      setTimeout(() => {
+        triggered2 = false
+      }, 1000);
       updateDuration()
     } else {
       // if video is playing
@@ -50,7 +66,6 @@ $(document).on("turbolinks:load", function() {
   }
 
   function updateDuration() {
-    clearInterval(timer)
     if (time) {
       console.log(time);
       $.post("/active_media_duration", { time: time })
@@ -72,15 +87,23 @@ $(document).on("turbolinks:load", function() {
   if (typeof document.addEventListener === "undefined" || typeof document[hidden] === "undefined") {
     console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
   } else {
-    document.addEventListener(visibilityChange, handleVisibilityChange, false);
+    document.addEventListener(visibilityChange, handleVisibilityChange2, false);
   }
 
   vp[0].on("play", function () {
+    videoisplaying = true
     resizeProductList()
     startTimer()
   })
   vp[0].on("pause", function () {
-    updateDuration()
+    videoisplaying = false
+    if (!triggered2) {
+      triggered2 = true
+      setTimeout(() => {
+        triggered2 = false
+      }, 1000);
+      updateDuration()
+    }
   })
 
   vp[0].on("timeupdate", _.throttle(function() {
@@ -186,7 +209,23 @@ $(document).on("turbolinks:load", function() {
 
 });
 
+// window.onpopstate = function(event) {
+//   console.log("adsfasdfads")
+// };
 // If user close window without pausing video
-window.addEventListener('beforeunload', function() {
-  updateDuration();
+$(window).bind('beforeunload', function() {
+  if (!triggered2) {
+    triggered2 = true
+    setTimeout(() => {
+      triggered2 = false
+    }, 1000);
+    clearInterval(timer)
+    if (time) {
+      $.post("/active_media_duration", { time: time })
+      time = 0;
+    }
+  }
 });
+
+
+

@@ -10,9 +10,15 @@
     margin-top: 5px;
     max-height: 394px;
     display: flex;
-    background-color: white;
+    background-color: black;
     border: none; 
-    flex-direction: column; }
+    flex-direction: column; 
+    h3 {
+      color: #B72864;
+      margin: 10px 0;
+      font-size: 17px;
+    }
+  }
     @media only screen and (min-width: 992px) and (max-width: 1199px) {
       .youtube-player .suggested-video-list-container {
         margin: 0;
@@ -37,19 +43,18 @@
         display: flex;
         flex-direction: column;
         max-width: 220px;
-        background-color: white;
+        background: linear-gradient(#2c2c2c, #000);
         color: white;
         margin: 1px;
         text-decoration: none;
         height: 185px;
-        border-bottom: 1px solid #d3d3d3;
         overflow-y: auto; }
       @media only screen and (max-width: 767px) {
         .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row {
           display: flex;
           flex-direction: column;
           max-width: 220px;
-          background-color: white;
+          background: linear-gradient(#2c2c2c, #000);
           color: white;
           margin: 1px;
           text-decoration: none;
@@ -59,20 +64,18 @@
         }
       }
         .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-list-picture {
-          max-height: 100px;
-          max-width: 100px;
- /*         height: 100px; 
-          width: 100px;
- */       }
-/*        .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row:hover {
-          background-color: #303030; }*/
+          max-height: 200px;
+          max-width: 200px;
+        }
         @media only screen and (min-width: 992px) and (max-width: 1199px) {
           .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row {
+            background: linear-gradient(#2c2c2c, #000);
             flex-direction: row;
             height: inherit;
             max-width: inherit; } }
         @media only screen and (min-width: 1200px) {
           .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row {
+            background: linear-gradient(#2c2c2c, #000);
             flex-direction: row;
             height: inherit;
             max-width: inherit; } }
@@ -103,7 +106,7 @@
           .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-details h3 {
 /*            display: inline-block;
 */            /*background-color: #00BFFF;*/
-            color: black;
+            color: white;
             margin: 0;
             padding: 10px 8px;
             border-radius: 7px;
@@ -111,7 +114,7 @@
             font-weight: bold; }
             @media only screen and (max-width: 767px) {
             .youtube-player .suggested-video-list-container .suggested-video-list .suggested-video-list-row .suggested-video-details h3 {
-              color: black;
+              color: white;
               margin: 0;
               padding: 2px 4px;
               border-radius: 7px;

@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   resources :exact_requests, only: [:show, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "scenes#index"
+  root to: "videos#index"
   resources :videos
-  post "videos/click_product" => "videos#click_product"
+  post "/click_product" => "videos#click_product"
+
   post '/track_scroll' => "videos#track_scroll"
   post '/register_category_click' => "videos#register_category_click"
   post '/record_session_duration' => "videos#record_session_duration"
