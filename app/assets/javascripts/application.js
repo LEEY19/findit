@@ -40,7 +40,6 @@ function resizeProductList() {
     default:
       var h = '100%'
   }
-  console.log(h)
   $(".product-list-container").css("height", h);
 }
 
