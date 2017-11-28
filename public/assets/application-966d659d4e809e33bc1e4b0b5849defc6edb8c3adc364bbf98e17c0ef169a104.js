@@ -15525,6 +15525,11 @@ function repeat() {
   }
 }
 ;
+$(document).on("turbolinks:load", function() {
+  $( ".buy_now_button" ).on('click', function() {
+    ga('send', 'event', "BuyNow", "Click", "");
+  });
+});
 (function() {
   (function() {
     (function() {
@@ -16136,6 +16141,7 @@ function repeat() {
 
 }).call(this);
 $(document).on("turbolinks:load", function() {
+
   $(".dropbtn, .dropdown_links").click(function(){
     if ($(this).text().match(/All Products/)) {
       $.ajax({
@@ -16143,7 +16149,6 @@ $(document).on("turbolinks:load", function() {
         url:'/register_category_click',
         data: { view_id : $("#view_id").text(), category: "All Products" },
         success:function(){
-          //I assume you want to do something on controller action execution success?
           console.log("success");
         }
       });
@@ -16154,7 +16159,6 @@ $(document).on("turbolinks:load", function() {
         url:'/register_category_click',
         data: { view_id : $("#view_id").text(), category: $(this).text()},
         success:function(){
-          //I assume you want to do something on controller action execution success?
           console.log("success");
         }
       });
@@ -16162,11 +16166,11 @@ $(document).on("turbolinks:load", function() {
     }
     $(".dropdown-content").toggleClass("active-dropdown");
   });
+
+  $('.submenu-opener').on('click', function(event){
+    event.stopPropagation();
+  });
 });
-(function() {
-
-
-}).call(this);
 $(document).on('page:change', function() {
  if (window._gaq != null) {
   return _gaq.push(['_trackPageview']);
@@ -16233,73 +16237,8 @@ $(document).on("turbolinks:load", function() {
   }
 })
 ;
-
-$(document).on("turbolinks:load", function() {
-
-  if ($("#woc").get(0)) {
-    $(".signalling_container").css("display","none");
-  }
-  var width = $(window).width();
-  var left_pos = $(".video_player_container").offset().left;
-  var pos = $(".video_player_container").outerWidth() + left_pos;
-  if (width < 769) {
-    $(".signalling_container").css("margin-left",pos - 120);    
-  } else {
-    $(".signalling_container").css("margin-left",pos - 65);    
-  }
-
-  $(".signalling_container").click(function() {
-    $(".signalling_container").css("display","none");
-  });
-});
-(function() {
-
-
-}).call(this);
-(function() {
-
-
-}).call(this);
-$(document).on("turbolinks:load", function() {
-  function clickedToast() {
-    var strWindowFeatures = "location=yes,scrollbars=yes,status=yes";
-    var URL = "https://www.google.com";
-    var win = window.open(URL, "_blank", strWindowFeatures);
-    $.ajax({
-      type:'POST',
-      url:'/track_toast_click',
-      data: { view_id : $("#view_id").text() },
-      success:function(){
-        //I assume you want to do something on controller action execution success?
-        console.log("success");
-      }
-    });
-  }
-  $( ".seemore-btn" ).on('click', function() {
-    clickedToast();
-  });
-  toastr.options = {
-    "closeButton": false,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": false,
-    "onclick": function() { clickedToast(); },
-    "positionClass": "toast-top-right",
-    "preventDuplicates": true,
-    "showDuration": "7000",
-    "hideDuration": "300",
-    "timeOut": "7000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-  }
-  // $(".product-list").on('scroll', function() {
-  //     if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-  //       toastr.info("Don't see anything you like or want to find out more items in the show on offer? Click here!");
-  //     }
-  // });
+$(document).ready(function() {
+  $('#modalPromo').modal('show');
 });
 $(document).on("turbolinks:load", function() {
   $(".product-list").scroll(function(){
@@ -16786,12 +16725,27 @@ $(document).on("turbolinks:load", function() {
         window.toastr = factory(window.jQuery);
     }
 }));
+var triggered2 = false
+var videoisplaying = false
+
+var time = 0;
+var timer = true;
+
 $(document).on("turbolinks:load", function() {
+  clearInterval(timer);
+  if (videoisplaying && time) {
+    console.log(time);
+    $.post("/active_media_duration", { time: time })
+    time = 0;
+    videoisplaying = false;
+  }
   // To avoid multiple render
   Turbolinks.clearCache()
 
   var vp = plyr.setup();
   vp[0].on("ready", resizeProductList);
+
+  vp[0].on("exitfullscreen", resizeProductList);
 
   var full_width = $(window).width();
   if ($("#woc").get(0)) {
@@ -16808,9 +16762,7 @@ $(document).on("turbolinks:load", function() {
     $('video').css('width', '100vw');
   }
 
-  var time = 0;
-  var timer,
-      scrollable = true;
+  var scrollable = true;
 
   var hidden, visibilityChange;
   if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
@@ -16824,8 +16776,13 @@ $(document).on("turbolinks:load", function() {
     visibilityChange = "webkitvisibilitychange";
   }
 
-  function handleVisibilityChange() {
-    if (document[hidden]) {
+  function handleVisibilityChange2() {
+    clearInterval(timer)
+    if (document[hidden] && !triggered2) {
+      triggered2 = true
+      setTimeout(() => {
+        triggered2 = false
+      }, 1000);
       updateDuration()
     } else {
       // if video is playing
@@ -16836,7 +16793,6 @@ $(document).on("turbolinks:load", function() {
   }
 
   function updateDuration() {
-    clearInterval(timer)
     if (time) {
       console.log(time);
       $.post("/active_media_duration", { time: time })
@@ -16858,18 +16814,27 @@ $(document).on("turbolinks:load", function() {
   if (typeof document.addEventListener === "undefined" || typeof document[hidden] === "undefined") {
     console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
   } else {
-    document.addEventListener(visibilityChange, handleVisibilityChange, false);
+    document.addEventListener(visibilityChange, handleVisibilityChange2, false);
   }
 
   vp[0].on("play", function () {
+    videoisplaying = true
+    resizeProductList()
     startTimer()
   })
   vp[0].on("pause", function () {
-    updateDuration()
+    videoisplaying = false
+    if (!triggered2) {
+      triggered2 = true
+      setTimeout(() => {
+        triggered2 = false
+      }, 1000);
+      updateDuration()
+    }
   })
-  vp[0].on("timeupdate", _.throttle(function () {
 
-    if (vp[0].isPaused()) return
+  vp[0].on("timeupdate", _.throttle(function() {
+     if (vp[0].isPaused()) return
 
     var duration = Math.round(vp[0].getCurrentTime());
     var $el = $(".product-list-row[data-appear-at='" + duration + "']").first()
@@ -16907,10 +16872,63 @@ $(document).on("turbolinks:load", function() {
       }
 
     }
-
   }, 1000))
 
+  function getNextLowestIndex(arr, value) {
+    var i = 0;
+    while (arr[++i] < value);
+    return --i; 
+  }
+
+  vp[0].on("seeked", function() {
+
+    var duration = Math.round(vp[0].getCurrentTime());
+
+    var timeList = $(".product-list-row").map(function(){return parseInt($(this).attr("data-appear-at"));}).get();
+    timeList = timeList.sort(function(a, b){return a-b})
+
+    var high = getNextLowestIndex(timeList, duration)
+
+    var $el = $(".product-list-row[data-appear-at='" + timeList[high] + "']").first()
+    if ($el.length) {
+      if (!scrollable && full_width > 991) {
+        var $newEl = $el.clone()
+        $newEl.addClass("active")
+        $('#on-screen-product').html($newEl)
+
+      } else {
+      // if element exist
+        var $container = $(".product-list");
+
+        // if on computer
+        if ($(window).width() > 991) {
+          var $newEl = $el.clone()
+          $newEl.addClass("active")
+          $('#on-screen-product').html($newEl)
+
+            $el = $el.parent().next()
+            
+            $container.animate({
+              scrollTop: $el.offset().top - $container.offset().top + $container.scrollTop()
+            }, 500)
+
+        } else {
+          $(".product-list-row").removeClass("active")
+          $el.addClass("active");
+
+          $container.animate({
+            scrollLeft: $el.offset().left - $container.offset().left + $container.scrollLeft()
+          }, 500)
+        }
+        
+      }
+
+    }
+
+  });
+
   $(".product-list").on("scroll", function () {
+    // resizeProductList()
     scrollable = false;
 
     makeScrollable();
@@ -16918,17 +16936,34 @@ $(document).on("turbolinks:load", function() {
 
 });
 
+// window.onpopstate = function(event) {
+//   console.log("adsfasdfads")
+// };
 // If user close window without pausing video
-window.addEventListener('beforeunload', function() {
-  updateDuration();
+$(window).bind('beforeunload', function() {
+  if (!triggered2) {
+    triggered2 = true
+    setTimeout(() => {
+      triggered2 = false
+    }, 1000);
+    clearInterval(timer)
+    if (time) {
+      $.post("/active_media_duration", { time: time })
+      time = 0;
+    }
+  }
 });
+
+
+
 var triggered = false
 
 $(document).on("turbolinks:load", function() {
 
 
-  var hidden, visibilityChange;
-  if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support
+  var hidden = null 
+  var visibilityChange = null
+  if (typeof document.hidden !== "undefined") {
     hidden = "hidden";
     visibilityChange = "visibilitychange";
   } else if (typeof document.msHidden !== "undefined") {
@@ -16950,13 +16985,11 @@ $(document).on("turbolinks:load", function() {
         url:'/record_session_duration/',
         data: { view_id : $("#view_id").text() },
         success:function(){
-          //I assume you want to do something on controller action execution success?
           console.log("success");
         }
       });
       console.log("gone")
     } else if (!document[hidden] && !triggered) {
-    // } else {
       triggered = true
       setTimeout(() => {
         triggered = false
@@ -16966,7 +16999,6 @@ $(document).on("turbolinks:load", function() {
         url:'/update_session_time/',
         data: { view_id : $("#view_id").text() },
         success:function(){
-          //I assume you want to do something on controller action execution success?
           console.log("success");
         }
       });
@@ -16978,7 +17010,6 @@ $(document).on("turbolinks:load", function() {
   if (typeof document.addEventListener === "undefined" || typeof document[hidden] === "undefined") {
     console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
   } else {
-    // Handle page visibility change
     document.addEventListener(visibilityChange, handleVisibilityChange, false);
   }
 });
@@ -17008,6 +17039,14 @@ function resizeProductList() {
 
   switch (true) {
     case (w > 1200):
+      // var h = null
+      // var video = document.querySelector("video")
+      // var plyr = document.querySelector(".plyr")
+      // if (plyr) {
+      //   var h = plyr.clientHeight - 42;
+      // } else if (video) {
+      //   var h = video.clientHeight - 42 + 55;
+      // }
       var h = document.querySelector("video, .plyr").clientHeight - 42;
       break;
     case (w <= 1200 && w > 991):
@@ -17016,7 +17055,6 @@ function resizeProductList() {
     default:
       var h = '100%'
   }
-  console.log(h)
   $(".product-list-container").css("height", h);
 }
 

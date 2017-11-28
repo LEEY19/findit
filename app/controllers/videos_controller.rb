@@ -30,20 +30,12 @@ class VideosController < ApplicationController
     end
   end
 
-  def active_media_duration
-    @view = View.find(session[:user])
-    @view.active_media_duration += params[:time].to_i
-    @view.save
-
-    head :ok
-  end
-
   def click_product
     if params[:view_id]
       Click.create(view_id: params[:view_id], product_id: params[:product_id])
     end
     @product = Product.find(params[:product_id])
-    redirect_to @product.product_link
+    render json: "Success"
   end
 
   def track_scroll
@@ -151,14 +143,10 @@ class VideosController < ApplicationController
   end
 
   def record_session_duration
-    # puts session[:time].to_datetime
     @view = View.find(session[:user])
     @curr_sess_duration = @view.session_duration
     @sess_duration = ((DateTime.now - session[:time].to_datetime)*24*60*60).to_i + @curr_sess_duration
     @view.update(session_duration: @sess_duration)
-    # puts @sess_duration
-    # session[:time] = DateTime.now
-    # puts session[:time].to_datetime
     render json: "Success"
   end
 
@@ -167,6 +155,23 @@ class VideosController < ApplicationController
     session[:time] = DateTime.now
     render json: "Success"
   end
+
+  def active_media_duration
+    @view = View.find(session[:user])
+    @view.active_media_duration += params[:time].to_i
+    @view.save
+
+    head :ok
+  end
+
+  # def active_media_duration
+  #   @view = View.find(session[:user])
+  #   @curr_sess_duration = @view.active_media_duration
+  #   @sess_duration = ((DateTime.now - session[:time].to_datetime)*24*60*60).to_i + @curr_sess_duration
+  #   @view.update(active_media_duration: @sess_duration)
+
+  #   head :ok
+  # end
 
   def rv
     @video = Video.find(params[:id])

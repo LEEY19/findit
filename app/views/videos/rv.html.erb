@@ -1,35 +1,49 @@
+<nav>
+  <div class="nav-wrapper">
+    <div class="nav-header">
+
+        <div class="logo" style="background-image: url(<%= asset_path 'finditlogo.png' %>)"></div>
+
+    </div>
+  </div>
+</nav>
+
+
 <div class="programme-page">
   
 <div class="youtube-player">
   <div class="video_player_container">
+    <div class="plyrr">
 
-    <span>
-
-      <div class="plyrr">
-        <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>      
-        
-      </div>  
-
-    </span>
-  </div>
-  <div class="suggested-video-list-container egg-panel">
-    <div style="width: 100%;">
-      <div style="display: inline-block; float: left;">
-        
-        <h3 class="panel-title">Suggested Videos</h3>
-      </div>
-      
-    </div>
-    <div class="suggested-video-list">
-
-      <% @related_videos.each do |video| %>
-        <div>
-          <%= link_to rv_path(id: video.try(:video_id) ? video.video_id : video.id, rv_id: video.try(:video_id) ? video.id : nil, j: true), class: "suggested-video-list-row" do %>
-            <div class="suggested-video-thumbnail"><img class="suggested-video-list-picture" src="<%= video.picture %>"><h6><%= video.duration %></h6></div>
-            <div class="suggested-video-details"><h3><%= video.title %></h3></div>
-          <% end %>
-        </div>
+      <% if @video.video_link =~ /youtube/ %>
+        <div class="plyr" data-type="youtube" data-video-id="<%= @video.video_link %>"></div>
+      <% else %>
+        <video controls>
+          <source src="<%= @video.video_link %>" type="video/mp4">
+        </video>
       <% end %>
+
+      <div class="suggested-video-list-container egg-panel">
+        <div style="width: 100%;">
+          <div style="display: inline-block; float: left;">
+            
+            <h3 class="panel-title">Suggested Videos</h3>
+          </div>
+          
+        </div>
+        <div class="suggested-video-list">
+
+          <% @related_videos.each do |video| %>
+            <div>
+              <%= link_to rv_path(id: video.try(:video_id) ? video.video_id : video.id, rv_id: video.try(:video_id) ? video.id : nil, j: true), class: "suggested-video-list-row" do %>
+                <div class="suggested-video-thumbnail"><img class="suggested-video-list-picture" src="<%= video.picture %>"><h6><%= video.duration %></h6></div>
+                <div class="suggested-video-details"><h3><%= video.title %></h3></div>
+              <% end %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
 
     </div>
   </div>
@@ -56,6 +70,6 @@
 
 </div>
 
-<span id="scroll_counter" style="color: white;">0</span>
-<span id="view_id" style="color: white;"><%= @view.id %></span>
+<span id="scroll_counter" style="color: black;">0</span>
+<span id="view_id" style="color: black;"><%= @view.id %></span>
 
