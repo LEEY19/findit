@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :products, only: [:show] do
     member do
       get :exact_match
+      post :toggle_product
     end
   end
   resources :exact_requests, only: [:show, :create]

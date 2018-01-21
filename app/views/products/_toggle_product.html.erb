@@ -1,0 +1,15 @@
+<div class="product_details">
+  <div class="product_thumbnail">
+    <div style="background-image: url(<%= product.picture %>)" class="product_picture"></div>
+  </div>
+  <h4><%= product.title %></h4>
+  <% if product.price %>
+    <p><span style="color: yellow;">Price: RM</span> <%= '%.2f' % product.price %></p>
+  <% end %>
+  <% if product.sizes %>
+    <p><span style="color: yellow;">Sizes:</span> <%= product.sizes %></p>
+  <% end %>
+  <% if product.colors %>
+    <p><span style="color: yellow;">Colors:</span> <%= product.colors %></p>
+  <% end %>
+</div>

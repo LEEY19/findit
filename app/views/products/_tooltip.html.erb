@@ -3,16 +3,25 @@
     <div style="background-image: url(<%= product.picture %>)" class="product_picture"></div>
   </div>
   <h4><%= product.title %></h4>
-  <p><span style="color: yellow;">Sizes:</span> <%= product.sizes %></p>
-  <p><span style="color: yellow;">Colors:</span> <%= product.colors %></p>
+  <% if product.price %>
+    <p><span style="color: yellow;">Price: RM</span> <%= '%.2f' % product.price %></p>
+  <% end %>
+  <% if product.sizes %>
+    <p><span style="color: yellow;">Sizes:</span> <%= product.sizes %></p>
+  <% end %>
+  <% if product.colors %>
+    <p><span style="color: yellow;">Colors:</span> <%= product.colors %></p>
+  <% end %>
 </div>
 <div class="actions">
   <%= link_to "Buy Now", product.product_link, class: 'btn', id: 'buy-btn', target: '_blank', data: {product_id: product.id} %>
-  <%= link_to "Want an exact match?", exact_match_product_path(product), class: 'btn', remote: true %>
+  <% if product.match_type == 'Exact' %>
+    <%= link_to "View similar match", toggle_product_product_path(product_id: product.id, match_type: 'similar'), method: 'post', class: 'btn toggle_exact_similar', remote: true %>
+    <% end %>
 </div>
 
 <script type="text/javascript">
-    $( "#buy-btn" ).on('click', function() {
+  $( "#buy-btn" ).on('click', function() {
     $.ajax({
       type:'POST',
       url:'/click_product/',
@@ -22,4 +31,15 @@
       }
     });
   });
+
+  // $( ".toggle_exact_similar" ).on('click', function() {
+  //   $.ajax({
+  //     type:'POST',
+  //     url:'/products/' + $(this).attr("data-product-id") + '/toggle_product',
+  //     data: { match_type : $(this).attr("data-match-type")},
+  //     success:function(){
+  //       console.log("success");
+  //     }
+  //   });
+  // });
 </script>

@@ -14,7 +14,7 @@ csv1.each do |row|
   t.save!
 end
 
-csv_text2 = File.read(Rails.root.join('lib', 'seeds', 'products.csv'))
+csv_text2 = File.read(Rails.root.join('lib', 'seeds', 'productss.csv'))
 csv2 = CSV.parse(csv_text2, :headers => true, :encoding => 'ISO-8859-1')
 csv2.each do |row|
   t = Product.new
@@ -26,6 +26,7 @@ csv2.each do |row|
   t.picture = row['Product Picture URL']
   t.screenshot = row['Screenshot URL']
   t.appeared_at = row['Time Stamp']
+  t.match_type = row['Match Type']
   t.save!
 end
 
