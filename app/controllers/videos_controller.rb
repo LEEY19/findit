@@ -13,7 +13,21 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
-    @products = @video.products.order(:id)
+    @productss = @video.products.order(:id)
+    # empty_arr = []
+    # @products.each_with_index do |x, i|
+    #   if x.match_type == 'similar' && @products[i - 1].match_type == 'exact'
+    #     nil
+    #   else
+    #     x
+    #   end
+    # end
+
+    if params[:id] == "1"
+      @products = @productss.reject {|x| (x.match_type == 'Similar' && @productss[x.id - 2].match_type == 'Exact') }
+    else
+      @products = @productss
+    end
 
     if !session[:user]
       @view = View.create(video_id: @video.id, view_type: "wc")

@@ -46,6 +46,8 @@ gem 'kaminari'
 
 gem 'gon', '~> 6.2'
 
+gem 'rack-utf8_sanitizer', '~> 1.3', '>= 1.3.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

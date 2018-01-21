@@ -27,9 +27,14 @@
                 <p class="on-screen">On Screen:</p>
                 <h3><%= product.title %></h3>
                 <% if product.appeared_at != "0:00" %>
-                <h6>Appeared at:
-                  <%= product.appeared_at %>
-                </h6>
+                  <div class="exact-container">
+                    <h6>Appeared at:
+                      <%= product.appeared_at %>
+                    </h6>
+                    <% if product.match_type == 'Exact' %>
+                      <div class="exact-word-wrapper"><h6>Exact</h6></div>
+                    <% end %>
+                  </div>
                 <% end %>
                 <h6 style="display: none;">RM
                   <%= product.price %>

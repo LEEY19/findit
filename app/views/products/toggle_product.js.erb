@@ -1,0 +1,6 @@
+$(".tooltip .product_details").html("<%= j render 'products/toggle_product', product: @product %>");
+
+$(".toggle_exact_similar").text("<%= @btn_text %>");
+$(".toggle_exact_similar").attr("href", "<%= @url %>")
+
+$("#buy-btn").attr("href", "<%= @product_link %>")
